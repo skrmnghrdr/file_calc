@@ -7,5 +7,6 @@
 
 #include "operations.h"
 #include "file_handler.h"
+#include "option_handler.h"
 
 void file_calculator();
