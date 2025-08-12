@@ -45,6 +45,10 @@ THE MAIN Daddy program for this entire software
 
   CURRENT TASK:
   make the get_opt work with file handler 
+    make the file handler crawl through the designated directory
+    and log all the files (.equ)
+    then check for the header, one by one
+    
 
   we would need to implement the header checker, if 55 bb 77 dd, then good header, else corruputed header
 
@@ -66,14 +70,14 @@ int main(int argc, char ** argv)
 
   //mking the scaffolding, making sure I imported everything
   file_calculator();
-  
+
   check_file_header(opts);
 
   process_options(argc, argv, &opts);
   //fix proc options 
   print_struct(&opts);
 
-  
+  directory_crawler(&opts);
 
   return 0;
 }

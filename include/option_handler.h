@@ -3,8 +3,8 @@
  *
  * @brief Option handler for a generic command-line utility.
  */
-#ifndef _OPTION_HANDLER_H
-#define _OPTION_HANDLER_H
+#ifndef OPTION_HANDLER_H
+#define OPTION_HANDLER_H
 
 #include <stdbool.h>
 #include <stdint.h> // for int32_t

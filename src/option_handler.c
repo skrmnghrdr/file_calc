@@ -278,7 +278,7 @@ static void print_help_menu()
             "Options:\n"
             "\t-h, --help\t\t\t Show this help message and exit\n"
             "\t-o, --output\t\t\t File path for the output file\n"
-            "\t-f, --file\t\t\t File path for the input file\n"
+            "\t-i, --input\t\t\t File path for the input file\n"
             "\t-v, --verbose\t\t\t Verbose mode on. (Start yapping)\n"
             "\t-d, --debug\t\t\t Debug mode on\n"
             "\t-t, --testmode\t\t\t Experimental function\n"
