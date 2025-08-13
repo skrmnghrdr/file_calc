@@ -74,7 +74,7 @@ struct linux_dirent64 {
     */
 };
 
-int directory_crawler(struct options_t *opts);
+int directory_crawler(struct options_t *opts, char ***file_list, unsigned int *list_max_len, unsigned int *current_list_len);
 void file_handler();
 int read_file();
 int check_file_header();

@@ -153,7 +153,7 @@ const char *get_filename_ext(const char *filename)
     return dot + 1;
 }
 
-int directory_crawler(struct options_t *opts){
+int directory_crawler(struct options_t *opts, char ***file_list, unsigned int *list_max_len, unsigned int *current_list_len ){
     /**
      * @brief this would be the function that crawls into the input 
      * directory and adds the files to struct input_dir_files
@@ -162,7 +162,7 @@ int directory_crawler(struct options_t *opts){
      * 
      * @args 
      *       struct options_t *opts: pointer to options_t struct, change to just directory string someday for recursion
-     *      char ***file_list: pointer to a string array. This is where we would append all the valid files 
+     *      char **file_list: pointer to a string array. This is where we would append all the valid files,
      *      
      */
     int return_value = -1;
@@ -175,7 +175,7 @@ int directory_crawler(struct options_t *opts){
     char buf[BUFFER_SIZE]; 
 
 
-    char **files; //realloc later if gets full since we have to call this recursiveley
+    //realloc later if gets full since we have to call this recursiveley
     //or we could call this one outside the function, and pass it on a pointer here
 
     //this would check if the target is a dir or not
@@ -223,6 +223,24 @@ int directory_crawler(struct options_t *opts){
              * we also set a counter to the max recursion limit, which would be the maximum avlue of an unsigned 32 bit number 
              * 
              */
+            unsigned int is_arr_list_full = (*list_max_len == *current_list_len);
+
+            if(is_arr_list_full)
+            {
+                //relloc here
+                *list_max_len = (*list_max_len * *list_max_len);
+                printf("list max len %d:\n", *list_max_len);
+                char **temp_buffer = realloc(*file_list, (*list_max_len * sizeof(char *)));
+                
+                if(temp_buffer == NULL)
+                {
+                    printf("Buffer full, reallocation failed\n");
+                    goto END;
+                }
+
+                *file_list = temp_buffer;
+            }
+
             unsigned char valid_entity = (entity->d_type == DIRECTORY) || (entity->d_type == REGULAR_FILE);
             
             if(valid_entity)
@@ -232,16 +250,40 @@ int directory_crawler(struct options_t *opts){
                 //check the filename here, then append to the file list
                 const char *extension = get_filename_ext(entity->d_name);
                 int invalid_extension = strcmp(extension, "equ");
-                if(!invalid_extension)
-                {
-                    //do something here, append to file array
-                    printf("VALID FILE:%s\n", entity->d_name);
-                    //do something here, append to the string array with malloc
-                    //that would increment and be resized as neeeded
-                }
-                
-            }
 
+                if(0 != invalid_extension)
+                {
+                    printf("Invalid extension \n");
+                    goto FOR_LOOP_END;    
+                }
+
+                printf("VALID FILE:%s\n", entity->d_name);
+                /*
+                append it
+                file list is a char ***, (*file_list) returns a char ** which 
+                is the array we want, *file_list will be invalid since it would dereference the find the [nth] element and dereference it.
+
+                tldr. we would need to derefernece the file_list first, t
+                */
+                char **filename_buffer = &(*file_list)[*current_list_len];
+                *filename_buffer = malloc(strlen(entity->d_name)+ 1);
+                if(filename_buffer == NULL)
+                {
+                    printf("Filename buffer failed to mallocate.\n");
+                    goto END;
+                }
+                //sprintf returns the number of len written to buffer
+                //if sprintf is not equal to strleng, then do something
+                //SOMETHING IS WRONG HERE< it's not copying on the filename_buffer
+                int characters_copied = sprintf(*filename_buffer, "%s", entity->d_name);
+                printf("malloc ran\n");
+                //do somethin gwith char copied ehre as well
+                *current_list_len += 1;
+                printf("%d: is the value of the current list..\n", *current_list_len);
+                //FIX THIS SHIT AND PUT IT TO A VARIABLE PLEASE
+                printf("gdb anchor point here\n");
+            }
+FOR_LOOP_END:
         }
 
     }

@@ -66,7 +66,19 @@ int main(int argc, char ** argv)
    * @brief Main for the file_calculator project
    * 
    */
+  //char **file_list -> x  = ['hello', 'test']
+  //char **file_list[] -> [['hello', 'this'], ['is','two', 'dimension']]
+  unsigned int list_max_len = 2;
+  unsigned int current_list_len = 0;
+  char **file_list = calloc(list_max_len, sizeof(char *));//list of strings, 
   struct options_t opts = {0};
+  int return_value = -1;
+
+  if(file_list == NULL)
+  {
+    printf("Error allocating memory\n");
+    goto END;
+  }
 
   //mking the scaffolding, making sure I imported everything
   file_calculator();
@@ -77,7 +89,11 @@ int main(int argc, char ** argv)
   //fix proc options 
   print_struct(&opts);
 
-  directory_crawler(&opts);
-
-  return 0;
+  directory_crawler(&opts, &file_list, &list_max_len, &current_list_len);
+  for(int i = 0; i < current_list_len; i++)
+  {
+    printf("Content of file_list: %s\n", file_list[i]);
+  }
+END:
+  return return_value;
 }
