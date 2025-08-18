@@ -1,1 +1,0 @@
-/usr/bin/cc -g -rdynamic CMakeFiles/file_calculator.dir/src/main.o CMakeFiles/file_calculator.dir/src/file_calculator.o CMakeFiles/file_calculator.dir/src/file_handler.o CMakeFiles/file_calculator.dir/src/operations.o CMakeFiles/file_calculator.dir/src/option_handler.o -o file_calculator  -lm 
