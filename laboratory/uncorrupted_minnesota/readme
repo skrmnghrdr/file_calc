@@ -1,0 +1,5 @@
+the STDs are corrupted bad files,
+and the edible things are supposed to be the legit ones with the header
+the goal is to discriminate them basing on the file header, and make sure the program taht we are making 
+would know if they're corrupted or not.
+

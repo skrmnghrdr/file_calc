@@ -1,0 +1,3180 @@
+valid file! df2e690a7e30f733.equ
+../laboratory/df2e690a7e30f733.equ
+! Corrupted header / invalid header
+! Invalid header type!..
+
+
+
+valid file! 3272adffa971879c.equ
+../laboratory/3272adffa971879c.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 33589FC4
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 38592, Operator 08 Operand_second: 4
+gdb anchor..
+Values: equ id: 5B070300
+Operand_first: 1749684739117154304, Operator 96 Operand_second: 16253696
+gdb anchor..
+Values: equ id: 39002CDB
+Operand_first: 0, Operator 00 Operand_second: -7306245970478497792
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1010495166391255040, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: F1EA
+Operand_first: 4277890942238720, Operator 60 Operand_second: 360287970189639890
+gdb anchor..
+Values: equ id: 47E700
+Operand_first: 0, Operator 00 Operand_second: 9013105887039979520
+gdb anchor..
+Values: equ id: 0
+Operand_first: 15436112461824, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -1374723120594602496, Operator 00 Operand_second: 3386495813550080
+gdb anchor..
+Values: equ id: D7
+Operand_first: 0, Operator 00 Operand_second: 4827873407543803904
+gdb anchor..
+Values: equ id: 0
+Operand_first: 789116551168, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 274718993781220, Operator 00 Operand_second: 280693376548864
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 54324670645678236
+gdb anchor..
+Values: equ id: 125D0000
+Operand_first: 332036, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1294205130, Operator 00 Operand_second: 920576
+gdb anchor..
+Values: equ id: A000000
+Operand_first: 3170534137668829184, Operator e7 Operand_second: 163645008174
+gdb anchor..
+Values: equ id: 21FE3923
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 24554, Operator 03 Operand_second: 13161
+gdb anchor..
+Values: equ id: D0B00
+Operand_first: 5187138518568140800, Operator a0 Operand_second: 11353600
+gdb anchor..
+Values: equ id: 76000292
+Operand_first: 0, Operator 00 Operand_second: 5700431228344205312
+gdb anchor..
+Values: equ id: 0
+Operand_first: -575897802350002176, Operator 86 Operand_second: 0
+gdb anchor..
+Values: equ id: ACEF
+Operand_first: 11355010814181376, Operator eb Operand_second: 72057594037928099
+gdb anchor..
+Values: equ id: B34700
+Operand_first: 0, Operator 00 Operand_second: 3419366667145183232
+gdb anchor..
+Values: equ id: 0
+Operand_first: 34359738368, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7424184637652531200, Operator 00 Operand_second: 3953843813482496
+gdb anchor..
+Values: equ id: 30
+Operand_first: 0, Operator 00 Operand_second: -2521787480398561280
+gdb anchor..
+Values: equ id: 0
+Operand_first: 561214914560, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 89227949683613, Operator 00 Operand_second: 31172939743232
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 30564224958490752
+gdb anchor..
+Values: equ id: F3150000
+Operand_first: 4844546, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 676462745, Operator 00 Operand_second: 31589376
+gdb anchor..
+Values: equ id: C000000
+Operand_first: -6196953087261802496, Operator da Operand_second: 770879578197
+gdb anchor..
+Values: equ id: 7F797474
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8519, Operator 05 Operand_second: 15890
+gdb anchor..
+Values: equ id: 23E30500
+Operand_first: 2023212445782245376, Operator e7 Operand_second: 15517952
+gdb anchor..
+Values: equ id: E7004FF5
+Operand_first: 0, Operator 00 Operand_second: 2842334314824204288
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7134546234684997632, Operator c8 Operand_second: 0
+gdb anchor..
+Values: equ id: 1CBC
+Operand_first: 1380079644966912, Operator c1 Operand_second: 144115188075856103
+gdb anchor..
+Values: equ id: E42100
+Operand_first: 0, Operator 00 Operand_second: -4154230774012313600
+gdb anchor..
+Values: equ id: 0
+Operand_first: 15423227559936, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1352488172734665216, Operator 00 Operand_second: -3755156564785233920
+gdb anchor..
+Values: equ id: DE
+Operand_first: 0, Operator 00 Operand_second: 2017765345742028800
+gdb anchor..
+Values: equ id: 0
+Operand_first: 33947648, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 274396877941344, Operator 00 Operand_second: 184549376
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 1015952145814207
+gdb anchor..
+Values: equ id: 48580000
+Operand_first: 10891268, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 166199329, Operator 00 Operand_second: 789248
+gdb anchor..
+Values: equ id: 3000000
+Operand_first: 8574853690513424384, Operator 1f Operand_second: 178845145863
+gdb anchor..
+Values: equ id: 969906E8
+Operand_first: 127, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 60234, Operator 08 Operand_second: 6
+gdb anchor..
+Values: equ id: 85F60200
+Operand_first: 741743738237222912, Operator 4e Operand_second: 11971328
+gdb anchor..
+Values: equ id: 7100E5B6
+Operand_first: 0, Operator 00 Operand_second: 2529052665745244160
+gdb anchor..
+Values: equ id: 0
+Operand_first: 74027918874902528, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 7
+Operand_first: 70978689025703936, Operator 23 Operand_second: 864691128455135395
+gdb anchor..
+Values: equ id: EA1A00
+Operand_first: 0, Operator 00 Operand_second: -3586813436127870976
+gdb anchor..
+Values: equ id: 0
+Operand_first: 15427522527232, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 5134104484635127040, Operator 00 Operand_second: 3388694836805632
+gdb anchor..
+Values: equ id: 6A
+Operand_first: 0, Operator 00 Operand_second: -2161650597760466944
+gdb anchor..
+Values: equ id: 0
+Operand_first: 458752, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 194411710526946, Operator 00 Operand_second: 4496293888
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 63024008077234275
+gdb anchor..
+Values: equ id: 45090000
+Operand_first: 1030, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 362610807, Operator 00 Operand_second: 985600
+gdb anchor..
+Values: equ id: 1000000
+Operand_first: 4251398048237748224, Operator da Operand_second: 141767532756
+gdb anchor..
+
+valid file! 5b8c3ca7d3cd61a3.equ
+../laboratory/5b8c3ca7d3cd61a3.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 7670E931
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 49760, Operator 01 Operand_second: 21272
+gdb anchor..
+Values: equ id: 80600
+Operand_first: 8473392956525510656, Operator 11 Operand_second: 4199936
+gdb anchor..
+Values: equ id: 26000F11
+Operand_first: 0, Operator 00 Operand_second: -3587961528130732032
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2533274790395904, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 1
+Operand_first: 48538556968206336, Operator c9 Operand_second: 576460752303423593
+gdb anchor..
+Values: equ id: 10E300
+Operand_first: 0, Operator 00 Operand_second: -4258628638565466112
+gdb anchor..
+Values: equ id: 0
+Operand_first: 5536212844544, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -2937190864351840000, Operator 00 Operand_second: 5563916964151164928
+gdb anchor..
+Values: equ id: 79
+Operand_first: 0, Operator 00 Operand_second: -7493839167772950528
+gdb anchor..
+Values: equ id: 0
+Operand_first: 685248872448, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 103843732035273, Operator 00 Operand_second: 64609058816
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 60060826380941739
+gdb anchor..
+Values: equ id: 8E70000
+Operand_first: 2823, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 789971069, Operator 00 Operand_second: 133632
+gdb anchor..
+Values: equ id: 7000000
+Operand_first: -3602879701896396800, Operator 0a Operand_second: 205420260672
+gdb anchor..
+Values: equ id: 39D15A97
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 30990, Operator 06 Operand_second: 3
+gdb anchor..
+Values: equ id: C0A00
+Operand_first: -8630385624785879040, Operator 43 Operand_second: 5949184
+gdb anchor..
+Values: equ id: 6100B806
+Operand_first: 0, Operator 00 Operand_second: 2009731333714083840
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1083678660336025600, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: C
+Operand_first: 15550548409319424, Operator 62 Operand_second: 720575940379279576
+gdb anchor..
+Values: equ id: 563F00
+Operand_first: 0, Operator 00 Operand_second: 3705888552551186432
+gdb anchor..
+Values: equ id: 0
+Operand_first: 31440552176123904, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -9198883245449180416, Operator 00 Operand_second: 3502117157792120832
+gdb anchor..
+Values: equ id: 3F
+Operand_first: 0, Operator 00 Operand_second: 6701520097755922432
+gdb anchor..
+Values: equ id: 0
+Operand_first: 541585571840, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 195485446854458, Operator 00 Operand_second: 13035896832
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 34169523390769827
+gdb anchor..
+Values: equ id: BFA30000
+Operand_first: 520, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1858339059, Operator 00 Operand_second: 4089185536
+gdb anchor..
+Values: equ id: 6000000
+Operand_first: 7277816997830721536, Operator a8 Operand_second: 263368747640
+gdb anchor..
+Values: equ id: CA2506B9
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 51807, Operator 01 Operand_second: 5220
+gdb anchor..
+Values: equ id: 26DA0100
+Operand_first: -1538201374095835136, Operator c9 Operand_second: 13309696
+gdb anchor..
+Values: equ id: 75006B20
+Operand_first: 0, Operator 00 Operand_second: 999799117276250112
+gdb anchor..
+Values: equ id: 0
+Operand_first: 363102719956746240, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 8E1D
+Operand_first: 11002190307000320, Operator dd Operand_second: 144115188075855939
+gdb anchor..
+Values: equ id: 5A2300
+Operand_first: 0, Operator 00 Operand_second: 7144371960217075712
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6648609374208, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -3655796038509474560, Operator 00 Operand_second: 535931654191972352
+gdb anchor..
+Values: equ id: D3
+Operand_first: 0, Operator 00 Operand_second: -4179224876089278464
+gdb anchor..
+Values: equ id: 0
+Operand_first: 201916416, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6897722800975, Operator 00 Operand_second: 13129731801088
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 72000420853057947
+gdb anchor..
+Values: equ id: 96E40000
+Operand_first: 10719748, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3832283391, Operator 00 Operand_second: 613745408
+gdb anchor..
+Values: equ id: A000000
+Operand_first: 2305843009213693952, Operator 86 Operand_second: 761282968485
+gdb anchor..
+Values: equ id: 786C8828
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 46821, Operator 0a Operand_second: 8
+gdb anchor..
+Values: equ id: 50B00
+Operand_first: -253625446690717696, Operator 10 Operand_second: 10104832
+gdb anchor..
+Values: equ id: 9F0002A1
+Operand_first: 0, Operator 00 Operand_second: -2209015617225228288
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1688849860263936, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 702C
+Operand_first: 22760010350067712, Operator 4a Operand_second: 288230376151711967
+gdb anchor..
+Values: equ id: FDE600
+Operand_first: 0, Operator 00 Operand_second: -750414976560136192
+gdb anchor..
+Values: equ id: 0
+Operand_first: 16518444220416, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 5543932016585817088, Operator 00 Operand_second: 4234219278565376
+gdb anchor..
+Values: equ id: 7
+Operand_first: 0, Operator 00 Operand_second: -8214377313538342912
+gdb anchor..
+Values: equ id: 0
+Operand_first: 67698688, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 236008466068922, Operator 00 Operand_second: 30266097664
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 55258158411349579
+gdb anchor..
+Values: equ id: 945C0000
+Operand_first: 7010308, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1394933804, Operator 00 Operand_second: 722600448
+gdb anchor..
+Values: equ id: 8000000
+Operand_first: -5908722711110090752, Operator ff Operand_second: 1043173746738
+gdb anchor..
+
+valid file! abf6cc8510de7b9a.equ
+../laboratory/abf6cc8510de7b9a.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 9457C45D
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 31036, Operator 06 Operand_second: 13
+gdb anchor..
+Values: equ id: B0800
+Operand_first: -316223942194888704, Operator 48 Operand_second: 7376640
+gdb anchor..
+Values: equ id: D80003B5
+Operand_first: 0, Operator 00 Operand_second: 1695886734681702400
+gdb anchor..
+Values: equ id: 0
+Operand_first: 723672165123096576, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: F18B
+Operand_first: 37195266901671936, Operator a4 Operand_second: 144115188075856068
+gdb anchor..
+Values: equ id: 5DC900
+Operand_first: 0, Operator 00 Operand_second: -3374776106224713728
+gdb anchor..
+Values: equ id: 0
+Operand_first: 14336600834048, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6924847642394283008, Operator 00 Operand_second: -5881978190276067328
+gdb anchor..
+Values: equ id: 33
+Operand_first: 0, Operator 00 Operand_second: -8358437561421201408
+gdb anchor..
+Values: equ id: 0
+Operand_first: 630202826752, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 85263705264693, Operator 00 Operand_second: 60230205440
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 3124814387621612
+gdb anchor..
+Values: equ id: 36CF0000
+Operand_first: 3851, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2596667411, Operator 00 Operand_second: 788480
+gdb anchor..
+Values: equ id: 7000000
+Operand_first: -4539628424389459968, Operator 1b Operand_second: 712578722234
+gdb anchor..
+Values: equ id: C0A469F5
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6822, Operator 0c Operand_second: 3
+gdb anchor..
+Values: equ id: D0B00
+Operand_first: 6543027670639181824, Operator 8a Operand_second: 856320
+gdb anchor..
+Values: equ id: EA004A61
+Operand_first: 0, Operator 00 Operand_second: 8419760978345852928
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6053682324116078592, Operator 81 Operand_second: 0
+gdb anchor..
+Values: equ id: 3
+Operand_first: 18084794684407808, Operator 28 Operand_second: 432345564227567621
+gdb anchor..
+Values: equ id: 7CC300
+Operand_first: 0, Operator 00 Operand_second: -5195245728900841472
+gdb anchor..
+Values: equ id: 0
+Operand_first: 5531917877248, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 635008594666539264, Operator 00 Operand_second: 851021999898624
+gdb anchor..
+Values: equ id: A1
+Operand_first: 0, Operator 00 Operand_second: -8286467765415968768
+gdb anchor..
+Values: equ id: 0
+Operand_first: 134807552, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 134973646990490, Operator 00 Operand_second: 21609054208
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 22445433831926546
+gdb anchor..
+Values: equ id: C4560000
+Operand_first: 523, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 52494470, Operator 00 Operand_second: 1051392
+gdb anchor..
+Values: equ id: 5000000
+Operand_first: 8502796096475496448, Operator fd Operand_second: 968162843713
+gdb anchor..
+Values: equ id: 272E335
+Operand_first: 36, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 35213, Operator 04 Operand_second: 54056
+gdb anchor..
+Values: equ id: 3F750300
+Operand_first: 4774332375477780480, Operator ad Operand_second: 3657472
+gdb anchor..
+Values: equ id: 3600B00A
+Operand_first: 0, Operator 00 Operand_second: -4487837028674699264
+gdb anchor..
+Values: equ id: 0
+Operand_first: -359162070282797056, Operator e4 Operand_second: 0
+gdb anchor..
+Values: equ id: 16D2
+Operand_first: 71791996632563712, Operator 7e Operand_second: 360287970189639713
+gdb anchor..
+Values: equ id: EA5D00
+Operand_first: 0, Operator 00 Operand_second: -1999735218239438848
+gdb anchor..
+Values: equ id: 0
+Operand_first: 26599402479026176, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7711851830105280000, Operator 00 Operand_second: 4512395720392704
+gdb anchor..
+Values: equ id: 3B
+Operand_first: 0, Operator 00 Operand_second: 8791227407863119872
+gdb anchor..
+Values: equ id: 0
+Operand_first: 252313600, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 60563333865413, Operator 00 Operand_second: 68887248896
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 63409936313011204
+gdb anchor..
+Values: equ id: E7960000
+Operand_first: 1030, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3721593072, Operator 00 Operand_second: 985344
+gdb anchor..
+Values: equ id: C000000
+Operand_first: 3819052484010180608, Operator 07 Operand_second: 945748458589
+gdb anchor..
+Values: equ id: DDFB9521
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 64754, Operator 0c Operand_second: 8
+gdb anchor..
+Values: equ id: D0B00
+Operand_first: -2743691629138280448, Operator 19 Operand_second: 15846400
+gdb anchor..
+Values: equ id: 4D004145
+Operand_first: 0, Operator 00 Operand_second: 4411275835009400832
+gdb anchor..
+Values: equ id: 0
+Operand_first: -4466444930444689408, Operator 53 Operand_second: 0
+gdb anchor..
+Values: equ id: 2
+Operand_first: 54829826623668224, Operator c0 Operand_second: 432345564227567797
+gdb anchor..
+Values: equ id: E04500
+Operand_first: 0, Operator 00 Operand_second: 1925517259946590208
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7489886093312000, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2887370897535538944, Operator 00 Operand_second: 13194139533312
+gdb anchor..
+Values: equ id: C8
+Operand_first: 0, Operator 00 Operand_second: 1225236347684782080
+gdb anchor..
+Values: equ id: 0
+Operand_first: 252248064, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 14027374032005, Operator 00 Operand_second: 51690602496
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 29122764762285011
+gdb anchor..
+Values: equ id: 698D0000
+Operand_first: 2825, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1082917071, Operator 00 Operand_second: 789248
+gdb anchor..
+Values: equ id: B000000
+Operand_first: -4467570830351532032, Operator 17 Operand_second: 443103093675
+gdb anchor..
+
+valid file! b374c584dd45319f.equ
+../laboratory/b374c584dd45319f.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: C98D33D3
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 20887, Operator 05 Operand_second: 19830
+gdb anchor..
+Values: equ id: 80B00
+Operand_first: 7505796335803564032, Operator 11 Operand_second: 6741504
+gdb anchor..
+Values: equ id: 7B007D21
+Operand_first: 0, Operator 00 Operand_second: -3857896030796251136
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1082834235405893632, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 994F
+Operand_first: 8634282176151552, Operator 34 Operand_second: 72057594037927940
+gdb anchor..
+Values: equ id: 709B00
+Operand_first: 0, Operator 00 Operand_second: -2946517680120659968
+gdb anchor..
+Values: equ id: 0
+Operand_first: 15444702396416, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 9051391923243628032, Operator 00 Operand_second: 2821346836873216
+gdb anchor..
+Values: equ id: 5F
+Operand_first: 0, Operator 00 Operand_second: -3458489608485863424
+gdb anchor..
+Values: equ id: 0
+Operand_first: 101187584, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 59858966757555, Operator 00 Operand_second: 34097778917376
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 5090743030496124
+gdb anchor..
+Values: equ id: 75A50000
+Operand_first: 7929859, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2938830996, Operator 00 Operand_second: 531038976
+gdb anchor..
+Values: equ id: 8000000
+Operand_first: -2594073385365405696, Operator c2 Operand_second: 859060596858
+gdb anchor..
+Values: equ id: 60FE55EE
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7278, Operator 06 Operand_second: 9
+gdb anchor..
+Values: equ id: 30B00
+Operand_first: 6782470516843216896, Operator a2 Operand_second: 16018176
+gdb anchor..
+Values: equ id: 8C0066C5
+Operand_first: 0, Operator 00 Operand_second: -8103946054476496896
+gdb anchor..
+Values: equ id: 0
+Operand_first: -7708755187174735872, Operator 42 Operand_second: 0
+gdb anchor..
+Values: equ id: A600
+Operand_first: 25217114935656448, Operator 8e Operand_second: 72057594037928114
+gdb anchor..
+Values: equ id: 68F400
+Operand_first: 0, Operator 00 Operand_second: 7511833286000246784
+gdb anchor..
+Values: equ id: 0
+Operand_first: 53260360429338624, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -7929431487071295744, Operator 00 Operand_second: 288072046477312
+gdb anchor..
+Values: equ id: 26
+Operand_first: 0, Operator 00 Operand_second: -1657297431395565568
+gdb anchor..
+Values: equ id: 0
+Operand_first: 34340864, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 217239456672731, Operator 00 Operand_second: 134217728
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 65870646391809691
+gdb anchor..
+Values: equ id: 88930000
+Operand_first: 2828, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 828702803, Operator 00 Operand_second: 788736
+gdb anchor..
+Values: equ id: 7000000
+Operand_first: 2377900603251621888, Operator 14 Operand_second: 57394893668
+gdb anchor..
+Values: equ id: 72027FF3
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 40259, Operator 03 Operand_second: 30095
+gdb anchor..
+Values: equ id: 100900
+Operand_first: 6072186005299920896, Operator 68 Operand_second: 16642560
+gdb anchor..
+Values: equ id: 3200EC9F
+Operand_first: 0, Operator 00 Operand_second: 5785436671310823424
+gdb anchor..
+Values: equ id: 0
+Operand_first: 74027918874902528, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: D
+Operand_first: 63549454866710528, Operator b3 Operand_second: 864691128455135376
+gdb anchor..
+Values: equ id: 555E00
+Operand_first: 0, Operator 00 Operand_second: 4591021522017058816
+gdb anchor..
+Values: equ id: 0
+Operand_first: 17639430684672, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6845753436171549696, Operator 00 Operand_second: 7696581394432
+gdb anchor..
+Values: equ id: 3E
+Operand_first: 0, Operator 00 Operand_second: -1080853079387865088
+gdb anchor..
+Values: equ id: 0
+Operand_first: 636947267584, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 33243054156759, Operator 00 Operand_second: 30182211584
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 27608738346777114
+gdb anchor..
+Values: equ id: 3C80000
+Operand_first: 1290, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3892969648, Operator 00 Operand_second: 329472
+gdb anchor..
+Values: equ id: 8000000
+Operand_first: 8070450532247928832, Operator a6 Operand_second: 684527241339
+gdb anchor..
+Values: equ id: ECB530B3
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 35437, Operator 08 Operand_second: 5
+gdb anchor..
+Values: equ id: A0600
+Operand_first: -3119670729767911424, Operator 58 Operand_second: 15271680
+gdb anchor..
+Values: equ id: C9003B52
+Operand_first: 0, Operator 00 Operand_second: -4538502524482617344
+gdb anchor..
+Values: equ id: 0
+Operand_first: 577868127186976768, Operator 4b Operand_second: 0
+gdb anchor..
+Values: equ id: FBD
+Operand_first: 3737237908881408, Operator 3f Operand_second: 144115188075855942
+gdb anchor..
+Values: equ id: 49E600
+Operand_first: 0, Operator 00 Operand_second: -3113784146376261632
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2224793059328, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 421650173703979776, Operator 00 Operand_second: 1695446930030592
+gdb anchor..
+Values: equ id: F6
+Operand_first: 0, Operator 00 Operand_second: -6340891276276531200
+gdb anchor..
+Values: equ id: 0
+Operand_first: 630739632128, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 39324731899690, Operator 00 Operand_second: 30182211584
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 5051158593598978
+gdb anchor..
+Values: equ id: 43A20000
+Operand_first: 911362, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3649896496, Operator 00 Operand_second: 1783169792
+gdb anchor..
+Values: equ id: 8000000
+Operand_first: 6773413839565225984, Operator 61 Operand_second: 674796421305
+gdb anchor..
+
+valid file! reallybigfd2c21ea3139ab1d.equ
+../laboratory/reallybigfd2c21ea3139ab1d.equ
+File size: 3147803 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 3C9E2810
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 13359, Operator 01 Operand_second: 23621
+gdb anchor..
+Values: equ id: 97180500
+Operand_first: -2258838887126269952, Operator fd Operand_second: 4268288
+gdb anchor..
+Values: equ id: 6F000CFC
+Operand_first: 0, Operator 00 Operand_second: -2569585062391578624
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1688849860263936, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 5
+Operand_first: 4527644683010048, Operator c3 Operand_second: 792633534417207370
+gdb anchor..
+Values: equ id: FB1F00
+Operand_first: 0, Operator 00 Operand_second: -2078447310051737600
+gdb anchor..
+Values: equ id: 0
+Operand_first: 25769803776, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -6999718956841633792, Operator 00 Operand_second: -6321362827944656896
+gdb anchor..
+Values: equ id: 56
+Operand_first: 0, Operator 00 Operand_second: 5764613161275424768
+gdb anchor..
+Values: equ id: 0
+Operand_first: 218759168, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 122896206776047, Operator 00 Operand_second: 42408540635136
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 50828224366666743
+gdb anchor..
+Values: equ id: 8C670000
+Operand_first: 1031, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2410676450, Operator 00 Operand_second: 1051136
+gdb anchor..
+Values: equ id: 3000000
+Operand_first: -4323455642275676160, Operator a4 Operand_second: 729171409016
+gdb anchor..
+Values: equ id: 1A37F20E
+Operand_first: 221, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 49497, Operator 09 Operand_second: 0
+gdb anchor..
+Values: equ id: AB880400
+Operand_first: -1199811277484982272, Operator e7 Operand_second: 2011904
+gdb anchor..
+Values: equ id: 4A005201
+Operand_first: 0, Operator 00 Operand_second: -8788211722860101632
+gdb anchor..
+Values: equ id: 0
+Operand_first: 146085512912830464, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: B
+Operand_first: 12064178097356800, Operator 13 Operand_second: 864691128455135296
+gdb anchor..
+Values: equ id: 1FE300
+Operand_first: 0, Operator 00 Operand_second: 9000208624236101632
+gdb anchor..
+Values: equ id: 0
+Operand_first: 12740049820975104, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -700028242008293120, Operator 00 Operand_second: 855420046409728
+gdb anchor..
+Values: equ id: 29
+Operand_first: 0, Operator 00 Operand_second: -5980557624843632640
+gdb anchor..
+Values: equ id: 0
+Operand_first: 34013184, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 14117561140257, Operator 00 Operand_second: 129424561274880
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 71866280520200442
+gdb anchor..
+Values: equ id: 78B0000
+Operand_first: 7493892, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3628335126, Operator 00 Operand_second: 373097472
+gdb anchor..
+Values: equ id: A000000
+Operand_first: 2305843009213693952, Operator 61 Operand_second: 979822991415
+gdb anchor..
+Values: equ id: 73282676
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 12838, Operator 09 Operand_second: 12
+gdb anchor..
+Values: equ id: BB5B0300
+Operand_first: -8834301051273216000, Operator 7b Operand_second: 9075712
+gdb anchor..
+Values: equ id: 36002B39
+Operand_first: 0, Operator 00 Operand_second: -7563514099192037376
+gdb anchor..
+Values: equ id: 0
+Operand_first: 867787353198952448, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: DEBC
+Operand_first: 18764791036248064, Operator 07 Operand_second: 216172782113783841
+gdb anchor..
+Values: equ id: 904400
+Operand_first: 0, Operator 00 Operand_second: -4384977329349197824
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8598193814110208, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -5263862886743257600, Operator 00 Operand_second: 3107219860094976
+gdb anchor..
+Values: equ id: 9E
+Operand_first: 0, Operator 00 Operand_second: -5043988488866168832
+gdb anchor..
+Values: equ id: 0
+Operand_first: 551785988096, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 139500541074930, Operator 00 Operand_second: 64625836032
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 29089780765454697
+gdb anchor..
+Values: equ id: 51020000
+Operand_first: 1286, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 366280934, Operator 00 Operand_second: 1334117120
+gdb anchor..
+Values: equ id: 4000000
+Operand_first: -2233785415175766016, Operator d0 Operand_second: 119571271213
+gdb anchor..
+Values: equ id: 5C749CAF
+Operand_first: 140, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 54467, Operator 09 Operand_second: 11
+gdb anchor..
+Values: equ id: A4610100
+Operand_first: 7556698226611453952, Operator 7e Operand_second: 14458880
+gdb anchor..
+Values: equ id: A000946F
+Operand_first: 0, Operator 00 Operand_second: 8098035079965573120
+gdb anchor..
+Values: equ id: 0
+Operand_first: -2161446346161127424, Operator a5 Operand_second: 0
+gdb anchor..
+Values: equ id: D
+Operand_first: 21019726545158144, Operator 26 Operand_second: 792633534417207451
+gdb anchor..
+Values: equ id: A3A200
+Operand_first: 0, Operator 00 Operand_second: -6583123101607788544
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1855988512587776, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1487595711052752640, Operator 00 Operand_second: 3105020836839424
+gdb anchor..
+Values: equ id: 61
+Operand_first: 0, Operator 00 Operand_second: 4251598233442385920
+gdb anchor..
+Values: equ id: 0
+Operand_first: 84344832, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 17794058081352, Operator 00 Operand_second: 13035896832
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 2863128561146444
+gdb anchor..
+Values: equ id: 3C610000
+Operand_first: 7885314, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1158480103, Operator 00 Operand_second: 68352
+gdb anchor..
+Values: equ id: 4000000
+Operand_first: 5980780305148018688, Operator 19 Operand_second: 90781556868
+gdb anchor..
+
+valid file! 9d320ed54c6c4835.equ
+../laboratory/9d320ed54c6c4835.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 6F93B09C
+Operand_first: 117440639, Operator 00 Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 21469, Operator 09 Operand_second: 10
+gdb anchor..
+Values: equ id: F0700
+Operand_first: 5886842429717348352, Operator 4a Operand_second: 7341568
+gdb anchor..
+Values: equ id: E50068DB
+Operand_first: 0, Operator 00 Operand_second: 5638506733467860992
+gdb anchor..
+Values: equ id: 0
+Operand_first: 146085512912830464, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 19131200668958720, Operator 89 Operand_second: 432345564227567740
+gdb anchor..
+Values: equ id: 7EF700
+Operand_first: 0, Operator 00 Operand_second: 1976684785891803136
+gdb anchor..
+Values: equ id: 0
+Operand_first: 4423816314880, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6601996432550744064, Operator 00 Operand_second: 2262794929963008
+gdb anchor..
+Values: equ id: E7
+Operand_first: 0, Operator 00 Operand_second: -4395293456554328064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 964975394816, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 134209140222748, Operator 00 Operand_second: 47362080768
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 46345515638427316
+gdb anchor..
+Values: equ id: A7F40000
+Operand_first: 1817601, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3991142497, Operator 00 Operand_second: 854272
+gdb anchor..
+Values: equ id: 8000000
+Operand_first: 8070450532247928832, Operator c4 Operand_second: 8841604777
+gdb anchor..
+Values: equ id: 41E56D70
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 51012, Operator 02 Operand_second: 52375
+gdb anchor..
+Values: equ id: 146A0200
+Operand_first: 8002423747837427712, Operator d3 Operand_second: 8928256
+gdb anchor..
+Values: equ id: 10004536
+Operand_first: 0, Operator 00 Operand_second: -5591781887333892096
+gdb anchor..
+Values: equ id: 0
+Operand_first: -7421087760976445440, Operator 4b Operand_second: 0
+gdb anchor..
+Values: equ id: B
+Operand_first: 42963411973177344, Operator dd Operand_second: 432345564227567679
+gdb anchor..
+Values: equ id: 767B00
+Operand_first: 0, Operator 00 Operand_second: -2209992567666245632
+gdb anchor..
+Values: equ id: 0
+Operand_first: 45928821190295552, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -5752222441463175680, Operator 00 Operand_second: -4776347780291493888
+gdb anchor..
+Values: equ id: 59
+Operand_first: 0, Operator 00 Operand_second: -4107152404801454080
+gdb anchor..
+Values: equ id: 0
+Operand_first: 34209792, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 105995509634600, Operator 00 Operand_second: 17314086912
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 61246096801376644
+gdb anchor..
+Values: equ id: 9870000
+Operand_first: 8, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 12255235, Operator 00 Operand_second: 395008
+gdb anchor..
+Values: equ id: 4000000
+Operand_first: 4107282860161892352, Operator 10 Operand_second: 909039933465
+gdb anchor..
+Values: equ id: 108D7464
+Operand_first: 126, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 24041, Operator 0a Operand_second: 5
+gdb anchor..
+Values: equ id: 2A750500
+Operand_first: -6756983837311369216, Operator 1a Operand_second: 7914752
+gdb anchor..
+Values: equ id: FD000AD1
+Operand_first: 0, Operator 00 Operand_second: -7497930429618454528
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6990431046609141760, Operator cb Operand_second: 0
+gdb anchor..
+Values: equ id: BF5
+Operand_first: 7401690449838080, Operator 75 Operand_second: 216172782113783998
+gdb anchor..
+Values: equ id: 778100
+Operand_first: 0, Operator 00 Operand_second: 5196324590325858304
+gdb anchor..
+Values: equ id: 0
+Operand_first: 9942849290240, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -8098035019981051648, Operator 00 Operand_second: -4219871751334526976
+gdb anchor..
+Values: equ id: 6A
+Operand_first: 0, Operator 00 Operand_second: 8502851895125278720
+gdb anchor..
+Values: equ id: 0
+Operand_first: 201785344, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 139350218356159, Operator 00 Operand_second: 108959058886656
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 46345516888727965
+gdb anchor..
+Values: equ id: 373C0000
+Operand_first: 5155331, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2951807215, Operator 00 Operand_second: 986112
+gdb anchor..
+Values: equ id: C000000
+Operand_first: -3458764513820540928, Operator f5 Operand_second: 35567745396
+gdb anchor..
+Values: equ id: 6087F20B
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 57976, Operator 08 Operand_second: 9
+gdb anchor..
+Values: equ id: 60C00
+Operand_first: 4630297451750752256, Operator 76 Operand_second: 8984576
+gdb anchor..
+Values: equ id: B90016A5
+Operand_first: 0, Operator 00 Operand_second: 8990029281161641984
+gdb anchor..
+Values: equ id: 0
+Operand_first: -1801158375971487744, Operator 66 Operand_second: 0
+gdb anchor..
+Values: equ id: 91CC
+Operand_first: 20102827145691136, Operator 54 Operand_second: 288230376151711910
+gdb anchor..
+Values: equ id: E7F600
+Operand_first: 0, Operator 00 Operand_second: -4660503329678295040
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3350074490880, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -2886244018360285952, Operator 00 Operand_second: 1139094046375936
+gdb anchor..
+Values: equ id: 54
+Operand_first: 0, Operator 00 Operand_second: 4323519031007379456
+gdb anchor..
+Values: equ id: 0
+Operand_first: 675249520640, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 136425354455256, Operator 00 Operand_second: 260867757178880
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 30770933614415025
+gdb anchor..
+Values: equ id: A50000
+Operand_first: 1544, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2067136536, Operator 00 Operand_second: 3274114304
+gdb anchor..
+Values: equ id: 6000000
+Operand_first: -2233785415175766016, Operator 65 Operand_second: 739405475422
+gdb anchor..
+
+valid file! 5ee85379bfa6f1ec.equ
+../laboratory/5ee85379bfa6f1ec.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 733EC813
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 31138, Operator 0a Operand_second: 13
+gdb anchor..
+Values: equ id: 700
+Operand_first: -6687445224412676096, Operator 72 Operand_second: 1017344
+gdb anchor..
+Values: equ id: BB00255F
+Operand_first: 0, Operator 00 Operand_second: -6764688115287195648
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1970324836974592, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 10
+Operand_first: 55366109645242368, Operator c9 Operand_second: 864691128455135246
+gdb anchor..
+Values: equ id: E1C500
+Operand_first: 0, Operator 00 Operand_second: 4120391259263074304
+gdb anchor..
+Values: equ id: 0
+Operand_first: 38370765376061440, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1655073432089630976, Operator 00 Operand_second: 4511296208764928
+gdb anchor..
+Values: equ id: 4
+Operand_first: 0, Operator 00 Operand_second: -7926291319615979520
+gdb anchor..
+Values: equ id: 0
+Operand_first: 400623271936, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 281389082468688, Operator 00 Operand_second: 43100667904
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 6216642941295265
+gdb anchor..
+Values: equ id: C5B50000
+Operand_first: 2572, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1722613871, Operator 00 Operand_second: 919296
+gdb anchor..
+Values: equ id: 2000000
+Operand_first: -8502796096475496448, Operator e4 Operand_second: 78181843616
+gdb anchor..
+Values: equ id: 3B524DF0
+Operand_first: 205, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 63038, Operator 01 Operand_second: 7785
+gdb anchor..
+Values: equ id: 50600
+Operand_first: -912252702937841664, Operator 0f Operand_second: 11074560
+gdb anchor..
+Values: equ id: 7100878B
+Operand_first: 0, Operator 00 Operand_second: 7975030515143016448
+gdb anchor..
+Values: equ id: 0
+Operand_first: 75153818781745152, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 949A
+Operand_first: 42802905421447168, Operator 27 Operand_second: 288230376151711801
+gdb anchor..
+Values: equ id: 397A00
+Operand_first: 0, Operator 00 Operand_second: -2720251570242453504
+gdb anchor..
+Values: equ id: 0
+Operand_first: 31351483144339456, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6370623505630396672, Operator 00 Operand_second: 3388694836805632
+gdb anchor..
+Values: equ id: 7
+Operand_first: 0, Operator 00 Operand_second: -6845373153139818496
+gdb anchor..
+Values: equ id: 0
+Operand_first: 800340377600, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 161340450621852, Operator 00 Operand_second: 64609058816
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 3136908115270580
+gdb anchor..
+Values: equ id: BAB70000
+Operand_first: 3634946, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1915289836, Operator 00 Operand_second: 3352495104
+gdb anchor..
+Values: equ id: A000000
+Operand_first: 5404319552844595200, Operator 04 Operand_second: 827754309086
+gdb anchor..
+Values: equ id: F012DC24
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 26324, Operator 0b Operand_second: 3
+gdb anchor..
+Values: equ id: 68C70100
+Operand_first: 5326556592970137600, Operator 49 Operand_second: 13037312
+gdb anchor..
+Values: equ id: 9D00CDE6
+Operand_first: 0, Operator 00 Operand_second: 2892155385701990400
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1012184016251518976, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: E
+Operand_first: 50385751099047936, Operator cd Operand_second: 432345564227567705
+gdb anchor..
+Values: equ id: AB3800
+Operand_first: 0, Operator 00 Operand_second: 5884657197601783808
+gdb anchor..
+Values: equ id: 0
+Operand_first: 65640848473194496, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -1453536059875923968, Operator 00 Operand_second: 3951644790226944
+gdb anchor..
+Values: equ id: 3C
+Operand_first: 0, Operator 00 Operand_second: -8718725926011207680
+gdb anchor..
+Values: equ id: 0
+Operand_first: 311485857792, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 219073397975445, Operator 00 Operand_second: 4412407808
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 15163366310742073
+gdb anchor..
+Values: equ id: 3DF40000
+Operand_first: 12632581, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 4016504910, Operator 00 Operand_second: 853760
+gdb anchor..
+Values: equ id: 7000000
+Operand_first: -8070450532247928832, Operator 38 Operand_second: 330897034901
+gdb anchor..
+Values: equ id: B372CF3C
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 55189, Operator 02 Operand_second: 11387
+gdb anchor..
+Values: equ id: A5A00100
+Operand_first: -3349744637391667200, Operator ac Operand_second: 14088704
+gdb anchor..
+Values: equ id: E500BD20
+Operand_first: 0, Operator 00 Operand_second: -2080663027845169152
+gdb anchor..
+Values: equ id: 0
+Operand_first: 434597364041252864, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: B723
+Operand_first: 61377901567672320, Operator 5c Operand_second: 72057594037927977
+gdb anchor..
+Values: equ id: 8D400
+Operand_first: 0, Operator 00 Operand_second: -6337810529758740480
+gdb anchor..
+Values: equ id: 0
+Operand_first: 55813422134067200, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 5159155058689328896, Operator 00 Operand_second: 1981319953252352
+gdb anchor..
+Values: equ id: 31
+Operand_first: 0, Operator 00 Operand_second: 9007216624055681024
+gdb anchor..
+Values: equ id: 0
+Operand_first: 983933583360, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 91886534137086, Operator 00 Operand_second: 68904026112
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 11027002909149245
+gdb anchor..
+Values: equ id: 16600000
+Operand_first: 10042884, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1557397758, Operator 00 Operand_second: 919552
+gdb anchor..
+Values: equ id: 9000000
+Operand_first: 8791026472627208192, Operator 5f Operand_second: 251675076357
+gdb anchor..
+
+valid file! a1462eee6e2855bb.equ
+../laboratory/a1462eee6e2855bb.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: BF7F5DA3
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 37083, Operator 0a Operand_second: 11
+gdb anchor..
+Values: equ id: 80A00
+Operand_first: 8326667527845314560, Operator b8 Operand_second: 9240576
+gdb anchor..
+Values: equ id: DD001659
+Operand_first: 0, Operator 00 Operand_second: -2468535545752453120
+gdb anchor..
+Values: equ id: 0
+Operand_first: -3386143969829191680, Operator 94 Operand_second: 0
+gdb anchor..
+Values: equ id: E
+Operand_first: 49809177777799168, Operator 24 Operand_second: 792633534417207478
+gdb anchor..
+Values: equ id: B65B00
+Operand_first: 0, Operator 00 Operand_second: 3789072959449071616
+gdb anchor..
+Values: equ id: 0
+Operand_first: 31310805509079040, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -6365837672619943424, Operator 00 Operand_second: 1702043999797248
+gdb anchor..
+Values: equ id: A2
+Operand_first: 0, Operator 00 Operand_second: 6701446243818078208
+gdb anchor..
+Values: equ id: 0
+Operand_first: 874328162304, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 152793466023075, Operator 00 Operand_second: 25971130368
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 32639004872315733
+gdb anchor..
+Values: equ id: C2850000
+Operand_first: 1291, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1235746963, Operator 00 Operand_second: 43123200
+gdb anchor..
+Values: equ id: A000000
+Operand_first: 3098476543630901248, Operator 8a Operand_second: 383879499139
+gdb anchor..
+Values: equ id: 4AEB7119
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 54302, Operator 05 Operand_second: 33329
+gdb anchor..
+Values: equ id: 40900
+Operand_first: 73086736921526272, Operator 3d Operand_second: 5499136
+gdb anchor..
+Values: equ id: D40055A2
+Operand_first: 0, Operator 00 Operand_second: 4837710424726044672
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7567454748865986560, Operator d4 Operand_second: 0
+gdb anchor..
+Values: equ id: 6
+Operand_first: 55857396643266560, Operator a1 Operand_second: 648518346341351632
+gdb anchor..
+Values: equ id: B38400
+Operand_first: 0, Operator 00 Operand_second: 4432386136140152832
+gdb anchor..
+Values: equ id: 0
+Operand_first: 9934259355648, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -8618763049434208256, Operator 00 Operand_second: 3670169813516288
+gdb anchor..
+Values: equ id: 5F
+Operand_first: 0, Operator 00 Operand_second: -8718912043745673216
+gdb anchor..
+Values: equ id: 0
+Operand_first: 128631177216, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 140402483224711, Operator 00 Operand_second: 210835699924992
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 25445998446900461
+gdb anchor..
+Values: equ id: 7A930000
+Operand_first: 518, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3653697561, Operator 00 Operand_second: 854784
+gdb anchor..
+Values: equ id: 5000000
+Operand_first: -7926335344172072960, Operator c7 Operand_second: 300815532690
+gdb anchor..
+Values: equ id: E931ADCD
+Operand_first: 38, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 22889, Operator 06 Operand_second: 3
+gdb anchor..
+Values: equ id: 70B00
+Operand_first: 1466339493127651328, Operator d8 Operand_second: 3820800
+gdb anchor..
+Values: equ id: 97000C8A
+Operand_first: 0, Operator 00 Operand_second: 5373920255359844352
+gdb anchor..
+Values: equ id: 0
+Operand_first: -2664723604519780352, Operator b3 Operand_second: 0
+gdb anchor..
+Values: equ id: AD70
+Operand_first: 21868297494462464, Operator 77 Operand_second: 216172782113783816
+gdb anchor..
+Values: equ id: 382E00
+Operand_first: 0, Operator 00 Operand_second: -5724524143743860736
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6469547892670464, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8541640409924076288, Operator 00 Operand_second: 1854922295546478592
+gdb anchor..
+Values: equ id: 89
+Operand_first: 0, Operator 00 Operand_second: 7566309757654073344
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1002153508864, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 266068944665218, Operator 00 Operand_second: 68870471680
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 14204594270650952
+gdb anchor..
+Values: equ id: 1F590000
+Operand_first: 3080, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 774570158, Operator 00 Operand_second: 67840
+gdb anchor..
+Values: equ id: C000000
+Operand_first: -2305843009213693952, Operator 69 Operand_second: 14545893269
+gdb anchor..
+Values: equ id: 2BC6F6E2
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 49534, Operator 01 Operand_second: 33653
+gdb anchor..
+Values: equ id: F8870400
+Operand_first: 1174046421511307264, Operator 1b Operand_second: 8281856
+gdb anchor..
+Values: equ id: F8009CF8
+Operand_first: 0, Operator 00 Operand_second: -5295107261880860672
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6198078987168645120, Operator de Operand_second: 0
+gdb anchor..
+Values: equ id: 10
+Operand_first: 33867949446004736, Operator fb Operand_second: 720575940379279391
+gdb anchor..
+Values: equ id: 31EB00
+Operand_first: 0, Operator 00 Operand_second: -3904182034351783936
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2233382993920, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 4727654712835256064, Operator 00 Operand_second: 756887311886581760
+gdb anchor..
+Values: equ id: E3
+Operand_first: 0, Operator 00 Operand_second: -720421985619410944
+gdb anchor..
+Values: equ id: 0
+Operand_first: 201719808, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 143250046913872, Operator 00 Operand_second: 13069451264
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 62153194080528042
+gdb anchor..
+Values: equ id: 9F5D0000
+Operand_first: 1035, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 21823633, Operator 00 Operand_second: 1792
+gdb anchor..
+Values: equ id: C000000
+Operand_first: 3674937295934324736, Operator 32 Operand_second: 167604442191
+gdb anchor..
+
+
+
+valid file! 2bc470fa533393e3.equ
+../laboratory/2bc470fa533393e3.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: C7AE51A7
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 22533, Operator 0b Operand_second: 0
+gdb anchor..
+Values: equ id: 10800
+Operand_first: -7760845650052251648, Operator 13 Operand_second: 1379584
+gdb anchor..
+Values: equ id: DC000516
+Operand_first: 0, Operator 00 Operand_second: -4077727987607273472
+gdb anchor..
+Values: equ id: 0
+Operand_first: 651614571085168640, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: E6CD
+Operand_first: 60943730756026368, Operator f1 Operand_second: 288230376151711869
+gdb anchor..
+Values: equ id: F8CF00
+Operand_first: 0, Operator 00 Operand_second: -5772766844205137920
+gdb anchor..
+Values: equ id: 0
+Operand_first: 35645076050804736, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -1856608929464448000, Operator 00 Operand_second: 3949445766971392
+gdb anchor..
+Values: equ id: A7
+Operand_first: 0, Operator 00 Operand_second: 2161754425256443904
+gdb anchor..
+Values: equ id: 0
+Operand_first: 770091188224, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 126903413977530, Operator 00 Operand_second: 96172958023680
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 30492757187971687
+gdb anchor..
+Values: equ id: 27DC0000
+Operand_first: 2056, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1110769707, Operator 00 Operand_second: 2738815744
+gdb anchor..
+Values: equ id: 4000000
+Operand_first: -8358680908399640576, Operator a7 Operand_second: 950194418644
+gdb anchor..
+Values: equ id: 4BD94C1B
+Operand_first: 115, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 33999, Operator 09 Operand_second: 9
+gdb anchor..
+Values: equ id: A0B00
+Operand_first: 5364709646453964800, Operator 38 Operand_second: 1190656
+gdb anchor..
+Values: equ id: AA00423D
+Operand_first: 0, Operator 00 Operand_second: 6788332013330890752
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1154891829443821568, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 186C
+Operand_first: 61561186008694784, Operator 37 Operand_second: 360287970189639749
+gdb anchor..
+Values: equ id: D88A00
+Operand_first: 0, Operator 00 Operand_second: 3008514837253718016
+gdb anchor..
+Values: equ id: 0
+Operand_first: 4432406249472, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -8012184799335989760, Operator 00 Operand_second: 573945069699072
+gdb anchor..
+Values: equ id: C6
+Operand_first: 0, Operator 00 Operand_second: -5548335476017397760
+gdb anchor..
+Values: equ id: 0
+Operand_first: 252116992, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 137889937744436, Operator 00 Operand_second: 43083890688
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 5894484427962595
+gdb anchor..
+Values: equ id: 41470000
+Operand_first: 1290, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 785580093, Operator 00 Operand_second: 527104
+gdb anchor..
+Values: equ id: C000000
+Operand_first: -4611686018427387904, Operator 3b Operand_second: 12985623399
+gdb anchor..
+Values: equ id: 46D81A0
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8047, Operator 07 Operand_second: 10
+gdb anchor..
+Values: equ id: A0800
+Operand_first: -4409881654265380864, Operator b1 Operand_second: 15048192
+gdb anchor..
+Values: equ id: 5B0099DC
+Operand_first: 0, Operator 00 Operand_second: -1340665314072854528
+gdb anchor..
+Values: equ id: 0
+Operand_first: 74872343805034496, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: B
+Operand_first: 4074674883395584, Operator 4a Operand_second: 720575940379279598
+gdb anchor..
+Values: equ id: BF4300
+Operand_first: 0, Operator 00 Operand_second: 7822151012507975680
+gdb anchor..
+Values: equ id: 0
+Operand_first: 14323715932160, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2850215811661824256, Operator 00 Operand_second: 1419469511458816
+gdb anchor..
+Values: equ id: A7
+Operand_first: 0, Operator 00 Operand_second: -7061480463612968960
+gdb anchor..
+Values: equ id: 0
+Operand_first: 185008128, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 837534961043, Operator 00 Operand_second: 25971130368
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 43583543220967072
+gdb anchor..
+Values: equ id: 95DE0000
+Operand_first: 2566, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1387987075, Operator 00 Operand_second: 2388460032
+gdb anchor..
+Values: equ id: B000000
+Operand_first: 3242591731706757120, Operator c4 Operand_second: 815725038186
+gdb anchor..
+Values: equ id: 2E701922
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 35852, Operator 01 Operand_second: 39034
+gdb anchor..
+Values: equ id: E0700
+Operand_first: -1346944624979083264, Operator 08 Operand_second: 15232512
+gdb anchor..
+Values: equ id: DA00A9E6
+Operand_first: 0, Operator 00 Operand_second: 8217098995114180608
+gdb anchor..
+Values: equ id: 0
+Operand_first: 577023702256844800, Operator 50 Operand_second: 0
+gdb anchor..
+Values: equ id: C
+Operand_first: 71323715341647872, Operator 63 Operand_second: 720575940379279577
+gdb anchor..
+Values: equ id: B8BA00
+Operand_first: 0, Operator 00 Operand_second: -2871306308777148416
+gdb anchor..
+Values: equ id: 0
+Operand_first: 16527034155008, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 4603805432563828480, Operator 00 Operand_second: 10995116277760
+gdb anchor..
+Values: equ id: 4B
+Operand_first: 0, Operator 00 Operand_second: 5260343201775419392
+gdb anchor..
+Values: equ id: 0
+Operand_first: 51052544, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 173031352558495, Operator 00 Operand_second: 112553996845056
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 71700256152146937
+gdb anchor..
+Values: equ id: 6DE50000
+Operand_first: 1291, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3085303822, Operator 00 Operand_second: 707659008
+gdb anchor..
+Values: equ id: 3000000
+Operand_first: 4035225266123964416, Operator c4 Operand_second: 713350456640
+gdb anchor..
+
+valid file! 010283c72de01933.equ
+../laboratory/010283c72de01933.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 9F58B4F9
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 28300, Operator 0c Operand_second: 3
+gdb anchor..
+Values: equ id: 70A00
+Operand_first: -537300546168553472, Operator c1 Operand_second: 12239360
+gdb anchor..
+Values: equ id: 5E006B2F
+Operand_first: 0, Operator 00 Operand_second: 8514336570520633344
+gdb anchor..
+Values: equ id: 0
+Operand_first: 579838452023951360, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: AEC2
+Operand_first: 15468614828163072, Operator ce Operand_second: 288230376151711985
+gdb anchor..
+Values: equ id: F38B00
+Operand_first: 0, Operator 00 Operand_second: -1211758514997821440
+gdb anchor..
+Values: equ id: 0
+Operand_first: 47244640256, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -5195464873939102720, Operator 00 Operand_second: 572845558071296
+gdb anchor..
+Values: equ id: 9E
+Operand_first: 0, Operator 00 Operand_second: -4755665374589353984
+gdb anchor..
+Values: equ id: 0
+Operand_first: 27800043520, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 171094327000993, Operator 00 Operand_second: 4458243162112
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 2512388231091462
+gdb anchor..
+Values: equ id: D2E70000
+Operand_first: 12477953, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1418395800, Operator 00 Operand_second: 656896
+gdb anchor..
+Values: equ id: 7000000
+Operand_first: -7277816997830721536, Operator 03 Operand_second: 70078438813
+gdb anchor..
+Values: equ id: D45089FA
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 32958, Operator 0b Operand_second: 15
+gdb anchor..
+Values: equ id: BEA50200
+Operand_first: 8554457749818179584, Operator 6c Operand_second: 3633408
+gdb anchor..
+Values: equ id: E0001601
+Operand_first: 0, Operator 00 Operand_second: 3461860738564358144
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8504203471359049728, Operator 40 Operand_second: 0
+gdb anchor..
+Values: equ id: 8
+Operand_first: 71480921412337664, Operator 77 Operand_second: 792633534417207399
+gdb anchor..
+Values: equ id: 834F00
+Operand_first: 0, Operator 00 Operand_second: -2649317148807135232
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3350074490880, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8722065751643378688, Operator 00 Operand_second: 9895604649984
+gdb anchor..
+Values: equ id: F5
+Operand_first: 0, Operator 00 Operand_second: 4179410276074913792
+gdb anchor..
+Values: equ id: 0
+Operand_first: 252379136, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 58798102554006, Operator 00 Operand_second: 8707375104
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 39958454471112108
+gdb anchor..
+Values: equ id: 23780000
+Operand_first: 16070658, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 365887689, Operator 00 Operand_second: 132608
+gdb anchor..
+Values: equ id: B000000
+Operand_first: 7277816997830721536, Operator c7 Operand_second: 1045187029223
+gdb anchor..
+Values: equ id: D1BF8180
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 624, Operator 08 Operand_second: 10
+gdb anchor..
+Values: equ id: 30700
+Operand_first: 5330606094295236608, Operator 1b Operand_second: 10014208
+gdb anchor..
+Values: equ id: 82009AEA
+Operand_first: 0, Operator 00 Operand_second: 3297197877188624384
+gdb anchor..
+Values: equ id: 0
+Operand_first: 794885334230892544, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: E
+Operand_first: 70614975474827264, Operator 63 Operand_second: 504403158265495641
+gdb anchor..
+Values: equ id: 272D00
+Operand_first: 0, Operator 00 Operand_second: 185032740209426432
+gdb anchor..
+Values: equ id: 0
+Operand_first: 46937056173096960, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8397805994232795392, Operator 00 Operand_second: 3665771767005184
+gdb anchor..
+Values: equ id: 47
+Operand_first: 0, Operator 00 Operand_second: 7638277143065264128
+gdb anchor..
+Values: equ id: 0
+Operand_first: 120561139712, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 144658797239308, Operator 00 Operand_second: 4395630592
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 18680706008500256
+gdb anchor..
+Values: equ id: F2FB0000
+Operand_first: 13894915, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 885981231, Operator 00 Operand_second: 3606905856
+gdb anchor..
+Values: equ id: 7000000
+Operand_first: -5476377146882523136, Operator a0 Operand_second: 975360277830
+gdb anchor..
+Values: equ id: BFA22E96
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 42344, Operator 04 Operand_second: 47693
+gdb anchor..
+Values: equ id: 624A0400
+Operand_first: 1222516192598556672, Operator 3b Operand_second: 3910144
+gdb anchor..
+Values: equ id: DF0069CD
+Operand_first: 0, Operator 00 Operand_second: 116812115334922240
+gdb anchor..
+Values: equ id: 0
+Operand_first: -8573446315629871104, Operator 0c Operand_second: 0
+gdb anchor..
+Values: equ id: 9A1B
+Operand_first: 38832185741934592, Operator 2e Operand_second: 144115188075855902
+gdb anchor..
+Values: equ id: 99E900
+Operand_first: 0, Operator 00 Operand_second: -2114523321646186496
+gdb anchor..
+Values: equ id: 0
+Operand_first: 16544214024192, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -8299852230948164096, Operator 00 Operand_second: 8035548734647435264
+gdb anchor..
+Values: equ id: 13
+Operand_first: 0, Operator 00 Operand_second: 144324565470871552
+gdb anchor..
+Values: equ id: 0
+Operand_first: 751351037952, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 227302570352708, Operator 00 Operand_second: 4395630592
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 58196052831775656
+gdb anchor..
+Values: equ id: 2A100000
+Operand_first: 1548, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3490775181, Operator 00 Operand_second: 329472
+gdb anchor..
+Values: equ id: C000000
+Operand_first: -8574853690513424384, Operator 9f Operand_second: 52613399737
+gdb anchor..
+
+valid file! 3eb0d788b791606f.equ
+../laboratory/3eb0d788b791606f.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 57BB45D1
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 48165, Operator 08 Operand_second: 6
+gdb anchor..
+Values: equ id: 9B1E0100
+Operand_first: -3869763059794837504, Operator 09 Operand_second: 15529472
+gdb anchor..
+Values: equ id: FC00F614
+Operand_first: 0, Operator 00 Operand_second: 8531506544099983360
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7206040878769504256, Operator 3b Operand_second: 0
+gdb anchor..
+Values: equ id: 533D
+Operand_first: 24841274393624576, Operator 21 Operand_second: 360287970189639801
+gdb anchor..
+Values: equ id: F7AE00
+Operand_first: 0, Operator 00 Operand_second: -3250949892683595776
+gdb anchor..
+Values: equ id: 0
+Operand_first: 31620863493144576, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -8547830994644864512, Operator 00 Operand_second: 1416170976575488
+gdb anchor..
+Values: equ id: 76
+Operand_first: 0, Operator 00 Operand_second: 288318441218310144
+gdb anchor..
+Values: equ id: 0
+Operand_first: 33947648, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 275509280084496, Operator 00 Operand_second: 122273457504256
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 25859414803035509
+gdb anchor..
+Values: equ id: 4C670000
+Operand_first: 6623233, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3392471162, Operator 00 Operand_second: 723456
+gdb anchor..
+Values: equ id: 6000000
+Operand_first: 9079256848778919936, Operator 8a Operand_second: 1072701661313
+gdb anchor..
+Values: equ id: 1067B292
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8527, Operator 04 Operand_second: 63957
+gdb anchor..
+Values: equ id: E0700
+Operand_first: 2046661730267824128, Operator e1 Operand_second: 8464384
+gdb anchor..
+Values: equ id: CC00F564
+Operand_first: 0, Operator 00 Operand_second: -4423097784031248384
+gdb anchor..
+Values: equ id: 0
+Operand_first: 362821244980035584, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: CF17
+Operand_first: 2201544552349696, Operator 82 Operand_second: 144115188075856030
+gdb anchor..
+Values: equ id: D76000
+Operand_first: 0, Operator 00 Operand_second: -5963285868264292352
+gdb anchor..
+Values: equ id: 0
+Operand_first: 13232794238976, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -7808678631353452544, Operator 00 Operand_second: 3953843813482496
+gdb anchor..
+Values: equ id: 3
+Operand_first: 0, Operator 00 Operand_second: 6773602836316815360
+gdb anchor..
+Values: equ id: 0
+Operand_first: 611965992960, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1606324874313, Operator 00 Operand_second: 64592281600
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 60187269073833361
+gdb anchor..
+Values: equ id: 82600000
+Operand_first: 10756100, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 4019847200, Operator 00 Operand_second: 985088
+gdb anchor..
+Values: equ id: 8000000
+Operand_first: -144115188075855872, Operator 00 Operand_second: 1088640041092
+gdb anchor..
+Values: equ id: 56ED7616
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 15622, Operator 05 Operand_second: 54407
+gdb anchor..
+Values: equ id: 40800
+Operand_first: -6991620718190395392, Operator 6e Operand_second: 11945728
+gdb anchor..
+Values: equ id: FC00A58B
+Operand_first: 0, Operator 00 Operand_second: -4443363982354415616
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8719250353565990912, Operator e2 Operand_second: 0
+gdb anchor..
+Values: equ id: 3
+Operand_first: 39078140466692096, Operator 09 Operand_second: 720575940379279399
+gdb anchor..
+Values: equ id: 60AE00
+Operand_first: 0, Operator 00 Operand_second: -8895214914575007744
+gdb anchor..
+Values: equ id: 0
+Operand_first: 46729261360349184, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -2299368159650397184, Operator 00 Operand_second: 8957102206444634112
+gdb anchor..
+Values: equ id: 7F
+Operand_first: 0, Operator 00 Operand_second: -3818813127708835840
+gdb anchor..
+Values: equ id: 0
+Operand_first: 859899559936, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 277248741803732, Operator 00 Operand_second: 38788923392
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 37196481668490880
+gdb anchor..
+Values: equ id: 12FB0000
+Operand_first: 774, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3519873185, Operator 00 Operand_second: 920576
+gdb anchor..
+Values: equ id: 8000000
+Operand_first: -7854277750134145024, Operator fb Operand_second: 345526777622
+gdb anchor..
+Values: equ id: E972E538
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 33019, Operator 03 Operand_second: 54681
+gdb anchor..
+Values: equ id: 40C00
+Operand_first: 8223348619206459392, Operator 41 Operand_second: 4749312
+gdb anchor..
+Values: equ id: 3100F4F0
+Operand_first: 0, Operator 00 Operand_second: -7436005934742110208
+gdb anchor..
+Values: equ id: 0
+Operand_first: 434315889064542208, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 7
+Operand_first: 60621798043025408, Operator 12 Operand_second: 648518346341351628
+gdb anchor..
+Values: equ id: 32700
+Operand_first: 0, Operator 00 Operand_second: -1607610291867090944
+gdb anchor..
+Values: equ id: 0
+Operand_first: 32531254825975808, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -2228155835558940416, Operator 00 Operand_second: 3384296790294528
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 3098573903959752704
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1041462788096, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 37151472106893, Operator 00 Operand_second: 144057581961216
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 36540072513000910
+gdb anchor..
+Values: equ id: 11980000
+Operand_first: 780, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 814350482, Operator 00 Operand_second: 591872
+gdb anchor..
+Values: equ id: 2000000
+Operand_first: -4107282860161892352, Operator f4 Operand_second: 909157389868
+gdb anchor..
+
+valid file! f314046c5816b921.equ
+../laboratory/f314046c5816b921.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: E791FD81
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 44644, Operator 07 Operand_second: 6
+gdb anchor..
+Values: equ id: F2330400
+Operand_first: -8171669373677731840, Operator 89 Operand_second: 1970432
+gdb anchor..
+Values: equ id: 1000DFD
+Operand_first: 0, Operator 00 Operand_second: 8181351673071927296
+gdb anchor..
+Values: equ id: 0
+Operand_first: 146929937842962432, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: E
+Operand_first: 67280800969654272, Operator 11 Operand_second: 864691128455135360
+gdb anchor..
+Values: equ id: DC9700
+Operand_first: 0, Operator 00 Operand_second: 4259922884010442752
+gdb anchor..
+Values: equ id: 0
+Operand_first: 16527034155008, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -371264581046408192, Operator 00 Operand_second: 1699844976541696
+gdb anchor..
+Values: equ id: 28
+Operand_first: 0, Operator 00 Operand_second: 504570693372280832
+gdb anchor..
+Values: equ id: 0
+Operand_first: 707646259200, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 190395916756621, Operator 00 Operand_second: 64525172736
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 43377932962053095
+gdb anchor..
+Values: equ id: BE730000
+Operand_first: 8013315, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3723231361, Operator 00 Operand_second: 1792
+gdb anchor..
+Values: equ id: 6000000
+Operand_first: -7061644215716937728, Operator 6a Operand_second: 447649727558
+gdb anchor..
+Values: equ id: 1656EB6E
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 909, Operator 0c Operand_second: 12
+gdb anchor..
+Values: equ id: A0600
+Operand_first: 8682267180454117376, Operator 57 Operand_second: 3033600
+gdb anchor..
+Values: equ id: 54009485
+Operand_first: 0, Operator 00 Operand_second: 8963570633350840320
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7855403650040987648, Operator 32 Operand_second: 0
+gdb anchor..
+Values: equ id: E
+Operand_first: 31390312031059968, Operator 2a Operand_second: 864691128455135408
+gdb anchor..
+Values: equ id: 77EB00
+Operand_first: 0, Operator 00 Operand_second: 6371040335245606912
+gdb anchor..
+Values: equ id: 0
+Operand_first: 15427522527232, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8434679556887707136, Operator 00 Operand_second: 1420569023086592
+gdb anchor..
+Values: equ id: 7C
+Operand_first: 0, Operator 00 Operand_second: 2378083336967421952
+gdb anchor..
+Values: equ id: 0
+Operand_first: 151781376, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 128539797801891, Operator 00 Operand_second: 38822477824
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 65639746111023453
+gdb anchor..
+Values: equ id: A8CC0000
+Operand_first: 2822, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 771686593, Operator 00 Operand_second: 264704
+gdb anchor..
+Values: equ id: 7000000
+Operand_first: 6629298651489370112, Operator d8 Operand_second: 523348481203
+gdb anchor..
+Values: equ id: AF95F0C1
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 12751, Operator 0b Operand_second: 10
+gdb anchor..
+Values: equ id: D68B0200
+Operand_first: -7973900217189662720, Operator 20 Operand_second: 7951360
+gdb anchor..
+Values: equ id: 27006EE5
+Operand_first: 0, Operator 00 Operand_second: 2753388222183636992
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1730226681840402432, Operator 5a Operand_second: 0
+gdb anchor..
+Values: equ id: C281
+Operand_first: 64662974630985728, Operator f0 Operand_second: 144115188075855958
+gdb anchor..
+Values: equ id: 1AD600
+Operand_first: 0, Operator 00 Operand_second: -637510164773076992
+gdb anchor..
+Values: equ id: 0
+Operand_first: 47244640256, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -5526197220545310976, Operator 00 Operand_second: 5854965388604866560
+gdb anchor..
+Values: equ id: 1C
+Operand_first: 0, Operator 00 Operand_second: -5116020038021545984
+gdb anchor..
+Values: equ id: 0
+Operand_first: 17498112, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 229531642306034, Operator 00 Operand_second: 232598282436608
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 15047918032325006
+gdb anchor..
+Values: equ id: 1A410000
+Operand_first: 3299332, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1702363299, Operator 00 Operand_second: 2042036992
+gdb anchor..
+Values: equ id: 5000000
+Operand_first: -2810246167479189504, Operator 14 Operand_second: 656828017411
+gdb anchor..
+Values: equ id: BC88CBBD
+Operand_first: 93, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 63699, Operator 08 Operand_second: 10
+gdb anchor..
+Values: equ id: F0A00
+Operand_first: -4399516558150336512, Operator dd Operand_second: 13433088
+gdb anchor..
+Values: equ id: 2E00FDD1
+Operand_first: 0, Operator 00 Operand_second: 2268969787264598016
+gdb anchor..
+Values: equ id: 0
+Operand_first: 867505878222241792, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 7
+Operand_first: 14221418350772224, Operator f1 Operand_second: 432345564227567768
+gdb anchor..
+Values: equ id: D0ED00
+Operand_first: 0, Operator 00 Operand_second: -5881769588009467904
+gdb anchor..
+Values: equ id: 0
+Operand_first: 16522739187712, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3399373429625897216, Operator 00 Operand_second: 3949445766971392
+gdb anchor..
+Values: equ id: 26
+Operand_first: 0, Operator 00 Operand_second: -2017500152177819648
+gdb anchor..
+Values: equ id: 0
+Operand_first: 501387231232, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 123862563512914, Operator 00 Operand_second: 4395630592
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 4094582505138479
+gdb anchor..
+Values: equ id: 65BD0000
+Operand_first: 3078, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1452605475, Operator 00 Operand_second: 3470459648
+gdb anchor..
+Values: equ id: 4000000
+Operand_first: -8863084066665136128, Operator 19 Operand_second: 473453077501
+gdb anchor..
+
+valid file! 0614511dfd9c146f.equ
+../laboratory/0614511dfd9c146f.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: B3E15A88
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 28341, Operator 05 Operand_second: 16417
+gdb anchor..
+Values: equ id: A0A00
+Operand_first: -380029701466357760, Operator e7 Operand_second: 13688320
+gdb anchor..
+Values: equ id: 5A000975
+Operand_first: 0, Operator 00 Operand_second: 1728537831980138496
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3675781720864456704, Operator 8e Operand_second: 0
+gdb anchor..
+Values: equ id: A1FD
+Operand_first: 17711396619812864, Operator af Operand_second: 216172782113783818
+gdb anchor..
+Values: equ id: 10B000
+Operand_first: 0, Operator 00 Operand_second: -7925029686998990848
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1133871366144, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -8337006829345354752, Operator 00 Operand_second: 1982419464880128
+gdb anchor..
+Values: equ id: D2
+Operand_first: 0, Operator 00 Operand_second: 3963258159776727040
+gdb anchor..
+Values: equ id: 0
+Operand_first: 819147702272, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 126147498003887, Operator 00 Operand_second: 8774483968
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 59346143758690350
+gdb anchor..
+Values: equ id: F8040000
+Operand_first: 1962755, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 4057596159, Operator 00 Operand_second: 2816
+gdb anchor..
+Values: equ id: 3000000
+Operand_first: -792633534417207296, Operator ea Operand_second: 816714919557
+gdb anchor..
+Values: equ id: 29B64607
+Operand_first: 91, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6368, Operator 0a Operand_second: 2
+gdb anchor..
+Values: equ id: AA450100
+Operand_first: 892811138335506432, Operator a1 Operand_second: 13685248
+gdb anchor..
+Values: equ id: 74003200
+Operand_first: 0, Operator 00 Operand_second: -4543850549040119808
+gdb anchor..
+Values: equ id: 0
+Operand_first: -3025574524662841344, Operator f4 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 48834639648784384, Operator 27 Operand_second: 504403158265495625
+gdb anchor..
+Values: equ id: 75D100
+Operand_first: 0, Operator 00 Operand_second: -7557641148026585088
+gdb anchor..
+Values: equ id: 0
+Operand_first: 16535624089600, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -2056173832873143552, Operator 00 Operand_second: 2260595906707456
+gdb anchor..
+Values: equ id: C8
+Operand_first: 0, Operator 00 Operand_second: 1801645910872752128
+gdb anchor..
+Values: equ id: 0
+Operand_first: 777909436416, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 276853592742690, Operator 00 Operand_second: 4445962240
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 1882367645565894
+gdb anchor..
+Values: equ id: 31950000
+Operand_first: 9997061, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1042481255, Operator 00 Operand_second: 723968
+gdb anchor..
+Values: equ id: 9000000
+Operand_first: 6485183463413514240, Operator bc Operand_second: 536820591704
+gdb anchor..
+Values: equ id: 4572FF97
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 33578, Operator 02 Operand_second: 25609
+gdb anchor..
+Values: equ id: B0C00
+Operand_first: -2878741343843123200, Operator 9f Operand_second: 15929856
+gdb anchor..
+Values: equ id: 4400AEE5
+Operand_first: 0, Operator 00 Operand_second: 5678757655137484800
+gdb anchor..
+Values: equ id: 0
+Operand_first: 75435293758455808, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: EB4B
+Operand_first: 524284845883392, Operator 93 Operand_second: 288230376151711928
+gdb anchor..
+Values: equ id: FE1C00
+Operand_first: 0, Operator 00 Operand_second: 755332379106607104
+gdb anchor..
+Values: equ id: 0
+Operand_first: 9375539945013248, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 5670314120793720832, Operator 00 Operand_second: 8747964099725361152
+gdb anchor..
+Values: equ id: 32
+Operand_first: 0, Operator 00 Operand_second: -5476359547778629632
+gdb anchor..
+Values: equ id: 0
+Operand_first: 117833728, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 237000605788721, Operator 00 Operand_second: 208847163621376
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 16908291442756238
+gdb anchor..
+Values: equ id: 7B80000
+Operand_first: 3569154, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 328335419, Operator 00 Operand_second: 3353150464
+gdb anchor..
+Values: equ id: 8000000
+Operand_first: 7566047373982433280, Operator d9 Operand_second: 788797591574
+gdb anchor..
+Values: equ id: E2C7370B
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 56831, Operator 05 Operand_second: 17107
+gdb anchor..
+Values: equ id: F0900
+Operand_first: -3143415782881361920, Operator 39 Operand_second: 8452352
+gdb anchor..
+Values: equ id: EF0083AB
+Operand_first: 0, Operator 00 Operand_second: 8338977660029894656
+gdb anchor..
+Values: equ id: 0
+Operand_first: 866379978315399168, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: D727
+Operand_first: 57224994878390272, Operator 32 Operand_second: 216172782113784019
+gdb anchor..
+Values: equ id: 7C2300
+Operand_first: 0, Operator 00 Operand_second: -2023687215762112512
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7739531067392, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6849412237122552064, Operator 00 Operand_second: -952224348654010368
+gdb anchor..
+Values: equ id: 85
+Operand_first: 0, Operator 00 Operand_second: -1513207918626930688
+gdb anchor..
+Values: equ id: 0
+Operand_first: 218628096, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 259467565710224, Operator 00 Operand_second: 51707379712
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 48639097006811796
+gdb anchor..
+Values: equ id: CE160000
+Operand_first: 3081, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2809004066, Operator 00 Operand_second: 854784
+gdb anchor..
+Values: equ id: 9000000
+Operand_first: -144115188075855872, Operator 95 Operand_second: 390540066414
+gdb anchor..
+
+valid file! 4a67beb270bf1a3b.equ
+../laboratory/4a67beb270bf1a3b.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: C0AEE7AD
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 40171, Operator 09 Operand_second: 15
+gdb anchor..
+Values: equ id: 50900
+Operand_first: -2042727677663641600, Operator 1f Operand_second: 3831808
+gdb anchor..
+Values: equ id: 9C00D778
+Operand_first: 0, Operator 00 Operand_second: -5767703747778052096
+gdb anchor..
+Values: equ id: 0
+Operand_first: 865817028361977856, Operator aa Operand_second: 0
+gdb anchor..
+Values: equ id: FFAD
+Operand_first: 29129363752484864, Operator 44 Operand_second: 360287970189639780
+gdb anchor..
+Values: equ id: 6AE800
+Operand_first: 0, Operator 00 Operand_second: 1348994849092665344
+gdb anchor..
+Values: equ id: 0
+Operand_first: 58333494194995200, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8535166192477276928, Operator 00 Operand_second: 1981319953252352
+gdb anchor..
+Values: equ id: 80
+Operand_first: 0, Operator 00 Operand_second: 5548627026676482048
+gdb anchor..
+Values: equ id: 0
+Operand_first: 218693632, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 179555409407243, Operator 00 Operand_second: 173551122382848
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 14600415363445012
+gdb anchor..
+Values: equ id: 8E2D0000
+Operand_first: 2314, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2530803945, Operator 00 Operand_second: 658432
+gdb anchor..
+Values: equ id: A000000
+Operand_first: 7277816997830721536, Operator 6c Operand_second: 892598264067
+gdb anchor..
+Values: equ id: 3E1A45A1
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 46523, Operator 03 Operand_second: 3544
+gdb anchor..
+Values: equ id: F5AE0200
+Operand_first: -8625078282158604288, Operator 4b Operand_second: 3865088
+gdb anchor..
+Values: equ id: D70088EF
+Operand_first: 0, Operator 00 Operand_second: 1653946963151814656
+gdb anchor..
+Values: equ id: 0
+Operand_first: -7565765899005722624, Operator 6b Operand_second: 0
+gdb anchor..
+Values: equ id: 5022
+Operand_first: 15243973660508160, Operator 0d Operand_second: 144115188075856119
+gdb anchor..
+Values: equ id: 1F800
+Operand_first: 0, Operator 00 Operand_second: -6040061591251058688
+gdb anchor..
+Values: equ id: 0
+Operand_first: 4423816314880, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -6189070954575377664, Operator 00 Operand_second: 13194139533312
+gdb anchor..
+Values: equ id: 4D
+Operand_first: 0, Operator 00 Operand_second: -8718908418611609600
+gdb anchor..
+Values: equ id: 0
+Operand_first: 151453696, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 118768739368181, Operator 00 Operand_second: 4429185024
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 42158577319572293
+gdb anchor..
+Values: equ id: EBF70000
+Operand_first: 3081, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3731095665, Operator 00 Operand_second: 264960
+gdb anchor..
+Values: equ id: C000000
+Operand_first: -2882303761517117440, Operator a8 Operand_second: 81956737270
+gdb anchor..
+Values: equ id: DE1B96BB
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 31535, Operator 02 Operand_second: 30441
+gdb anchor..
+Values: equ id: 801E0200
+Operand_first: -2361565158997753856, Operator 9b Operand_second: 4858880
+gdb anchor..
+Values: equ id: 8D00755D
+Operand_first: 0, Operator 00 Operand_second: 765611936652984320
+gdb anchor..
+Values: equ id: 0
+Operand_first: 291326600895528960, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: C4C2
+Operand_first: 18760320545718272, Operator 06 Operand_second: 360287970189639762
+gdb anchor..
+Values: equ id: 6A2000
+Operand_first: 0, Operator 00 Operand_second: 6334892889755090944
+gdb anchor..
+Values: equ id: 0
+Operand_first: 41149231259451392, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6466606981044710400, Operator 00 Operand_second: -8992558157905526784
+gdb anchor..
+Values: equ id: 49
+Operand_first: 0, Operator 00 Operand_second: -6701250646554640384
+gdb anchor..
+Values: equ id: 0
+Operand_first: 218497024, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 129265646338989, Operator 00 Operand_second: 68401733042176
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 57176806546180047
+gdb anchor..
+Values: equ id: C2040000
+Operand_first: 9177603, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1298596001, Operator 00 Operand_second: 4246078464
+gdb anchor..
+Values: equ id: 9000000
+Operand_first: 4395513236313604096, Operator b9 Operand_second: 644161253271
+gdb anchor..
+Values: equ id: 8127B67E
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 63471, Operator 06 Operand_second: 9
+gdb anchor..
+Values: equ id: 40700
+Operand_first: -871715908244996096, Operator 89 Operand_second: 933888
+gdb anchor..
+Values: equ id: 60002F5
+Operand_first: 0, Operator 00 Operand_second: 8872654215873298432
+gdb anchor..
+Values: equ id: 0
+Operand_first: 6053119374162657280, Operator b8 Operand_second: 0
+gdb anchor..
+Values: equ id: 6
+Operand_first: 41228695586734080, Operator 65 Operand_second: 864691128455135283
+gdb anchor..
+Values: equ id: 29A000
+Operand_first: 0, Operator 00 Operand_second: 5146099891306496000
+gdb anchor..
+Values: equ id: 0
+Operand_first: 4505815830495232, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 5023483965621713664, Operator 00 Operand_second: 2259496395079680
+gdb anchor..
+Values: equ id: 8E
+Operand_first: 0, Operator 00 Operand_second: 5692569442190491648
+gdb anchor..
+Values: equ id: 0
+Operand_first: 201850880, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 169032738075990, Operator 00 Operand_second: 17364418560
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 41606621621272558
+gdb anchor..
+Values: equ id: 3C2A0000
+Operand_first: 3847, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3183542446, Operator 00 Operand_second: 437256448
+gdb anchor..
+Values: equ id: 7000000
+Operand_first: -3242591731706757120, Operator 57 Operand_second: 353613423768
+gdb anchor..
+
+
+valid file! c91e9ca79b080d02.equ
+../laboratory/c91e9ca79b080d02.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 3EC36BCA
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8041, Operator 09 Operand_second: 2
+gdb anchor..
+Values: equ id: 20B00
+Operand_first: -5411569732518150144, Operator 56 Operand_second: 8573184
+gdb anchor..
+Values: equ id: 78006086
+Operand_first: 0, Operator 00 Operand_second: 3406410168152358912
+gdb anchor..
+Values: equ id: 0
+Operand_first: -8285497414454870016, Operator fe Operand_second: 0
+gdb anchor..
+Values: equ id: D5A7
+Operand_first: 20631688296005632, Operator 67 Operand_second: 144115188075855982
+gdb anchor..
+Values: equ id: 5C0900
+Operand_first: 0, Operator 00 Operand_second: 8736640203701092352
+gdb anchor..
+Values: equ id: 0
+Operand_first: 16522739187712, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 94295025798467072, Operator 00 Operand_second: 3386495813550080
+gdb anchor..
+Values: equ id: 46
+Operand_first: 0, Operator 00 Operand_second: -2666123197628612608
+gdb anchor..
+Values: equ id: 0
+Operand_first: 634262847488, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 46295459227875, Operator 00 Operand_second: 4412407808
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 3264451349918062
+gdb anchor..
+Values: equ id: EE060000
+Operand_first: 2568, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3761111172, Operator 00 Operand_second: 2691957760
+gdb anchor..
+Values: equ id: 2000000
+Operand_first: 2377900603251621888, Operator b8 Operand_second: 910717628752
+gdb anchor..
+Values: equ id: 7B5D108E
+Operand_first: 209, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 13393, Operator 07 Operand_second: 16
+gdb anchor..
+Values: equ id: 64C10100
+Operand_first: -7156189021566140416, Operator 17 Operand_second: 9687808
+gdb anchor..
+Values: equ id: 1F00D2D6
+Operand_first: 0, Operator 00 Operand_second: -8474085648851009536
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1010495166391255040, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: F
+Operand_first: 56945015154278400, Operator 30 Operand_second: 864691128455135321
+gdb anchor..
+Values: equ id: 533E00
+Operand_first: 0, Operator 00 Operand_second: 7165096165262753792
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2237677961216, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -5347472259353088, Operator 00 Operand_second: -3886321704909144064
+gdb anchor..
+Values: equ id: 61
+Operand_first: 0, Operator 00 Operand_second: -2161497231063711744
+gdb anchor..
+Values: equ id: 0
+Operand_first: 50987008, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 14555652819183, Operator 00 Operand_second: 95795017678848
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 59338447770930016
+gdb anchor..
+Values: equ id: 85B80000
+Operand_first: 2568, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2309292241, Operator 00 Operand_second: 854016
+gdb anchor..
+Values: equ id: 6000000
+Operand_first: 4323455642275676160, Operator d5 Operand_second: 859027072212
+gdb anchor..
+Values: equ id: E97BD4CC
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 20822, Operator 0b Operand_second: 16
+gdb anchor..
+Values: equ id: B2080100
+Operand_first: -5098150644485718016, Operator 6f Operand_second: 16110592
+gdb anchor..
+Values: equ id: 2D009399
+Operand_first: 0, Operator 00 Operand_second: -7401103037629988864
+gdb anchor..
+Values: equ id: 0
+Operand_first: -5403475127914463232, Operator cb Operand_second: 0
+gdb anchor..
+Values: equ id: B51C
+Operand_first: 11902577721475072, Operator 72 Operand_second: 216172782113784032
+gdb anchor..
+Values: equ id: A3000
+Operand_first: 0, Operator 00 Operand_second: 8400931390748622848
+gdb anchor..
+Values: equ id: 0
+Operand_first: 7743826034688, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -6620009310746570496, Operator 00 Operand_second: 4513495232020480
+gdb anchor..
+Values: equ id: CC
+Operand_first: 0, Operator 00 Operand_second: -1513200375518330880
+gdb anchor..
+Values: equ id: 0
+Operand_first: 34340864, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 155744110204949, Operator 00 Operand_second: 68887248896
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 56612754235475068
+gdb anchor..
+Values: equ id: A5FF0000
+Operand_first: 1800, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3181838339, Operator 00 Operand_second: 978584832
+gdb anchor..
+Values: equ id: 8000000
+Operand_first: -6269010681299730432, Operator 03 Operand_second: 791700092933
+gdb anchor..
+Values: equ id: 164DED41
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 9860, Operator 09 Operand_second: 8
+gdb anchor..
+Values: equ id: 60C00
+Operand_first: 6671147163554152448, Operator 9d Operand_second: 9317120
+gdb anchor..
+Values: equ id: B2009265
+Operand_first: 0, Operator 00 Operand_second: 3330974874393903104
+gdb anchor..
+Values: equ id: 0
+Operand_first: -3745868990065410048, Operator fc Operand_second: 0
+gdb anchor..
+Values: equ id: DDC6
+Operand_first: 45647228957622272, Operator ce Operand_second: 216172782113783809
+gdb anchor..
+Values: equ id: B98600
+Operand_first: 0, Operator 00 Operand_second: 3498781501506453504
+gdb anchor..
+Values: equ id: 0
+Operand_first: 51539607552, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8009370633883463680, Operator 00 Operand_second: 4514594743648256
+gdb anchor..
+Values: equ id: C9
+Operand_first: 0, Operator 00 Operand_second: -7133682735784329216
+gdb anchor..
+Values: equ id: 0
+Operand_first: 252116992, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 44255354344251, Operator 00 Operand_second: 8791261184
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 65165856929635907
+gdb anchor..
+Values: equ id: 71A30000
+Operand_first: 12142085, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1817837796, Operator 00 Operand_second: 134144
+gdb anchor..
+Values: equ id: 9000000
+Operand_first: 1369094286720630784, Operator 2f Operand_second: 466138205465
+gdb anchor..
+
+valid file! fd2c21ea3139ab1d.equ
+../laboratory/fd2c21ea3139ab1d.equ
+File size: 2075 bytes
+Magic Number:DD77BB55
+offset:27 equations #:64
+Values: equ id: 3C9E2810
+Operand_first: -4111237590030483329, Operator 7f Operand_second: 13510798883160064
+gdb anchor..
+Values: equ id: 0
+Operand_first: 13359, Operator 01 Operand_second: 23621
+gdb anchor..
+Values: equ id: 97180500
+Operand_first: -2258838887126269952, Operator fd Operand_second: 4268288
+gdb anchor..
+Values: equ id: 6F000CFC
+Operand_first: 0, Operator 00 Operand_second: -2569585062391578624
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1688849860263936, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 5
+Operand_first: 4527644683010048, Operator c3 Operand_second: 792633534417207370
+gdb anchor..
+Values: equ id: FB1F00
+Operand_first: 0, Operator 00 Operand_second: -2078447310051737600
+gdb anchor..
+Values: equ id: 0
+Operand_first: 25769803776, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -6999718956841633792, Operator 00 Operand_second: -6321362827944656896
+gdb anchor..
+Values: equ id: 56
+Operand_first: 0, Operator 00 Operand_second: 5764613161275424768
+gdb anchor..
+Values: equ id: 0
+Operand_first: 218759168, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 122896206776047, Operator 00 Operand_second: 42408540635136
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 50828224366666743
+gdb anchor..
+Values: equ id: 8C670000
+Operand_first: 1031, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 2410676450, Operator 00 Operand_second: 1051136
+gdb anchor..
+Values: equ id: 3000000
+Operand_first: -4323455642275676160, Operator a4 Operand_second: 729171409016
+gdb anchor..
+Values: equ id: 1A37F20E
+Operand_first: 221, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 49497, Operator 09 Operand_second: 0
+gdb anchor..
+Values: equ id: AB880400
+Operand_first: -1199811277484982272, Operator e7 Operand_second: 2011904
+gdb anchor..
+Values: equ id: 4A005201
+Operand_first: 0, Operator 00 Operand_second: -8788211722860101632
+gdb anchor..
+Values: equ id: 0
+Operand_first: 146085512912830464, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: B
+Operand_first: 12064178097356800, Operator 13 Operand_second: 864691128455135296
+gdb anchor..
+Values: equ id: 1FE300
+Operand_first: 0, Operator 00 Operand_second: 9000208624236101632
+gdb anchor..
+Values: equ id: 0
+Operand_first: 12740049820975104, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -700028242008293120, Operator 00 Operand_second: 855420046409728
+gdb anchor..
+Values: equ id: 29
+Operand_first: 0, Operator 00 Operand_second: -5980557624843632640
+gdb anchor..
+Values: equ id: 0
+Operand_first: 34013184, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 14117561140257, Operator 00 Operand_second: 129424561274880
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 71866280520200442
+gdb anchor..
+Values: equ id: 78B0000
+Operand_first: 7493892, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 3628335126, Operator 00 Operand_second: 373097472
+gdb anchor..
+Values: equ id: A000000
+Operand_first: 2305843009213693952, Operator 61 Operand_second: 979822991415
+gdb anchor..
+Values: equ id: 73282676
+Operand_first: 0, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 12838, Operator 09 Operand_second: 12
+gdb anchor..
+Values: equ id: BB5B0300
+Operand_first: -8834301051273216000, Operator 7b Operand_second: 9075712
+gdb anchor..
+Values: equ id: 36002B39
+Operand_first: 0, Operator 00 Operand_second: -7563514099192037376
+gdb anchor..
+Values: equ id: 0
+Operand_first: 867787353198952448, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: DEBC
+Operand_first: 18764791036248064, Operator 07 Operand_second: 216172782113783841
+gdb anchor..
+Values: equ id: 904400
+Operand_first: 0, Operator 00 Operand_second: -4384977329349197824
+gdb anchor..
+Values: equ id: 0
+Operand_first: 8598193814110208, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: -5263862886743257600, Operator 00 Operand_second: 3107219860094976
+gdb anchor..
+Values: equ id: 9E
+Operand_first: 0, Operator 00 Operand_second: -5043988488866168832
+gdb anchor..
+Values: equ id: 0
+Operand_first: 551785988096, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 139500541074930, Operator 00 Operand_second: 64625836032
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 29089780765454697
+gdb anchor..
+Values: equ id: 51020000
+Operand_first: 1286, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 366280934, Operator 00 Operand_second: 1334117120
+gdb anchor..
+Values: equ id: 4000000
+Operand_first: -2233785415175766016, Operator d0 Operand_second: 119571271213
+gdb anchor..
+Values: equ id: 5C749CAF
+Operand_first: 140, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 54467, Operator 09 Operand_second: 11
+gdb anchor..
+Values: equ id: A4610100
+Operand_first: 7556698226611453952, Operator 7e Operand_second: 14458880
+gdb anchor..
+Values: equ id: A000946F
+Operand_first: 0, Operator 00 Operand_second: 8098035079965573120
+gdb anchor..
+Values: equ id: 0
+Operand_first: -2161446346161127424, Operator a5 Operand_second: 0
+gdb anchor..
+Values: equ id: D
+Operand_first: 21019726545158144, Operator 26 Operand_second: 792633534417207451
+gdb anchor..
+Values: equ id: A3A200
+Operand_first: 0, Operator 00 Operand_second: -6583123101607788544
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1855988512587776, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1487595711052752640, Operator 00 Operand_second: 3105020836839424
+gdb anchor..
+Values: equ id: 61
+Operand_first: 0, Operator 00 Operand_second: 4251598233442385920
+gdb anchor..
+Values: equ id: 0
+Operand_first: 84344832, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 17794058081352, Operator 00 Operand_second: 13035896832
+gdb anchor..
+Values: equ id: 0
+Operand_first: 0, Operator 00 Operand_second: 2863128561146444
+gdb anchor..
+Values: equ id: 3C610000
+Operand_first: 7885314, Operator 00 Operand_second: 0
+gdb anchor..
+Values: equ id: 0
+Operand_first: 1158480103, Operator 00 Operand_second: 68352
+gdb anchor..
+Values: equ id: 4000000
+Operand_first: 5980780305148018688, Operator 19 Operand_second: 90781556868
+gdb anchor..
+
+
+Operations called and functioning

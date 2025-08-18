@@ -1,0 +1,3 @@
+/home/skrm/linux_tooldev/filecalc/build/CMakeFiles/file_calculator.dir
+/home/skrm/linux_tooldev/filecalc/build/CMakeFiles/edit_cache.dir
+/home/skrm/linux_tooldev/filecalc/build/CMakeFiles/rebuild_cache.dir
