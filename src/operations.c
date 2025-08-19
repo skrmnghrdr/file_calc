@@ -53,7 +53,7 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     //! with permissions
     
     printf("The adjusted endiannes of the things are: \n");
-    printf("EquationID:0x%X 1st: 0x%lX OP:0x%X 2nd: 0x%lX\n",equation_id, first_operand, operator, second_operand);
+    printf("EquationID: 0x%X 1st: 0x%lX OP:0x%X 2nd: 0x%lX\n",equation_id, first_operand, operator, second_operand);
     //! for now, we just get the data and plug it back to write :)
     //! plug the solve back here, and let file_handler handle the file your moron.
     

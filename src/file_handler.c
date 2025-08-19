@@ -300,25 +300,24 @@ int solve_directory(const char *input_dir, const char * output_dir)
             printf("valid file! %s\n", entity->d_name);
             printf("%s\n", file_abs_path);
 
-            int valid_file_descriptor = head_checker(file_abs_path);
-            if (0 > valid_file_descriptor)
+            int valid_header = head_checker(file_abs_path);
+            if (0 > valid_header)
             {
                 printf("! Invalid header type!..\n");
                 //skip
                 goto END_READ_DIR_ENT;
             }
-            //! we could save all the file desc in an array and isolate this one? but that might be too much veudeu.
 
             //todo: function below 
-            int was_unsolved = solve_file(valid_file_descriptor, output_dir);
-
+            int was_unsolved = solve_file(valid_header, output_fd);
             if(was_unsolved)
             {
                 printf("! Something wrong with file:%s skipping...\n", input_dir);
                 goto END_READ_DIR_ENT;
             }
-            
-            //close(valid_file_descriptor);
+            //! thou shall not forget
+            //! close(output_fd);
+            //! close(valid_file_descriptor);
             
         printf("\n");
         END_READ_DIR_ENT:
@@ -337,10 +336,10 @@ END:
 }
 
 
-int solve_file(int file_descriptor, const char* output_path)
+int solve_file(int input_file_desc, int output_file_desc)
 {
     /**
-     * @brief: this function solves the file and calls file_write() to write it on output dir
+     * @brief: this function solves the file and calls file_write() to write it on output_file_desc
      *         use of fstat is recommended as we are working with file_desc
               //! on failure, this function closes file_descriptor arg.
      * 
@@ -348,8 +347,7 @@ int solve_file(int file_descriptor, const char* output_path)
      * 
      * @args: 
      *       int file_descriptor: valid file_descriptor of the file we're solving
-     *       const char * output_path: the folder where we write the output
-     *
+     *       int output_file_desc: file desc to write the ouput
      */
 
     //!start yap
@@ -381,10 +379,10 @@ int solve_file(int file_descriptor, const char* output_path)
 
     //! opening output file for writing
     //! dont' open it here
-    fstat_result = fstat(file_descriptor, &stat_buffer);
+    fstat_result = fstat(input_file_desc, &stat_buffer);
     if(-1 == fstat_result)
     {
-        close(file_descriptor);
+        close(input_file_desc);
         goto END;
     }
 
@@ -401,14 +399,14 @@ int solve_file(int file_descriptor, const char* output_path)
     {
         //printf("0x%02X ", (unsigned char) file_buffer[i]);
     }
-    lseek_return = lseek64(file_descriptor, 0, SEEK_SET);
+    lseek_return = lseek64(input_file_desc, 0, SEEK_SET);
     if (-1 == lseek_return)
     {
         printf("! Error lseeki-ng file..\n");
         goto END;
     }
 
-    bytes_read = read(file_descriptor, &file_header, sizeof(struct_file_header_t));
+    bytes_read = read(input_file_desc, &file_header, sizeof(struct_file_header_t));
 
     //!  memcopy syntax if you need it
     //memcpy(&file_header, file_buffer, sizeof(file_header));
@@ -419,7 +417,7 @@ int solve_file(int file_descriptor, const char* output_path)
 
     //!offset would be from the start.
     loff_t offset_to_equation;
-    offset_to_equation = lseek64(file_descriptor, file_header.equation_offset, SEEK_SET);
+    offset_to_equation = lseek64(input_file_desc, file_header.equation_offset, SEEK_SET);
     if(0 > offset_to_equation)
     {
         printf("! Error on moving offset_to_equation lseek..\n");
@@ -433,7 +431,7 @@ int solve_file(int file_descriptor, const char* output_path)
 
         //sanity check
         
-        read(file_descriptor, &unsolved_equ, sizeof(unsolved_equation_t));
+        read(input_file_desc, &unsolved_equ, sizeof(unsolved_equation_t));
         printf("Values: equ id: %X\n", unsolved_equ.equation_id);
         printf("Operand_first: %ld, Operator %02x Operand_second: %ld\n",
                 serialized_equation.operand_first,
@@ -462,7 +460,8 @@ int solve_file(int file_descriptor, const char* output_path)
         }
         //write output should just be the file descriptor of the 
 
-        int writer_output = write_output(output_path, &solved_equ);
+        //! change this later
+        int write_result = write_output(output_file_desc, &solved_equ);
         //! assuemdthe fiile is ready to be written
         //! header stamp
         //! content populate
@@ -475,9 +474,21 @@ END:
     return return_value;
 }
 
-int write_output(const char * output_path, solved_equation_t *solved_equ)
+int write_output(int output_file_desc, solved_equation_t *solved_equ)
 {
-    printf("write_output scaffolding\n");
-    return 0;
+    int return_me = -1; //:)
+    if( NULL == solved_equ)
+    {
+        printf("! Solved equation pointer nulll...\n");
+        goto END;
+    }
+    
+    printf("About to write: ID: 0x%X\n", solved_equ->equation_id);
+
+    write(output_file_desc, solved_equ, sizeof(*solved_equ));
+
+END:
+    return_me = 0;
+    return return_me;
 }
 

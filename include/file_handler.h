@@ -45,8 +45,8 @@
 //!new functions revamped
 int head_checker(char * abs_file_path);
 int solve_directory(const char *input_dir, const char * output_dir);
-int solve_file(int file_descriptor, const char* output_path);
-int write_output(const char * output_path, solved_equation_t *solved_equ);
+int solve_file(int input_file_desc, int output_file_desc);
+int write_output(int output_file_desc, solved_equation_t *solved_equ);
 const char *get_filename_ext(const char *filename);
 
 
