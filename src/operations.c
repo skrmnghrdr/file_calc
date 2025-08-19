@@ -30,6 +30,7 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
      *         -1 for error
      *
      */
+     //test change to see if anything changes on the github
     int return_value = -1;
     //! start processing things here
     //! structs come with value.
