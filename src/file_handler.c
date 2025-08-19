@@ -288,13 +288,15 @@ int solve_directory(const char *input_dir, const char * output_dir)
                 printf("! Error on appending ouput file...\n");
                 goto END_READ_DIR_ENT;
             }
-            
-            //! we can use output buffer here to merge the output and the filename, then we can open it 
-            //! or create one if not exist, fuck it, we nuke that shit to replace it if exist.
-            //! make buffer for outputfile as well here
-            //int output_fd = open(output_dir);
-            //! no need to calculate since path_max is based on linux max path
-            
+
+            //O_WRONLY | O_CREAT | O_TRUNC write and read, create if not there, overlap if exists
+            int output_fd = open(output_abs_path, O_WRONLY | O_CREAT | O_TRUNC, 0644 );
+            if (0 > output_fd)
+            {
+                printf("! Error on creating/handling output file...\nSkipping\n");
+                goto END_READ_DIR_ENT;
+            }
+
             printf("valid file! %s\n", entity->d_name);
             printf("%s\n", file_abs_path);
 
@@ -309,11 +311,11 @@ int solve_directory(const char *input_dir, const char * output_dir)
 
             //todo: function below 
             int was_unsolved = solve_file(valid_file_descriptor, output_dir);
+
             if(was_unsolved)
             {
                 printf("! Something wrong with file:%s skipping...\n", input_dir);
                 goto END_READ_DIR_ENT;
-
             }
             
             //close(valid_file_descriptor);
@@ -459,7 +461,7 @@ int solve_file(int file_descriptor, const char* output_path)
             goto END;
         }
         //write output should just be the file descriptor of the 
-        
+
         int writer_output = write_output(output_path, &solved_equ);
         //! assuemdthe fiile is ready to be written
         //! header stamp
