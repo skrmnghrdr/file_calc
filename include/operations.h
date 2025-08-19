@@ -5,7 +5,7 @@
 
 
 #include "structs.h"
-
+#include <endian.h>
 
 void operations_check();
 
