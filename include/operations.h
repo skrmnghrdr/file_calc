@@ -6,6 +6,8 @@
 
 #include "structs.h"
 #include <endian.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 void operations_check();
 

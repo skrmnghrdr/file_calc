@@ -46,7 +46,9 @@
 int head_checker(char * abs_file_path);
 int solve_directory(const char *input_dir, const char * output_dir);
 int solve_file(int file_descriptor, const char* output_path);
+int write_output(const char * output_path, solved_equation_t *solved_equ);
 const char *get_filename_ext(const char *filename);
+
 
 //!old unused ones
 void file_handler();

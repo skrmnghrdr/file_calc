@@ -194,7 +194,7 @@ int solve_directory(const char *input_dir, const char * output_dir)
     int input_directory = open(input_dir, O_RDONLY | O_DIRECTORY);
     //! learning point, you don't open the dir as a write,
     //! they're special files, you just rdolnly them
-    int output_directory = open(output_dir, O_RDONLY | O_DIRECTORY);
+    int output_directory = open(output_dir, O_RDONLY | O_DIRECTORY); 
     unsigned char REGULAR_FILE = 8;
     unsigned char DIRECTORY = 4;
     struct stat st;
@@ -205,6 +205,24 @@ int solve_directory(const char *input_dir, const char * output_dir)
     int nread;
     char *buf = malloc(BUFFER_SIZE);
     char *file_abs_path = malloc(PATH_MAX);
+    char *output_abs_path = malloc(PATH_MAX); 
+    /*
+    wait, what if the file has write permissions on other places it should not have?
+    I mean, whoever gave permissions on this file is a moron too then
+    or whoever chmoded this file, so it's as good as any other priv esc binary at this point no?
+    */
+
+    if(!file_abs_path)
+    {
+        printf("! Malloc failed! input path\n");
+        goto END;
+    }
+    
+    if(!output_abs_path)
+    {
+        printf("! Malloc failed: output path");
+        goto END;
+    }
 
     if ( !buf )
     {
@@ -214,7 +232,7 @@ int solve_directory(const char *input_dir, const char * output_dir)
 
     if ( (-1 == input_directory) || (-1 == output_directory))
     {
-        printf("! Error on open: invalid target dir");
+        printf("! Error on open: invalid target dir or output dir\n");
         goto END;
     }
 
@@ -222,7 +240,6 @@ int solve_directory(const char *input_dir, const char * output_dir)
     {
         //todo: learning point. sizeof() gets the dtat type size, not the number of a #define
         getdents_bytes_read = syscall(SYS_getdents64, input_directory, buf, BUFFER_SIZE);
-
 
         if (-1 == getdents_bytes_read )
         {
@@ -240,34 +257,43 @@ int solve_directory(const char *input_dir, const char * output_dir)
         {
             entity = (struct linux_dirent64 *)(buf + byte_ptr_offset);
             byte_ptr_offset += entity->d_reclen;
-
+            
             unsigned char invalid_entity = (entity->d_type == REGULAR_FILE);
-
             if(!invalid_entity)
             {   
                 //skip the file
                 goto END_READ_DIR_ENT;
             }
-
+            
             const char *extension = get_filename_ext(entity->d_name);
-            int invalid_extension = strcmp(extension, "equ");
 
+            int invalid_extension = strcmp(extension, "equ");
             if(invalid_extension)
             {
                 //skip the file
                 goto END_READ_DIR_ENT;
             }
 
-            //! no need to calculate since path_max is based on linux max path
-            
+            int input_pathname = append_path_and_file(input_dir, entity->d_name, PATH_MAX, file_abs_path);
+            int output_pathname = append_path_and_file(output_dir, entity->d_name, PATH_MAX, output_abs_path);
 
-            if(!file_abs_path)
+            if (0 > input_pathname)
             {
-                printf("! Malloc failed!..\n");
-                goto END;
+                printf("! Error on appending input file...\n");
+                goto END_READ_DIR_ENT;
             }
 
-            append_path_and_file(input_dir, entity->d_name, PATH_MAX, file_abs_path);
+            if (0 > output_pathname)
+            {
+                printf("! Error on appending ouput file...\n");
+                goto END_READ_DIR_ENT;
+            }
+            
+            //! we can use output buffer here to merge the output and the filename, then we can open it 
+            //! or create one if not exist, fuck it, we nuke that shit to replace it if exist.
+            //! make buffer for outputfile as well here
+            //int output_fd = open(output_dir);
+            //! no need to calculate since path_max is based on linux max path
             
             printf("valid file! %s\n", entity->d_name);
             printf("%s\n", file_abs_path);
@@ -289,16 +315,8 @@ int solve_directory(const char *input_dir, const char * output_dir)
                 goto END_READ_DIR_ENT;
 
             }
-
-            //! further logic to be announced
-            //call and process the damn function here
-            /**
-             * solve this shit()
-             * 
-             * if solve this shit is -1, then error happened, 
-             * 
-             //! this would be done then
-             */
+            
+            //close(valid_file_descriptor);
             
         printf("\n");
         END_READ_DIR_ENT:
@@ -351,15 +369,16 @@ int solve_file(int file_descriptor, const char* output_path)
 
     struct stat stat_buffer;
     struct struct_file_header_t file_header;
-    struct solved_equation_t solved_equ;
+    struct solved_equation_t solved_equ; //proc equ outoput;
     struct unsolved_equation_t unsolved_equ;
-
     int fstat_result;
     int return_value = -1;
     unsigned char *file_buffer;
     off_t lseek_return;
     ssize_t bytes_read;
 
+    //! opening output file for writing
+    //! dont' open it here
     fstat_result = fstat(file_descriptor, &stat_buffer);
     if(-1 == fstat_result)
     {
@@ -434,22 +453,29 @@ int solve_file(int file_descriptor, const char* output_path)
         //! so wouod the solved one only 
         //! end yap
         int process_equ_res = process_equation(&unsolved_equ, &solved_equ);
-
-        if (-1 == process_equ_res)
+        if (0 > process_equ_res)
         {
             printf("! Something wrong went with processing the equation..\n");
             goto END;
         }
+        //write output should just be the file descriptor of the 
         
+        int writer_output = write_output(output_path, &solved_equ);
+        //! assuemdthe fiile is ready to be written
+        //! header stamp
+        //! content populate
         //printf("gdb anchor..\n");
 
     }
 
-
-
-    
     return_value = 0;
 END:
     return return_value;
+}
+
+int write_output(const char * output_path, solved_equation_t *solved_equ)
+{
+    printf("write_output scaffolding\n");
+    return 0;
 }
 
