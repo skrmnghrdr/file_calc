@@ -440,7 +440,7 @@ int solve_file(int file_descriptor, const char* output_path)
             printf("! Something wrong went with processing the equation..\n");
             goto END;
         }
-        */
+        
         //printf("gdb anchor..\n");
 
     }

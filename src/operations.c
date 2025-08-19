@@ -42,5 +42,8 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     //! load point anchor over here
     return_value = 0;
     return return_value;
-     
+    /*\
+    THIS DOes not even work on vs code ffs.
+    how would we put the extension here to work
+    */
 }
