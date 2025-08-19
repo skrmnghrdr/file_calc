@@ -2,7 +2,7 @@
  * This header is responsible for the mathematical operations/calculations
  * takes input and does the opeartions
  */
-
+//test comment for gitttt
 
 #include "structs.h"
 #include <endian.h>
