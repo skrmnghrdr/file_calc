@@ -38,7 +38,7 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     //! then plug to solved buffer
     //! and make another function to write it on the file
     //! with permissions
-    
+    //well what if we just saved this but we did not commit, what would happen
     //! load point anchor over here
     return_value = 0;
     return return_value;
