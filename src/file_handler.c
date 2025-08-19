@@ -476,17 +476,29 @@ END:
 
 int write_output(int output_file_desc, solved_equation_t *solved_equ)
 {
+    //! somehiow compiler inlines this one lol
+
     int return_me = -1; //:)
+    ssize_t write_output; 
+
     if( NULL == solved_equ)
     {
         printf("! Solved equation pointer nulll...\n");
         goto END;
     }
-    
+
     printf("About to write: ID: 0x%X\n", solved_equ->equation_id);
+    write_output = write(output_file_desc, solved_equ, sizeof(*solved_equ));
+    if(write_output < sizeof(*solved_equ))
+    {
+        printf("! Error occured on write..\n");
+        printf("! Begin cleansing the file of heresey...\n");
+        //! cleans or delete the file here someday in the future
+        //we flee for now
+        goto END;
+    }
 
-    write(output_file_desc, solved_equ, sizeof(*solved_equ));
-
+    
 END:
     return_me = 0;
     return return_me;
