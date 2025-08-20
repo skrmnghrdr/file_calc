@@ -102,12 +102,12 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     int HIGHER_INT_LIMIT = 0x05;
     int LOWER_UINT_LIMIT = 0x06;
     int HIGHER_UINT_LIMIT = 0x0C;
-    int INTEGER_TYPE = 0x01;
-    int UNSIGNED_INTERGER_TYPE = 0x02;
-    int SOLVED = 1;
-    int NOT_SOLVED = 0;
+    uint8_t INTEGER_TYPE = 0x01;
+    uint8_t UNSIGNED_INTERGER_TYPE = 0x02;
+    uint8_t SOLVED = 1;
+    uint8_t NOT_SOLVED = 0;
     int ERROR = 0;
-    int hehehe = 0x69E77077;
+    uint8_t hehehe = 0x9;
     solved_buffer->flags = NOT_SOLVED;
     solved_buffer->type = hehehe;
     int calc_error = 0x0; //simp calc uses non POSTIVE val
@@ -125,7 +125,7 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         solved_buffer->type = INTEGER_TYPE;
     }
 
-    if( (operator <= LOWER_UINT_LIMIT ) & ( operator <= HIGHER_UINT_LIMIT) )
+    if( (operator >= LOWER_UINT_LIMIT ) & ( operator <= HIGHER_UINT_LIMIT) )
     {
         operand_first.UINT = first_operand;
         operand_second.UINT = second_operand; 
@@ -137,6 +137,7 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     {
     case ADDITION:
         result.INT = add(operand_first.INT, operand_second.INT, &calc_error);
+        solved_buffer->type = INTEGER_TYPE;
         break;
     case SUBTRACTION:
         result.INT = subtract(operand_first.INT, operand_second.INT, &calc_error);

@@ -541,7 +541,7 @@ int solve_file(int input_file_desc, int output_file_desc)
             goto END_FOR_LOOP;
         }
         //write output should just be the file descriptor of the 
-
+        printf("[&&] GDB Anchor for debugging");
         //! change this later
         int write_result = write_output(output_file_desc, &solved_equ);
         //! assuemdthe fiile is ready to be written
