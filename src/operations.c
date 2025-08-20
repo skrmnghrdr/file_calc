@@ -32,15 +32,14 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
      *         -1 for error
      *
      */
-     //test change to see if anything changes on the github
-     //make copies and convert to little endian
     int return_value = -1;
-     //! structs come with value.
-     //! it's already little endian, so we put it to normal to match the equ_viewer.py
-    uint32_t equation_id = htobe32(unsolved_equ->equation_id);
-    uint64_t first_operand = htobe64(unsolved_equ->ptr_equation.operand_first);
+
+     //! equ_viewer.py displays it humanly, but process it endian little  
+    //htobe64 readable flip human
+    uint32_t equation_id = unsolved_equ->equation_id;
+    uint64_t first_operand = unsolved_equ->ptr_equation.operand_first;
     uint8_t operator = unsolved_equ->ptr_equation.operator;
-    uint64_t second_operand = htobe64(unsolved_equ->ptr_equation.operand_second);
+    uint64_t second_operand = unsolved_equ->ptr_equation.operand_second;
     //! one byte deos not need to be endianized
     
     //paranoia 101;
@@ -51,12 +50,20 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     printf("EquationID: 0x%X 1st: 0x%lX OP:0x%X 2nd: 0x%lX\n",equation_id, first_operand, operator, second_operand);
 
 
-    //todo start processing things here just deal with endianess and solve
-    //pass the value since we don't need things changed, solved_buffer is the output param
+    //solved_buffer is the output param
+    //solved_buffer is the output param
+    //solved_buffer is the output param
+    //solved_buffer is the output param
     solved_buffer->equation_id = equation_id;
-    solve_equation(first_operand, operator, second_operand, solved_buffer);
+    int solve_result = solve_equation(first_operand, operator, second_operand, solved_buffer);
+    if (0 > solve_result)
+    {
+        printf("! Solve equation something happneed.\n");
+        goto END;
+    }
 
     return_value = 0;
+END:
     return return_value;
 
 }
@@ -67,8 +74,10 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     /**
      * @brief solves the equation by populating the corresponding
      *        answer on the solved_buffer flag
+              //! note: operands should be in little endian
      * 
      * @calls:
+             //todo populate this
      * 
      * @args: takes in members of the ser_equ_format_t:
      *        see "include/structs.h"
@@ -80,74 +89,114 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
              //! OUTPUT PARAMETER: solved_equation_t *solved_buffer
              -1 on error:
              0 on success:
-     */ 
+     */  
+
     int return_me = -1;
     union type_data operand_first;
     union type_data operand_second;
+    union type_data result;
+    struct results struct_result = {0};
 
-
-    /**
-     * 
-        //! realized that it came from 8 byte field
-        //! so it would definitely fit in a 64 byte int duhhh
-
-        if operator > 0 & operator <= 5
-            use int64_t
-            operand_first.INT = first_operand //plug that shit brehj
-            operand_second.INT = second_operand
-        if operator <= 6 & operator <= 12
-            use UINT
-            operand_first.UINT =  first_operand
-            operand_second.UINT = second_operand
-        
-        switch() 
-            add(operand_first.INT, operand_second.UINT);
-            ..so on 
-            .. so forth
-            shower(you)
-            workout(you)
-
-        error_code = <whateverop>
-        if error, solved_buffer->flags = 0; //set manually down here
-        populate solution with nice E770 7777 ERRO RRRR lmaoo
-        [equ id][0][0][E770 7777] nice huh 
-    */
-
-    //spec dictates 
+    //spec dictates, fill the magic numbers
     int LOWER_INT_LIMIT = 0x01;
     int HIGHER_INT_LIMIT = 0x05;
     int LOWER_UINT_LIMIT = 0x06;
     int HIGHER_UINT_LIMIT = 0x0C;
-    //! stolen calculate() vars
+    int INTEGER_TYPE = 0x01;
+    int UNSIGNED_INTERGER_TYPE = 0x02;
+    int SOLVED = 1;
+    int NOT_SOLVED = 0;
+    int ERROR = 0;
+    int hehehe = 0x69E77077;
+    solved_buffer->flags = NOT_SOLVED;
+    solved_buffer->type = hehehe;
+    int calc_error = 0x0; //simp calc uses non POSTIVE val
     
-
+    if( (operator < LOWER_INT_LIMIT) || (operator > HIGHER_UINT_LIMIT) )
+    {
+        printf("[!] Heresy Detected. Invalid Operator...\n");
+        goto END;
+    }
 
     if( (LOWER_INT_LIMIT < operator ) & (HIGHER_INT_LIMIT >= operator) )
     {
         operand_first.INT = first_operand;
         operand_second.INT = second_operand;
+        solved_buffer->type = INTEGER_TYPE;
     }
 
     if( (operator <= LOWER_UINT_LIMIT ) & ( operator <= HIGHER_UINT_LIMIT) )
     {
         operand_first.UINT = first_operand;
         operand_second.UINT = second_operand; 
+        solved_buffer->type = UNSIGNED_INTERGER_TYPE;
     }
 
-    //!gameplan
-    /**
-     * included the calc above, no we just have to parse through and call the functions here.
-     * we don't have to touch the calculate function here, we just pass it on the ops using a switch case
-     * 
-     * we could implement the checks here instead of relying on the calculate function inside the simp calc.
-     * we could disect it, implement the check here and the swtich case for the direct use of operations
-     * 
-     */
-    //! begin stealing simpclaculator code
+    printf("[*] Processing Operator: 0x%02X\n", operator);
+    switch (operator)
+    {
+    case ADDITION:
+        result.INT = add(operand_first.INT, operand_second.INT, &calc_error);
+        break;
+    case SUBTRACTION:
+        result.INT = subtract(operand_first.INT, operand_second.INT, &calc_error);
+        break;
+    case MULTIPLICATION:
+        result.INT = 0x7FFFFFFFFFFFF;
+        result.INT = multiply(operand_first.INT, operand_second.INT, &calc_error);
+        break;
+    case DIVISION:
+        result.INT = divide(operand_first.INT, operand_second.INT, &calc_error);
+        break;
+    case MODULO:
+        result.INT = 0x7FFFFFFFFFFFF;
+        //! FYSAss, modulo, you forgot
+        //result.INT = modulo(operand_first.INT, operand_second.INT, &calc_error);
+        break;
+    case SHL:
+        result.UINT = shift_left(operand_first.UINT, operand_second.UINT, &calc_error);
+        break;
+    case SHR:
+        result.UINT = shift_right(operand_first.UINT, operand_second.UINT, &calc_error);
+        break;
+    case AND:
+        result.UINT = bitwise_and(operand_first.UINT, operand_second.UINT, &calc_error);
+        break;
+    case OR:
+        result.UINT = bitwise_or(operand_first.UINT, operand_second.UINT, &calc_error);
+        break;
+    case XOR:
+        result.UINT = bitwise_exclusive_or(operand_first.UINT, operand_second.UINT, &calc_error);
+        break;
+    case ROTL:
+        //! fix main calc
+        result.UINT =0xFFFFFFFFFFFF;
+        //result.UINT = rotate_left(operand_first.UINT, operand_second.UINT, &calc_error);
+        break;
+    case ROTR:
+        //! fix main calc
+        result.UINT =0xFFFFFFFFFFFF;
+        //result.UINT = rotate_right(operand_first.UINT, operand_second.UINT, &calc_error);
+        break;
+    default:
+        printf("[!] Operator showing signs of henneresey..\n");
+        calc_error = INVALID_OPERATOR_ERROR;
+        break;
+    }
 
-    solved_buffer->flags = 0x69;
-    solved_buffer->type = 0x69;
-    solved_buffer->solution = 0x6998888999999888;
+    if (calc_error)
+    {
+        printf("[!] Calc error! ewwor code:%d\n", calc_error);
+        printf("[!] The chapter master will hear about this..\n");
+        goto END;
+    }
+    
+    solved_buffer->solution = result.UINT;
     return_me = 0;
+    printf("[*]Final result:\nResult[%lX]\n", result.UINT);
+    solved_buffer->flags = SOLVED;
+    
+END:
+
     return return_me;
 }

@@ -15,6 +15,9 @@
         "dirent.h": "c",
         "unistd.h": "c",
         "endian.h": "c",
-        "calculator.h": "c"
+        "calculator.h": "c",
+        "limits.h": "c",
+        "errno.h": "c",
+        "fcntl.h": "c"
     }
 }

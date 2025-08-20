@@ -36,6 +36,7 @@
 #define ROTATE_LEFT_ERROR 66
 #define ROTATE_RIGHT_ERROR 67
 #define MODULO_ERROR 68
+#define INVALID_OPERATOR_ERROR 69
 #define UNKNOWN_ERROR 999
 
 extern int debug_on;

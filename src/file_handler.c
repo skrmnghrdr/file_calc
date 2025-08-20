@@ -511,10 +511,10 @@ int solve_file(int input_file_desc, int output_file_desc)
         struct ser_equ_format_t serialized_equation = unsolved_equ.ptr_equation;
 
         //sanity check
-        
+        //prints lil endianed
         read(input_file_desc, &unsolved_equ, sizeof(unsolved_equ));
         printf("Values: equ id: %X\n", unsolved_equ.equation_id);
-        printf("Operand_first: %ld, Operator %02x Operand_second: %ld\n",
+        printf("Operand_first: %lX, Operator %02X Operand_second: %lX\n",
                 serialized_equation.operand_first,
                 serialized_equation.operator,
                 serialized_equation.operand_second

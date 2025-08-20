@@ -507,7 +507,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
         debug();
     }
 
-    
+
 EXIT:
     return;
 }
