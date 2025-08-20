@@ -19,8 +19,8 @@
 
 
 int debug_on = 0;
-__INT32_TYPE__ x = 0;
-__INT32_TYPE__ y = 0;
+int64_t x = 0;
+int64_t y = 0;
 
 int calc_error = 0;
 int *ptr_calc_error = &calc_error;
@@ -52,10 +52,10 @@ int int_check_min_max(uint64_t xxx, uint64_t yyy){
      * calm down and not rely on the operand.
      */
     if(
-        (xxx > UINT64_MAX) || 
-        (xxx < UINT64_MIN) ||
-        (yyy > UINT64_MAX) ||
-        (yyy < UINT64_MIN)  )
+        (xxx > INT64_MAX) || 
+        (xxx < INT64_MIN) ||
+        (yyy > INT64_MAX) ||
+        (yyy < INT64_MIN)  )
     {
         return 1;
     }
@@ -75,12 +75,8 @@ int uint_check_min_max(uint64_t xxx, uint64_t yyy){
     return 0;
 }
 
-int check_valid_input(__INT32_TYPE__ xxx, char operand, __INT32_TYPE__ yyy){
-    //fix this later
-    return 0;
-}
 
-__INT32_TYPE__ add(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error){
+int64_t add(int64_t xxx, int64_t yyy, int *calc_error){
     /**
      * @brief adding two numbers with over and underflow checks
      * extern int calc_error returns error code
@@ -89,14 +85,14 @@ __INT32_TYPE__ add(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error){
     //would work here as well, 
     //print the error
     //return exit code to user pass/fail
-    __INT32_TYPE__ result = 0;
+    int64_t result = 0;
     *calc_error = 0;
 
     if(
         //overflow check
-        ((xxx > 0) && (yyy > (INT32_MAX - xxx))) ||
+        ((xxx > 0) && (yyy > (INT64_MAX - xxx))) ||
         //underflow check
-        ((xxx < 0 ) && (yyy < (INT32_MIN - xxx)))
+        ((xxx < 0 ) && (yyy < (INT64_MIN - xxx)))
     )
     {
         debug();
@@ -111,14 +107,14 @@ __INT32_TYPE__ add(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error){
     }
 }
 
-__INT32_TYPE__ subtract(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error){
-     __INT32_TYPE__ result = 0;
+int64_t subtract(int64_t xxx, int64_t yyy, int *calc_error){
+     int64_t result = 0;
      *calc_error = 0;
     if(
         //overflow check
-        ((xxx < 0) && (yyy > (INT32_MAX + xxx))) ||
+        ((xxx < 0) && (yyy > (INT64_MAX + xxx))) ||
         //underflow check
-        ((xxx > 0 ) && (yyy < (INT32_MIN + xxx)))
+        ((xxx > 0 ) && (yyy < (INT64_MIN + xxx)))
         //alright, took some time in this, but umm yeah
     )
     {
@@ -134,9 +130,9 @@ __INT32_TYPE__ subtract(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error)
     }
 }
 
-__INT32_TYPE__ multiply(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error){
+int64_t multiply(int64_t xxx, int64_t yyy, int *calc_error){
 
-    __INT32_TYPE__ result = 0;
+    int64_t result = 0;
     *calc_error = 0;
     //do not forget to check for 0 since we are diving here
     
@@ -144,7 +140,7 @@ __INT32_TYPE__ multiply(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error)
     if( (0 == yyy || 0 == xxx )){
         goto MUL_END;
     }
-    if ((xxx == INT32_MIN && yyy == -1) || (yyy == INT32_MIN && xxx == -1))
+    if ((xxx == INT64_MIN && yyy == -1) || (yyy == INT64_MIN && xxx == -1))
     {
         *calc_error = MULTIPLICATION_ERROR;
         goto MUL_END;
@@ -152,7 +148,7 @@ __INT32_TYPE__ multiply(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error)
 
     if(yyy > 0)
     {
-        if((xxx > (INT32_MAX / yyy))||(xxx < (INT32_MIN / yyy)))
+        if((xxx > (INT64_MAX / yyy))||(xxx < (INT64_MIN / yyy)))
         {
         debug();
         *calc_error = MULTIPLICATION_ERROR;
@@ -162,8 +158,8 @@ __INT32_TYPE__ multiply(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error)
     {
     //y negative, so we check the abs value of y, but be weary if y is -1 
     //conveniently we can goto from here, so would just send the goto on return 0 with error code
-        __INT32_TYPE__ abs_yyy = abs(yyy);
-        if((xxx > (INT32_MAX / abs_yyy))||(xxx < (INT32_MIN / abs_yyy)))
+        int64_t abs_yyy = abs(yyy);
+        if((xxx > (INT64_MAX / abs_yyy))||(xxx < (INT64_MIN / abs_yyy)))
         {
         debug();
         *calc_error = MULTIPLICATION_ERROR;
@@ -180,18 +176,18 @@ MUL_END:
 
 }
 
-__INT32_TYPE__ jet2holiday(){
+int64_t jet2holiday(){
     //print this if you detect bad input or over/underflow
     printf("\xe2\x99\xac\xe2\x99\xaa\xe2\x99\xb6\x20\x44\x61\x52\x6c\x31\x6e\x47\x20\x48\x6f\x4c\x64\x20\x4d\x79\x20\x48\x61\x41\x61\x41\x6e\x44\x21\x20\xe2\x99\xb6\xe2\x99\xaa\xe2\x99\xb6\x0a\x6e\x4f\x74\x48\x69\x4e\x67\x20\x42\x65\x41\x74\x53\x20\x61\x20\x4a\x65\x54\x32\x48\x6f\x6c\x49\x64\x41\x79\x20\x61\x4e\x64\x20\x52\x69\x67\x48\x74\x4e\x6f\x57\x20\x79\x4f\x75\x20\x43\x61\x4e\x20\x73\x41\x76\x45\x20\x5e\x20\x32\x0a\x35\x30\x4c\x62\x73\x20\x50\x65\x52\x70\x75\x72\x72\x53\x75\x6e\x20\x20\x54\x68\x41\x41\x41\x74\x27\x73\x20\x32\x6f\x30\x4c\x42\x73\x20\x6f\x46\x66\x66\x20\x34\x20\x40\x20\x46\x61\x4d\x69\x6c\x59\x20\x6f\x66\x20\x46\x6f\x57\x65\x72\x2e\x2e\x0a");
   return 1;
 }
-__INT32_TYPE__ divide(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error){
+int64_t divide(int64_t xxx, int64_t yyy, int *calc_error){
     //div is a unique case
-    __INT32_TYPE__ result = 0;
+    int64_t result = 0;
     *calc_error = 0;
     debug();
     if(
-        (-1 == xxx || -1 == yyy) && (INT32_MIN == yyy || INT32_MIN == xxx)
+        (-1 == xxx || -1 == yyy) && (INT64_MIN == yyy || INT64_MIN == xxx)
     )
     {
         *calc_error = DIVISION_ERROR;
@@ -205,13 +201,13 @@ __INT32_TYPE__ divide(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy, int *calc_error){
     return result;
 
 }
-__INT32_TYPE__ modulo(__INT32_TYPE__ xxx, __INT32_TYPE__ yyy);
+int64_t modulo(int64_t xxx, int64_t yyy);
 
 /* start of bitwise functions */
 
-__UINT32_TYPE__ shift_left(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *calc_error){
+uint64_t shift_left(uint64_t number, uint64_t bits, int *calc_error){
     /* we'll have to do another separate check here so  that this one won't overflow since uint has one more bit highher thatn signed int*/
-    __UINT32_TYPE__ result = 0;
+    uint64_t result = 0;
     //convert to double so pow will not cry
     double db_base = (double) 2;
     double db_bits = (double) bits;
@@ -223,8 +219,8 @@ __UINT32_TYPE__ shift_left(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *ca
         goto SHL_END;
     }
 
-    __UINT32_TYPE__ exponent = (__UINT32_TYPE__) pow(db_base, db_bits);
-    __UINT32_TYPE__ cieling = (UINT32_MAX / exponent);
+    uint64_t exponent = (uint64_t) pow(db_base, db_bits);
+    uint64_t cieling = (UINT32_MAX / exponent);
 
     if(0 == bits){
         //no bits to move
@@ -245,37 +241,37 @@ SHL_END:
 }
 
 //BEGIN BITWISE
-__UINT32_TYPE__ bitwise_and(__UINT32_TYPE__ first_num, __UINT32_TYPE__ second_num, int *calc_error){
+uint64_t bitwise_and(uint64_t first_num, uint64_t second_num, int *calc_error){
     /*input was checked before hand, no concern of over/underflow if input was within range*/
     debug();
-    __UINT32_TYPE__ result = 0;
+    uint64_t result = 0;
     result = (first_num & second_num);
     return result;
 }
 
-__UINT32_TYPE__ bitwise_or(__UINT32_TYPE__ first_num, __UINT32_TYPE__ second_num, int *calc_error){
+uint64_t bitwise_or(uint64_t first_num, uint64_t second_num, int *calc_error){
 
-    __UINT32_TYPE__ result = 0;
+    uint64_t result = 0;
     result = (first_num | second_num);
     return result;
 }
-__UINT32_TYPE__ bitwise_exclusive_or(__UINT32_TYPE__ first_num, __UINT32_TYPE__ second_num, int *calc_error){
+uint64_t bitwise_exclusive_or(uint64_t first_num, uint64_t second_num, int *calc_error){
 
-    __UINT32_TYPE__ result = 0;
+    uint64_t result = 0;
     result = (first_num ^ second_num);
     debug();
     return result;
 }
 
-__UINT32_TYPE__ shift_right(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *calc_error){
+uint64_t shift_right(uint64_t number, uint64_t bits, int *calc_error){
     
     /* we'll have to do another separate check here so  that this one won't overflow since uint has one more bit highher thatn signed int*/
-    __UINT32_TYPE__ result = 0;
+    uint64_t result = 0;
     //convert to double so pow will not cry
     double db_base = (double) 2;
     double db_bits = (double) bits;
     const int MAX_BITS = 31;
-    __UINT32_TYPE__ exponent = 0;
+    uint64_t exponent = 0;
 
     //you would not have the ceiling issue with this since it would always be diviging, as long as the bitJ
     if(0 == bits){
@@ -285,22 +281,22 @@ __UINT32_TYPE__ shift_right(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *c
     }else if(MAX_BITS < bits){
         *calc_error = SHIFT_ERROR;
     }else{
-        __UINT32_TYPE__ exponent = (__UINT32_TYPE__) pow(db_base, db_bits);
+        uint64_t exponent = (uint64_t) pow(db_base, db_bits);
         result = number / exponent;
     }
 
     return result;
 }
-__UINT32_TYPE__ rotate_left(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *calc_error){
+uint64_t rotate_left(uint64_t number, uint64_t bits, int *calc_error){
     /* rotate number by bits. stolen from geeksforgeeks.com*/
     //number = abs(number); optional
     //bits = abs(bits);
     //return (n << d) | (n >> (INT_BITS - d));
     *calc_error = 0;
-    __UINT32_TYPE__ return_me = 0;
-    __UINT32_TYPE__ num_shift_left = 0;
-    __UINT32_TYPE__ num_fall_off_bits = 0;
-    __UINT32_TYPE__ fall_shift_by = 0;
+    uint64_t return_me = 0;
+    uint64_t num_shift_left = 0;
+    uint64_t num_fall_off_bits = 0;
+    uint64_t fall_shift_by = 0;
 
     if( (number < 0 || bits < 0) || (bits > MAX_INT_BITS) )  {
         //fix this damn if statement
@@ -312,9 +308,9 @@ __UINT32_TYPE__ rotate_left(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *c
     {
         //calculate should check if the uint value would be legal, so 
         //we do not have to worry
-        __UINT32_TYPE__ fall_shift_by = (MAX_INT_BITS - bits);
-        __UINT32_TYPE__ num_shift_left = shift_left(number, bits, calc_error);
-        __UINT32_TYPE__ num_fall_off_bits = shift_right(number, fall_shift_by, calc_error);
+        uint64_t fall_shift_by = (MAX_INT_BITS - bits);
+        uint64_t num_shift_left = shift_left(number, bits, calc_error);
+        uint64_t num_fall_off_bits = shift_right(number, fall_shift_by, calc_error);
 
         //never hurts to double check (n >> (INT_BITS - d));
         if(*calc_error != 0){
@@ -328,7 +324,7 @@ __UINT32_TYPE__ rotate_left(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *c
 ROT_LEFT_EXIT:
     return return_me;
 }
-__UINT32_TYPE__ rotate_right(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *calc_error){
+uint64_t rotate_right(uint64_t number, uint64_t bits, int *calc_error){
     *calc_error = 0;
     //apparently the larger the number, the less you need to rotate, 
     //copy pasted from rotate_left, just tweaked for ease,
@@ -337,10 +333,10 @@ __UINT32_TYPE__ rotate_right(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *
     //bits = abs(bits);
     //return (n << d) | (n >> (INT_BITS - d));
     *calc_error = 0;
-    __UINT32_TYPE__ return_me = 0;
-    __UINT32_TYPE__ num_shift_left = 0;
-    __UINT32_TYPE__ num_fall_off_bits = 0;
-    __UINT32_TYPE__ fall_shift_by = 0;
+    uint64_t return_me = 0;
+    uint64_t num_shift_left = 0;
+    uint64_t num_fall_off_bits = 0;
+    uint64_t fall_shift_by = 0;
 
     //FIX FUNCTIONS LIKE A SHIFT LEFT FOR NOW
     if( (number < 0 || bits < 0) || (bits > MAX_INT_BITS) )  
@@ -350,10 +346,10 @@ __UINT32_TYPE__ rotate_right(__UINT32_TYPE__ number, __UINT32_TYPE__ bits, int *
     }
     else
     {
-        __UINT32_TYPE__ fall_shift_by = (MAX_INT_BITS - bits);
+        uint64_t fall_shift_by = (MAX_INT_BITS - bits);
         //swapped the move right to the shift left heree
-        __UINT32_TYPE__ num_shift_left = shift_right(number, bits, calc_error);
-        __UINT32_TYPE__ num_fall_off_bits = shift_left(number, fall_shift_by, calc_error);
+        uint64_t num_shift_left = shift_right(number, bits, calc_error);
+        uint64_t num_fall_off_bits = shift_left(number, fall_shift_by, calc_error);
  
         if(*calc_error != 0)
         {
@@ -384,10 +380,10 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
      *         error: -1
      *         success: 0
      */
-    __UINT32_TYPE__ u_first_number = 0;
-    __UINT32_TYPE__ u_second_number = 0;
-    __INT32_TYPE__ first_number = 0;
-    __INT32_TYPE__ second_number = 0;
+    uint64_t u_first_number = 0;
+    uint64_t u_second_number = 0;
+    int64_t first_number = 0;
+    int64_t second_number = 0;
     //int USE_UNSIGNED_INT = 1;
     int INVALID_UINT_VAL = uint_check_min_max(xxx, yyy);
     int INVALID_INT_VAL = int_check_min_max(xxx, yyy);
@@ -421,7 +417,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     if(0 == (strcmp(operand, "<<") | INVALID_UINT_VAL) )
     {
         //stack gets here, but somehow, shl is 0?
-        __UINT32_TYPE__ result = shift_left(u_first_number, u_second_number, ptr_calc_error);
+        uint64_t result = shift_left(u_first_number, u_second_number, ptr_calc_error);
 
         ptr_struct_result->print_flag = PRINT_UINT;
         ptr_struct_result->uint32_result = result;
@@ -429,14 +425,14 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     }
     else if (0 == (strcmp(operand, ">>") | INVALID_UINT_VAL) )
     {
-        __UINT32_TYPE__ result = shift_right(u_first_number, u_second_number, ptr_calc_error);
+        uint64_t result = shift_right(u_first_number, u_second_number, ptr_calc_error);
 
         ptr_struct_result->print_flag = PRINT_UINT;
         ptr_struct_result->uint32_result = result;
     }
     else if(0 == (strcmp(operand, "&") | INVALID_UINT_VAL) )
     {
-        __UINT32_TYPE__ result = bitwise_and(u_first_number, u_second_number, ptr_calc_error);
+        uint64_t result = bitwise_and(u_first_number, u_second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_UINT;
         ptr_struct_result->uint32_result = result;
@@ -444,7 +440,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     }
     else if (0 == (strcmp(operand, "|") | INVALID_UINT_VAL) )
     {
-        __UINT32_TYPE__ result = bitwise_or(u_first_number, u_second_number, ptr_calc_error);
+        uint64_t result = bitwise_or(u_first_number, u_second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_UINT;
         ptr_struct_result->uint32_result = result;
@@ -452,7 +448,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     }
     else if (0 == (strcmp(operand, "^") | INVALID_UINT_VAL) )
     {
-        __UINT32_TYPE__ result = bitwise_exclusive_or(u_first_number, u_second_number, ptr_calc_error);
+        uint64_t result = bitwise_exclusive_or(u_first_number, u_second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_UINT;
         ptr_struct_result->uint32_result = result;
@@ -461,7 +457,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     //BEGIN SIGNED INT OPS
     else if (0 == (strcmp(operand, "+") | INVALID_INT_VAL) )
     {
-        __INT32_TYPE__ result = add(first_number, second_number, ptr_calc_error);
+        int64_t result = add(first_number, second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_INT;
         ptr_struct_result->int32_result = result;
@@ -469,7 +465,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     }
     else if (0 == (strcmp(operand, "-") | INVALID_INT_VAL) )
     {
-        __INT32_TYPE__ result = subtract(first_number, second_number, ptr_calc_error);
+        int64_t result = subtract(first_number, second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_INT;
         ptr_struct_result->int32_result = result;
@@ -477,7 +473,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     }
     else if (0 == (strcmp(operand, "*") | INVALID_INT_VAL) )
     {
-        __INT32_TYPE__ result = multiply(first_number, second_number, ptr_calc_error);
+        int64_t result = multiply(first_number, second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_INT;
         ptr_struct_result->int32_result = result;
@@ -485,7 +481,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     }
     else if (0 == (strcmp(operand, "/") | INVALID_INT_VAL) )
     {
-        __INT32_TYPE__ result = divide(first_number, second_number, ptr_calc_error);
+        int64_t result = divide(first_number, second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_INT;
         ptr_struct_result->int32_result = result;
@@ -494,7 +490,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     //being unimplemented function
     else if (0 == (strcmp(operand, "<<<") | INVALID_UINT_VAL) )
     {
-        __UINT32_TYPE__ result = rotate_left(first_number, second_number, ptr_calc_error);
+        uint64_t result = rotate_left(first_number, second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_UINT;
         //caught bug here! 
@@ -503,7 +499,7 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
     }
     else if (0 == (strcmp(operand, ">>>") | INVALID_UINT_VAL) )
     {
-        __UINT32_TYPE__ result = rotate_right(first_number, second_number, ptr_calc_error);
+        uint64_t result = rotate_right(first_number, second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_UINT;
         //caught bug here! //bug still here? idk, you took a fat break

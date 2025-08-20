@@ -119,8 +119,8 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     int LOWER_UINT_LIMIT = 0x06;
     int HIGHER_UINT_LIMIT = 0x0C;
     //! stolen calculate() vars
-    int INVALID_UINT_VAL;
-    int INVALID_INT_VAL;
+    
+
 
     if( (LOWER_INT_LIMIT < operator ) & (HIGHER_INT_LIMIT >= operator) )
     {
@@ -131,8 +131,7 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     if( (operator <= LOWER_UINT_LIMIT ) & ( operator <= HIGHER_UINT_LIMIT) )
     {
         operand_first.UINT = first_operand;
-        operand_second.UINT = second_operand;
-        
+        operand_second.UINT = second_operand; 
     }
 
     //!gameplan
