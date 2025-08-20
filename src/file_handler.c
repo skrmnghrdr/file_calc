@@ -349,13 +349,13 @@ int solve_directory(const char *input_dir, const char * output_dir)
 
             if (0 > input_pathname)
             {
-                printf("! Error on appending input file...\n");
+                printf("[!]File Handler:solve_directory Error on appending input file...\n");
                 goto END_READ_DIR_ENT;
             }
 
             if (0 > output_pathname)
             {
-                printf("! Error on appending ouput file...\n");
+                printf("[!] File handler:sovle_directory: Err on appending ouput file...\n");
                 goto END_READ_DIR_ENT;
             }
 
@@ -363,17 +363,17 @@ int solve_directory(const char *input_dir, const char * output_dir)
             int output_fd = open(output_abs_path, O_WRONLY | O_CREAT | O_TRUNC, 0644 );
             if (0 > output_fd)
             {
-                printf("! Error on creating/handling output file...\nSkipping\n");
+                printf("[!] File handler:sovle_directory: Error on creating/handling output file...\nSkipping\n");
                 goto END_READ_DIR_ENT;
             }
 
-            printf("valid file! %s\n", entity->d_name);
+            printf("[/] valid file! %s\n", entity->d_name);
             printf("%s\n", file_abs_path);
 
             int valid_header = head_checker(file_abs_path);
             if (0 > valid_header)
             {
-                printf("! Invalid header type!..\n");
+                printf("[!] File handler:sovle_directory: Invalid header type!..\n");
                 //skip
                 goto END_READ_DIR_ENT;
             }
@@ -381,7 +381,7 @@ int solve_directory(const char *input_dir, const char * output_dir)
             int slap_result = header_slapper(valid_header, output_fd);
             if (0 > slap_result)
             {
-                printf("! Something went wrong stamping the header.\n");
+                printf("[!] File handler:sovle_directory: Something went wrong stamping the header.\n");
                 //skip file
                 goto END_READ_DIR_ENT; 
             }
@@ -390,7 +390,7 @@ int solve_directory(const char *input_dir, const char * output_dir)
             int was_unsolved = solve_file(valid_header, output_fd);
             if(was_unsolved)
             {
-                printf("! Something wrong with file:%s skipping...\n", input_dir);
+                printf("[!] File handler:sovle_directory: Something wrong with file:%s skipping...\n", input_dir);
                 goto END_READ_DIR_ENT;
             }
             //! thou shall not forget
@@ -500,7 +500,7 @@ int solve_file(int input_file_desc, int output_file_desc)
     offset_to_equation = lseek64(input_file_desc, file_header.equation_offset, SEEK_SET);
     if(0 > offset_to_equation)
     {
-        printf("! Error on moving offset_to_equation lseek..\n");
+        printf("[!] File_handler:solve_file: Error on moving offset_to_equation lseek..\n");
         goto END;
     }
 
@@ -536,8 +536,9 @@ int solve_file(int input_file_desc, int output_file_desc)
         int process_equ_res = process_equation(&unsolved_equ, &solved_equ);
         if (0 > process_equ_res)
         {
-            printf("! Something wrong went with processing the equation..\n");
-            goto END;
+            printf("[!] File_handler:solve_file: Something wrong went with processing the equation..\n");
+            //fix this below to just skip the equation
+            goto END_FOR_LOOP;
         }
         //write output should just be the file descriptor of the 
 
@@ -547,9 +548,8 @@ int solve_file(int input_file_desc, int output_file_desc)
         //! header stamp
         //! content populate
         //printf("gdb anchor..\n");
-
+END_FOR_LOOP:
     }
-
     return_value = 0;
 END:
     return return_value;

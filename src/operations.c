@@ -58,7 +58,7 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     int solve_result = solve_equation(first_operand, operator, second_operand, solved_buffer);
     if (0 > solve_result)
     {
-        printf("! Solve equation something happneed.\n");
+        printf("[!] operations:process_equation Solve equation something happneed.\n");
         goto END;
     }
 
@@ -186,8 +186,8 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
 
     if (calc_error)
     {
-        printf("[!] Calc error! ewwor code:%d\n", calc_error);
-        printf("[!] The chapter master will hear about this..\n");
+        printf("[!] operations:solve_equation: Calc error! ewwor code:%d\n", calc_error);
+        printf("[!] operations:solve_equation:  The chapter master will hear about this..\n");
         goto END;
     }
     
