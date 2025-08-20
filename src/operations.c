@@ -52,29 +52,71 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
 
     //todo start processing things here just deal with endianess and solve
     //pass the value since we don't need things changed, solved_buffer is the output param
-
-    //solvethis(first_operand, operator, second_operand, &solved_buffer);
-    //! then plug to solved buffer
-
-    
-
-    //! for now, we just get the data and plug it back to write :)
-    //! call the damn calculator here you fucking moron.
-    /**
-     plug it to the buffer as stated below as well 
-     */
-    
-
-     
-    //! temp filler, this should be done by the solve_this.()
     solved_buffer->equation_id = equation_id;
-    solved_buffer->flags = 0x69;
-    solved_buffer->type = 0x69;
-    solved_buffer->solution = 0x6998888999999888;
-    //! end temp filler
-
+    solve_equation(first_operand, operator, second_operand, &solved_buffer);
 
     return_value = 0;
     return return_value;
 
+}
+
+
+int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_operand, solved_equation_t *solved_buffer)
+{
+    /**
+     * @brief solves the equation by populating the corresponding
+     *        answer on the solved_buffer flag
+     * 
+     * @calls:
+     * 
+     * @args: takes in members of the ser_equ_format_t:
+     *        see "include/structs.h"
+     *        unin64_t first_operand:
+     *        uint8_t operator: 0x01 to 0x0C
+     *        uint64_t second_operand:
+     * 
+     * @returns:
+             //! OUTPUT PARAMETER: solved_equation_t *solved_buffer
+             -1 on error:
+             0 on success:
+     */ 
+    int return_me = -1;
+    union type_data operand_first;
+    union type_data operand_second;
+
+
+    /**
+     * 
+        //! realized that it came from 8 byte field
+        //! so it would definitely fit in a 64 byte int duhhh
+
+        if operator > 0 & operator <= 5
+            use int64_t
+            operand_first.INT = first_operand //plug that shit brehj
+            operand_second.INT = second_operand
+        if operator <= 6 & operator <= 12
+            use UINT
+            operand_first.UINT =  first_operand
+            operand_second.UINT = second_operand
+        
+        switch() 
+            add(operand_first.INT, operand_second.UINT);
+            ..so on 
+            .. so forth
+            shower(you)
+            workout(you)
+
+        error_code = <whateverop>
+        if error, solved_buffer->flags = 0; //set manually down here
+        populate solution with nice E770 7777 ERRO RRRR lmaoo
+        [equ id][0][0][E770 7777] nice huh
+    */
+
+
+    
+    solved_buffer->flags = 0x69;
+    solved_buffer->type = 0x69;
+    solved_buffer->solution = 0x6998888999999888;
+    return_me = 0;
+    return return_me;
 }
