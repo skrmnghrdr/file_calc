@@ -418,7 +418,8 @@ int solve_file(int input_file_desc, int output_file_desc)
 {
     /**
      * @brief: this function solves the file via process_equation() and calls file_write() 
-     *         to write it on output_file_desc. Use of fstat is recommended as we are working 
+     *         to write it on output_file_desc. Use of fstat is recommended as we are   
+     *         working 
      *         with file_desc
               //! on failure, this function closes file_descriptor arg.
      * 
@@ -426,26 +427,19 @@ int solve_file(int input_file_desc, int output_file_desc)
      *         operations();
      * 
      * @args: 
-     *       int file_descriptor: valid file_descriptor of the file we're solving
+     *       int file_descriptor: valid file_descriptor of the file 
+     *       we're solving
      *       int output_file_desc: file desc to write the ouput
      */
 
-    //!start yap
     /**
-     * starts seeking via offset, starts loading a struct, (we might haev to make struct equation to) load it there.
-     * calls the operation to solve it();
-     * operation returns with the answer or something; () //utilize the  
      * 
-     * check if the file exists, and if it does, fucking overwrite it anwyayas
-     *  open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-     * print the O_CREATE FLAG to cerate a file, 
+     * It is recommended to use an array to hold the data for each file,
+     *  and dynamic memory allocation on the heap to hold all file data.
      * 
-     * 
-     * It is recommended to use an array to hold the data for each file, and dynamic memory
-    allocation on the heap to hold all file data.
-    I'm guessing we have to jsut dump everything in an array, since the file would not be that big of afile then
+     for bigger files, make a buffer multiplied by unsolved equ format
+
      */
-    //! end yap
 
     struct stat stat_buffer;
     struct struct_file_header_t file_header;
@@ -465,7 +459,7 @@ int solve_file(int input_file_desc, int output_file_desc)
         close(input_file_desc);
         goto END;
     }
-
+    printf("[*] New file!...\n\n");
     printf("File size: %jd bytes\n", (intmax_t) stat_buffer.st_size);
     file_buffer = malloc(stat_buffer.st_size + 1);
     if (NULL == file_buffer)
@@ -520,34 +514,21 @@ int solve_file(int input_file_desc, int output_file_desc)
                 serialized_equation.operand_second
                 );
         
-        //! start yap
-        //! limit functionality to basic functions for now
-        
-        /*
-        we would pass the unsolved equ pointer and deal with it on operations function
-        from there, we coudl deal with endianess,
-
-        the output would always be solved_equation_t
-        which the function would return and file_handler would just have to write it
-        
-        */
-        //! so wouod the solved one only 
-        //! end yap
+        //do not worry with endianess in memory, only when displaying it
         int process_equ_res = process_equation(&unsolved_equ, &solved_equ);
         if (0 > process_equ_res)
         {
             printf("[!] File_handler:solve_file: Something wrong went with processing the equation..\n");
-            //fix this below to just skip the equation
+            //! once done with file, mark header as not solved if error was ticked
             goto END_FOR_LOOP;
         }
-        //write output should just be the file descriptor of the 
-        printf("[&&] GDB Anchor for debugging");
-        //! change this later
+
+        
+        //printf("[&&] GDB Anchor for debugging\n\n");
+
         int write_result = write_output(output_file_desc, &solved_equ);
-        //! assuemdthe fiile is ready to be written
-        //! header stamp
+        //! header stamp to cehck if file should be solved or not
         //! content populate
-        //printf("gdb anchor..\n");
 END_FOR_LOOP:
     }
     return_value = 0;
@@ -568,7 +549,7 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
         goto END;
     }
 
-    printf("About to write: ID: 0x%X\n", solved_equ->equation_id);
+    printf("About to write: ID: 0x%X\n\n", solved_equ->equation_id);
     write_output = write(output_file_desc, solved_equ, sizeof(*solved_equ));
 
     if(write_output < sizeof(*solved_equ))

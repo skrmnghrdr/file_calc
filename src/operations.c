@@ -40,19 +40,20 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     uint64_t first_operand = unsolved_equ->ptr_equation.operand_first;
     uint8_t operator = unsolved_equ->ptr_equation.operator;
     uint64_t second_operand = unsolved_equ->ptr_equation.operand_second;
-    //! one byte deos not need to be endianized
+    // one byte deos not need to be endianized
     
     //paranoia 101;
     //! memset(&sovled_buffer.....) kills the pointer
     memset(solved_buffer, 0, sizeof(solved_buffer));
     
-    printf("The adjusted endiannes of the things are: \n");
-    printf("EquationID: 0x%X 1st: 0x%lX OP:0x%X 2nd: 0x%lX\n",equation_id, first_operand, operator, second_operand);
+    printf("[*] EquationID: 0x%X\n1st: 0x%lX\nOP:0x%02X\n2nd: 0x%lX\n",equation_id, first_operand, operator, second_operand);
+    //ld or llu
+    printf("[*] INT conversion:\n1st:%ld 2nd:%ld\n",(int64_t) first_operand, (int64_t)second_operand);
 
 
     //solved_buffer is the output param
-    //solved_buffer is the output param
-    //solved_buffer is the output param
+    //!solved_buffer is the output param
+    //todo solved_buffer is the output param
     //solved_buffer is the output param
     solved_buffer->equation_id = equation_id;
     int solve_result = solve_equation(first_operand, operator, second_operand, solved_buffer);
@@ -112,20 +113,23 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     solved_buffer->type = hehehe;
     int calc_error = 0x0; //simp calc uses non POSTIVE val
     
+    printf("[^^] GDB anchor here please...\n");
+
     if( (operator < LOWER_INT_LIMIT) || (operator > HIGHER_UINT_LIMIT) )
     {
         printf("[!] Heresy Detected. Invalid Operator...\n");
         goto END;
     }
 
-    if( (LOWER_INT_LIMIT < operator ) & (HIGHER_INT_LIMIT >= operator) )
+    if( (LOWER_INT_LIMIT <= operator ) && (HIGHER_INT_LIMIT >= operator) )
     {
+        //! somehow, populatingit here fucks it up, perhaps we should clear buffer?
         operand_first.INT = first_operand;
         operand_second.INT = second_operand;
         solved_buffer->type = INTEGER_TYPE;
     }
 
-    if( (operator >= LOWER_UINT_LIMIT ) & ( operator <= HIGHER_UINT_LIMIT) )
+    if( (operator >= LOWER_UINT_LIMIT ) && ( operator <= HIGHER_UINT_LIMIT) )
     {
         operand_first.UINT = first_operand;
         operand_second.UINT = second_operand; 
@@ -136,10 +140,14 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     switch (operator)
     {
     case ADDITION:
+        //! what is happening here the f
+        //! the operands passed to this function is right as per gdb
+        //!
         result.INT = add(operand_first.INT, operand_second.INT, &calc_error);
         solved_buffer->type = INTEGER_TYPE;
         break;
     case SUBTRACTION:
+        //subtrat seems to work
         result.INT = subtract(operand_first.INT, operand_second.INT, &calc_error);
         break;
     case MULTIPLICATION:
@@ -147,6 +155,7 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         result.INT = multiply(operand_first.INT, operand_second.INT, &calc_error);
         break;
     case DIVISION:
+        //somehow division works as well lol
         result.INT = divide(operand_first.INT, operand_second.INT, &calc_error);
         break;
     case MODULO:
@@ -171,12 +180,12 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         break;
     case ROTL:
         //! fix main calc
-        result.UINT =0xFFFFFFFFFFFF;
+        result.UINT =0xEEEEEEEEEEEE;
         //result.UINT = rotate_left(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
     case ROTR:
         //! fix main calc
-        result.UINT =0xFFFFFFFFFFFF;
+        result.UINT =0xEEEEEEEEEEEE;
         //result.UINT = rotate_right(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
     default:
