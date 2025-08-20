@@ -44,6 +44,7 @@
 
 //!new functions revamped
 int head_checker(char * abs_file_path);
+int header_slapper(int input_fd, int output_fd);
 int solve_directory(const char *input_dir, const char * output_dir);
 int solve_file(int input_file_desc, int output_file_desc);
 int write_output(int output_file_desc, solved_equation_t *solved_equ);

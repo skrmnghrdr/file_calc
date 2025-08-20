@@ -136,8 +136,9 @@ int head_checker(char * abs_file_path)
     
     struct struct_file_header_t header_struct = {0};
     int file_descriptor = -1;
-    char buffer[BUFFER_SIZE];
+    char buffer[BUFFER_SIZE]; //! dead code?
     ssize_t bytes_read;
+    loff_t lseek_return;
 
 
     //! check file permissions
@@ -165,21 +166,90 @@ int head_checker(char * abs_file_path)
         file_descriptor = -1;
         goto END;
     }
+
+    //lseek responsibly to the start 
+    lseek_return = lseek64(file_descriptor, 0, SEEK_SET);
+    if (-1 == lseek_return)
+    {
+        printf("! Error lseeking...\n");
+        goto END;
+    }
+
 END:
    return file_descriptor;
 }
+
+int header_slapper(int input_fd, int output_fd)
+{
+    /**
+     * @brief stamps the VERIFIED file header from the input_fd
+     *        TO the output_fd
+              //! this function does not check the header
+              //! use head_checker() to verify input first.
+     * 
+     * @args: 
+     *       int input_fd: file desc where we copy the header from
+     *       int output_fd: file desc where we slap the header to
+     * 
+     * @return:
+     *        error: -1
+     *        success: 0
+     * 
+     */
+    int return_me = -1;
+
+    struct struct_file_header_t header_struct = {0};
+    char *buffer;
+    ssize_t bytes_read;
+    ssize_t write_result;
+    loff_t lseek_return;
+    buffer = malloc(BUFFER_SIZE);
+
+    if(NULL == buffer)
+    {
+        printf("! Mallocation failed :9...\n");
+        goto END;
+    }
+    //read header
+    bytes_read = read(input_fd, &header_struct, sizeof(header_struct));
+    if( bytes_read < sizeof(header_struct))
+    {
+        printf("! Error reading header\n");
+        goto END;
+    }
+
+    write_result = write(output_fd, &header_struct, sizeof(header_struct));
+    if( write_result < sizeof(header_struct))
+    {
+        printf("! Header slapping corrupted..\n");
+        goto END;
+    }
+
+    //open and lseek responsibly
+
+
+    //write header
+
+    return_me = 0;
+END:
+    free(buffer);
+    return return_me;
+}
+
 
 
 int solve_directory(const char *input_dir, const char * output_dir)
 {
     /**
      * @brief: checks the directories enteties, and verifies the file ext,
-     *          verifies the header, feeds the file to file solver
+     *         verifies the header, feeds the file to file solver.
+     *          
      * 
      * @calls: file_checker()
      *         append_path_and_file()
      *         head_checker()
      *         get_filename_ext()
+     *         solve_file()
      * 
      * @args: 
      *          input dir: where we scan for .equ files
@@ -308,6 +378,8 @@ int solve_directory(const char *input_dir, const char * output_dir)
                 goto END_READ_DIR_ENT;
             }
 
+            int slap_result = header_slapper(valid_header, output_fd);
+
             //todo: function below 
             int was_unsolved = solve_file(valid_header, output_fd);
             if(was_unsolved)
@@ -339,11 +411,13 @@ END:
 int solve_file(int input_file_desc, int output_file_desc)
 {
     /**
-     * @brief: this function solves the file and calls file_write() to write it on output_file_desc
-     *         use of fstat is recommended as we are working with file_desc
+     * @brief: this function solves the file via process_equation() and calls file_write() 
+     *         to write it on output_file_desc. Use of fstat is recommended as we are working 
+     *         with file_desc
               //! on failure, this function closes file_descriptor arg.
      * 
-     * @calls: file_write(), operations();
+     * @calls: file_write(), 
+     *         operations();
      * 
      * @args: 
      *       int file_descriptor: valid file_descriptor of the file we're solving
@@ -424,6 +498,7 @@ int solve_file(int input_file_desc, int output_file_desc)
         goto END;
     }
 
+    //! header slap it here
     for(uint32_t iter = 0; iter < file_header.number_of_equations; iter++)
     {
         //! kernel tracks the offset when we keep reading
@@ -431,7 +506,7 @@ int solve_file(int input_file_desc, int output_file_desc)
 
         //sanity check
         
-        read(input_file_desc, &unsolved_equ, sizeof(unsolved_equation_t));
+        read(input_file_desc, &unsolved_equ, sizeof(unsolved_equ));
         printf("Values: equ id: %X\n", unsolved_equ.equation_id);
         printf("Operand_first: %ld, Operator %02x Operand_second: %ld\n",
                 serialized_equation.operand_first,
@@ -476,7 +551,7 @@ END:
 
 int write_output(int output_file_desc, solved_equation_t *solved_equ)
 {
-    //! somehiow compiler inlines this one lol
+    // somehiow compiler inlines this one lol as per gdb
 
     int return_me = -1; //:)
     ssize_t write_output; 
@@ -489,6 +564,7 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
 
     printf("About to write: ID: 0x%X\n", solved_equ->equation_id);
     write_output = write(output_file_desc, solved_equ, sizeof(*solved_equ));
+
     if(write_output < sizeof(*solved_equ))
     {
         printf("! Error occured on write..\n");
@@ -497,8 +573,9 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
         //we flee for now
         goto END;
     }
+    //todo: slap the file header in the file output here later, then continue with the operations 
 
-    
+
 END:
     return_me = 0;
     return return_me;

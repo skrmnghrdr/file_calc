@@ -18,7 +18,7 @@ void operations_check(){
 int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equation_t *solved_buffer)
 {
     /**
-     * @brief: processess the equation
+     * @brief: processess the equation, and loads the answer to solved_buffer
      * 
      * @args: 
      *        unsolved_equation_t *unsolved_equ: pointer to the 
@@ -46,21 +46,23 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     //! memset(&sovled_buffer.....) kills the pointer
     memset(solved_buffer, 0, sizeof(solved_buffer));
     
-    //! start processing things here
-    //! just deal with endianess and solve
+    //todo start processing things here just deal with endianess and solve
     //! then plug to solved buffer
-    //! and make another function to write it on the file
-    //! with permissions
+
     
     printf("The adjusted endiannes of the things are: \n");
     printf("EquationID: 0x%X 1st: 0x%lX OP:0x%X 2nd: 0x%lX\n",equation_id, first_operand, operator, second_operand);
+
     //! for now, we just get the data and plug it back to write :)
-    //! plug the solve back here, and let file_handler handle the file your moron.
+    //! call the damn calculator here you fucking moron.
+    /**
+     plug it to the buffer as stated below as well 
+     */
     
     solved_buffer->equation_id = equation_id; //throws a seg error wtf
     solved_buffer->flags = 0x69; //99 temporarry
     solved_buffer->type = 0x69;
-    solved_buffer->solution = 0x6998888999999;
+    solved_buffer->solution = 0x6998888999999888;
     
     //write this shit to a file somwhere and see
     return_value = 0;

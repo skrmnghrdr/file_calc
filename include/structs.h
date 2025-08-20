@@ -31,7 +31,9 @@ typedef struct unsolved_equation_t
     uint32_t equation_id;            //4 bytes long
     uint8_t flags;                   //ONE byte only
     struct ser_equ_format_t ptr_equation; //17 fat bytes
-    //TOTAL                          //22 BYTES
+    uint8_t padding[10];              //10 bytes pad
+
+    //TOTAL                          //32 BYTES
 } unsolved_equation_t;
 
 typedef struct solved_equation_t
