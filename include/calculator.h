@@ -9,12 +9,7 @@
  *
  */
 
-/* TODO
-double check if float is too much
-google says <float.h> has FLT_MAX, so
 
-or we could trim it down to to 5 decimal places for simplicity.
-*/
 
 #include <stdint.h>
 #include <stdio.h>
@@ -24,6 +19,7 @@ or we could trim it down to to 5 decimal places for simplicity.
 #define MAX_INT_BITS 32
 #define MAX_OPERAND_STR_LEN 5
 #define UINT32_MIN 0 //lmaoooooo
+#define UINT64_MIN 0 // nice huh
 //define struct flag
 #define PRINT_UINT 1
 #define PRINT_INT 2
@@ -51,8 +47,8 @@ extern __INT32_TYPE__ yyy;
 //debatable
 void debug();
 void usage();
-int int_check_min_max(long xxx, long yyy);
-int uint_check_min_max(long xxx, long yyy);
+int int_check_min_max(uint64_t xxx, uint64_t yyy);
+int uint_check_min_max(uint64_t xxx, uint64_t yyy);
 int check_valid_input(__INT32_TYPE__ xxx, char operand, __INT32_TYPE__ yyy);
 
 //STRUCT DECLARE

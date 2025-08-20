@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <operations.h>
 #include <string.h>
+#include <calculator.h>
 
 void operations_check(){
     /**
@@ -117,6 +118,9 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     int HIGHER_INT_LIMIT = 0x05;
     int LOWER_UINT_LIMIT = 0x06;
     int HIGHER_UINT_LIMIT = 0x0C;
+    //! stolen calculate() vars
+    int INVALID_UINT_VAL;
+    int INVALID_INT_VAL;
 
     if( (LOWER_INT_LIMIT < operator ) & (HIGHER_INT_LIMIT >= operator) )
     {
@@ -133,10 +137,15 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
 
     //!gameplan
     /**
-     * plug simple calc here right, but that's where all the ops should go, not on this.
+     * included the calc above, no we just have to parse through and call the functions here.
+     * we don't have to touch the calculate function here, we just pass it on the ops using a switch case
+     * 
+     * we could implement the checks here instead of relying on the calculate function inside the simp calc.
+     * we could disect it, implement the check here and the swtich case for the direct use of operations
      * 
      */
-    
+    //! begin stealing simpclaculator code
+
     solved_buffer->flags = 0x69;
     solved_buffer->type = 0x69;
     solved_buffer->solution = 0x6998888999999888;

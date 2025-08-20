@@ -8,6 +8,10 @@
  * 
  * 
  */
+
+
+//! you smell that? 
+//! some deadcode been here too long it's decomposing
 #include <calculator.h>
 #include <math.h>
 #include <string.h>
@@ -29,13 +33,17 @@ void debug(){
 }
 
 void usage(){
+    // do not print this usage, but due to program stability,
+    // we shall preserve this func 😱
+    /*
     printf("./simplecalc <argument1> <opearand> <argument2>\n");
     printf("example usage:\n./simplecalc 1 + 1\n");
     printf("./simplecalc 2 * 5\n");
+    */
     return;
 }
 
-int int_check_min_max(long xxx, long yyy){
+int int_check_min_max(uint64_t xxx, uint64_t yyy){
     /**
      * @brief checks xxx and yyy if they're both legal values of int32_max
      * we initally put long since strtol already has error checkin if we provide a long-er value than long
@@ -44,23 +52,23 @@ int int_check_min_max(long xxx, long yyy){
      * calm down and not rely on the operand.
      */
     if(
-        (xxx > INT32_MAX) || 
-        (xxx < INT32_MIN) ||
-        (yyy > INT32_MAX) ||
-        (yyy < INT32_MIN)  )
+        (xxx > UINT64_MAX) || 
+        (xxx < UINT64_MIN) ||
+        (yyy > UINT64_MAX) ||
+        (yyy < UINT64_MIN)  )
     {
         return 1;
     }
     return 0;
 }
 
-int uint_check_min_max(long xxx, long yyy){
+int uint_check_min_max(uint64_t xxx, uint64_t yyy){
     /** @brief samesies with int, just uint */
     if(
-        (xxx > UINT32_MAX) || 
-        (xxx < UINT32_MIN) ||
-        (yyy > UINT32_MAX) ||
-        (yyy < UINT32_MIN)  )
+        (xxx > UINT64_MAX) || 
+        (xxx < UINT64_MIN) ||
+        (yyy > UINT64_MAX) ||
+        (yyy < UINT64_MIN)  )
     {
         return 1;
     }
@@ -359,24 +367,22 @@ ROT_RIGHT_EXIT:
     return return_me;
 }
 
-void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *ptr_struct_result){
+void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *ptr_struct_result)
+{
+    //! change
     /**
-     * calculates based on the opeard and puts error on calc error as output parameter
-     * where operand is a null terminated string
+     * @brief refactor operand to take in numbers not chars
+     *        note:
+     *        salvaged function from simp calc
      * 
-     * refractor this one to return an error code, not just on the structs itself
-     * 
-     * this should return an error code, so I was thinking, we need to check the operand first, before plugging in the xxx and yyy into a variable, that way we don't keep invalid numbers in the stack
-     * 
-     * with hoff's advice on the enum,
-     * we could put it here first, wehere we check the operand, get the enum 
-     * then we get the translation in our table
-     * 
-     * we then check if the int was valid or not (uint, int value)
-     * then proceed to do the switch case
-     * 
-     * or we could iterate through the enum list, verifiy the value and just do the calculation since we already got it.
-     * this would remove the struct from being used completely as well, but since we are refractoring it, idk, we might or might not keep it as well.
+     * @args: xxx: first_operand
+     *        yyy: second_operands
+     *        
+     * @returns
+              OUTPUT PARAMETER: results *ptr_struct_result
+              //! implement
+     *         error: -1
+     *         success: 0
      */
     __UINT32_TYPE__ u_first_number = 0;
     __UINT32_TYPE__ u_second_number = 0;
