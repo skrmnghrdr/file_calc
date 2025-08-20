@@ -30,7 +30,7 @@ enum operations
     ROTL = 0X0B,
     ROTR = 0X0C
 
-}
+};
 //! use the op code to determine data type
 
 void operations_check();

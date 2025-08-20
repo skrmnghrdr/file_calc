@@ -379,6 +379,12 @@ int solve_directory(const char *input_dir, const char * output_dir)
             }
 
             int slap_result = header_slapper(valid_header, output_fd);
+            if (0 > slap_result)
+            {
+                printf("! Something went wrong stamping the header.\n");
+                //skip file
+                goto END_READ_DIR_ENT; 
+            }
 
             //todo: function below 
             int was_unsolved = solve_file(valid_header, output_fd);

@@ -53,7 +53,7 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     //todo start processing things here just deal with endianess and solve
     //pass the value since we don't need things changed, solved_buffer is the output param
     solved_buffer->equation_id = equation_id;
-    solve_equation(first_operand, operator, second_operand, &solved_buffer);
+    solve_equation(first_operand, operator, second_operand, solved_buffer);
 
     return_value = 0;
     return return_value;
@@ -109,10 +109,33 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         error_code = <whateverop>
         if error, solved_buffer->flags = 0; //set manually down here
         populate solution with nice E770 7777 ERRO RRRR lmaoo
-        [equ id][0][0][E770 7777] nice huh
+        [equ id][0][0][E770 7777] nice huh 
     */
 
+    //spec dictates 
+    int LOWER_INT_LIMIT = 0x01;
+    int HIGHER_INT_LIMIT = 0x05;
+    int LOWER_UINT_LIMIT = 0x06;
+    int HIGHER_UINT_LIMIT = 0x0C;
 
+    if( (LOWER_INT_LIMIT < operator ) & (HIGHER_INT_LIMIT >= operator) )
+    {
+        operand_first.INT = first_operand;
+        operand_second.INT = second_operand;
+    }
+
+    if( (operator <= LOWER_UINT_LIMIT ) & ( operator <= HIGHER_UINT_LIMIT) )
+    {
+        operand_first.UINT = first_operand;
+        operand_second.UINT = second_operand;
+        
+    }
+
+    //!gameplan
+    /**
+     * plug simple calc here right, but that's where all the ops should go, not on this.
+     * 
+     */
     
     solved_buffer->flags = 0x69;
     solved_buffer->type = 0x69;
