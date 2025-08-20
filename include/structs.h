@@ -48,7 +48,7 @@ typedef struct solved_equation_t
 
 //https://linux.die.net/man/2/getdents64
 struct linux_dirent64 {
-    //struct straight from the docs
+    //struct straight outta docs
     uint64_t        d_ino;    //inode number, like auuid of some sort
     int64_t         d_off;  
     unsigned short  d_reclen; /*important, since this would be our offset

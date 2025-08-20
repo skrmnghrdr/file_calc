@@ -11,6 +11,7 @@
         "structs.h": "c",
         "syscall.h": "c",
         "file_handler.h": "c",
-        "sysmacros.h": "c"
+        "sysmacros.h": "c",
+        "dirent.h": "c"
     }
 }

@@ -38,20 +38,25 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
      //! it's already little endian, so we put it to normal to match the equ_viewer.py
     uint32_t equation_id = htobe32(unsolved_equ->equation_id);
     uint64_t first_operand = htobe64(unsolved_equ->ptr_equation.operand_first);
+    uint8_t operator = unsolved_equ->ptr_equation.operator;
     uint64_t second_operand = htobe64(unsolved_equ->ptr_equation.operand_second);
     //! one byte deos not need to be endianized
-    uint8_t operator = unsolved_equ->ptr_equation.operator;
     
     //paranoia 101;
     //! memset(&sovled_buffer.....) kills the pointer
     memset(solved_buffer, 0, sizeof(solved_buffer));
     
+    printf("The adjusted endiannes of the things are: \n");
+    printf("EquationID: 0x%X 1st: 0x%lX OP:0x%X 2nd: 0x%lX\n",equation_id, first_operand, operator, second_operand);
+
+
     //todo start processing things here just deal with endianess and solve
+    //pass the value since we don't need things changed, solved_buffer is the output param
+
+    //solvethis(first_operand, operator, second_operand, &solved_buffer);
     //! then plug to solved buffer
 
     
-    printf("The adjusted endiannes of the things are: \n");
-    printf("EquationID: 0x%X 1st: 0x%lX OP:0x%X 2nd: 0x%lX\n",equation_id, first_operand, operator, second_operand);
 
     //! for now, we just get the data and plug it back to write :)
     //! call the damn calculator here you fucking moron.
@@ -59,12 +64,16 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
      plug it to the buffer as stated below as well 
      */
     
-    solved_buffer->equation_id = equation_id; //throws a seg error wtf
-    solved_buffer->flags = 0x69; //99 temporarry
+
+     
+    //! temp filler, this should be done by the solve_this.()
+    solved_buffer->equation_id = equation_id;
+    solved_buffer->flags = 0x69;
     solved_buffer->type = 0x69;
     solved_buffer->solution = 0x6998888999999888;
-    
-    //write this shit to a file somwhere and see
+    //! end temp filler
+
+
     return_value = 0;
     return return_value;
 
