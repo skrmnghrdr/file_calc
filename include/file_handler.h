@@ -143,6 +143,33 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ);
 */
 const char *get_filename_ext(const char *filename);
 
+/**
+ * @brief processes the valid file with a valid extension
+ *        opens file desc if file was valid 
+ * 
+ * @param p_ent_buffer getdents64() return buffer
+ * @param ent_buffer_size p_ent_buffer size
+ * @param getdents64_bytes_read  
+ * @return int 
+ *         err: -1
+ *         succ: 0
+ */
+int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_read, struct file_paths_t file_paths);
+
+/**
+ * @brief: verifies the entities file_type & extension
+          //! does not process the header, see header_checker()
+
+ * @param entity: struct linux_dirent64 from
+                  //https://linux.die.net/man/2/getdents64
+
+ * @return int 
+               err:-1
+               succ:0
+ */
+int verify_entity(struct linux_dirent64 entity);
+
+
 
 //!old unused ones
 void file_handler();
@@ -150,5 +177,7 @@ int read_file();
 int check_file_header();
 int print_header_byte_per_byte(struct struct_file_header_t file_header);
 //https://stackoverflow.com/questions/16831605/strange-compiler-warning-c-warning-struct-declared-inside-parameter-list
+
+
 
 #endif

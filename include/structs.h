@@ -68,4 +68,10 @@ struct linux_dirent64 {
 
     */
 };
+
+struct file_paths_t {
+    char input_dir[PATH_MAX];
+    char output_dir[PATH_MAX];
+} file_paths_t;
+
 #endif

@@ -88,14 +88,11 @@ const char *get_filename_ext(const char *filename)
 
 int head_checker(char * abs_file_path)
 {
-
-    
     struct struct_file_header_t header_struct = {0};
     int file_descriptor = -1;
     char buffer[BUFFER_SIZE]; //! dead code?
     ssize_t bytes_read;
     loff_t lseek_return;
-
 
     //! check file permissions
     //! we use stat since we just have the file path, not yet opened
@@ -193,24 +190,21 @@ int solve_directory(const char *input_dir, const char * output_dir)
     int output_directory = open(output_dir, O_RDONLY | O_DIRECTORY); 
     //! learning point, you don't open the dir as a write,
     //! they're special files, you just rdolnly them
-    unsigned char REGULAR_FILE = 8;
-    unsigned char DIRECTORY = 4;
+    struct file_paths_t file_paths;
     struct stat st;
-
     //long for the 64 version
     long getdents_bytes_read;
-    struct linux_dirent64 *entity;
     int nread;
     //! clear buffer right after 
     char *buf = malloc(BUFFER_SIZE); 
     char *file_abs_path = malloc(PATH_MAX);
-
     if(!file_abs_path)
     {
         printf("! Malloc failed! input path\n");
         //! free the buffs here
         goto END;
     }
+    
 
     char *output_abs_path = malloc(PATH_MAX); 
     if(!output_abs_path)
@@ -220,16 +214,6 @@ int solve_directory(const char *input_dir, const char * output_dir)
         file_abs_path = NULL;
         goto CLEAN_UP;
     }
-    /*
-    wait, what if the file has write permissions on other places it should not have?
-    I mean, whoever gave permissions on this file is a moron too then
-    or whoever chmoded this file, so it's as good as any other priv esc binary at this point no?
-    */
-
-
-    
-
-
     if ( !buf )
     {
         printf("! Malloc failed on buff! ...\n");
@@ -242,7 +226,7 @@ int solve_directory(const char *input_dir, const char * output_dir)
         goto END;
     }
 
-    for(;;)
+    for(                    ;                     ;                         ) //lol
     {
         //todo: learning point. sizeof() gets the dtat type size, not the number of a #define
         getdents_bytes_read = syscall(SYS_getdents64, input_directory, buf, BUFFER_SIZE);
@@ -259,85 +243,16 @@ int solve_directory(const char *input_dir, const char * output_dir)
             break;
         }
         //! refractor to another function
-        for( size_t byte_ptr_offset = 0; byte_ptr_offset < getdents_bytes_read;) 
+        snprintf(file_paths.input_dir, PATH_MAX, "%s", input_dir);
+        snprintf(file_paths.output_dir, PATH_MAX, "%s", output_dir);
+
+        int process_file_err = process_file(buf, BUFFER_SIZE,  getdents_bytes_read, file_paths);
+        if(-1 == process_file_err)
         {
-            //we could passt this on to a new function, and do the for loop inside 
-            //getting rid of almost 100 lines of code
-            entity = (struct linux_dirent64 *)(buf + byte_ptr_offset);
-            byte_ptr_offset += entity->d_reclen;
-            
-            unsigned char invalid_entity = (entity->d_type == REGULAR_FILE);
-            if(!invalid_entity)
-            {   
-                //skip the file
-                goto END_READ_DIR_ENT;
-            }
-            
-            const char *extension = get_filename_ext(entity->d_name);
-
-            int invalid_extension = strcmp(extension, "equ");
-            if(invalid_extension)
-            {
-                //skip the file
-                goto END_READ_DIR_ENT;
-            }
-
-            int input_pathname = append_path_and_file(input_dir, entity->d_name, PATH_MAX, file_abs_path);
-            int output_pathname = append_path_and_file(output_dir, entity->d_name, PATH_MAX, output_abs_path);
-
-            if (0 > input_pathname)
-            {
-                printf("[!]File Handler:solve_directory Error on appending input file...\n");
-                goto END_READ_DIR_ENT;
-            }
-
-            if (0 > output_pathname)
-            {
-                printf("[!] File handler:sovle_directory: Err on appending ouput file...\n");
-                goto END_READ_DIR_ENT;
-            }
-
-            //O_WRONLY | O_CREAT | O_TRUNC write and read, create if not there, overlap if exists
-            int output_fd = open(output_abs_path, O_WRONLY | O_CREAT | O_TRUNC, 0644 );
-            if (0 > output_fd)
-            {
-                printf("[!] File handler:sovle_directory: Error on creating/handling output file...\nSkipping\n");
-                goto END_READ_DIR_ENT;
-            }
-
-            printf("[/] valid file! %s\n", entity->d_name);
-            printf("%s\n", file_abs_path);
-
-            int valid_header = head_checker(file_abs_path);
-            if (0 > valid_header)
-            {
-                printf("[!] File handler:sovle_directory: Invalid header type!..\n");
-                //skip
-                goto END_READ_DIR_ENT;
-            }
-
-            int slap_result = header_slapper(valid_header, output_fd);
-            if (0 > slap_result)
-            {
-                printf("[!] File handler:sovle_directory: Something went wrong stamping the header.\n");
-                //skip file
-                goto END_READ_DIR_ENT; 
-            }
-
-            //todo: function below 
-            int was_unsolved = solve_file(valid_header, output_fd);
-            if(was_unsolved)
-            {
-                printf("[!] File handler:sovle_directory: Something wrong with file:%s skipping...\n", input_dir);
-                goto END_READ_DIR_ENT;
-            }
-            //! thou shall not forget
-            //! close(output_fd);
-            //! close(valid_file_descriptor);
-            
-        printf("\n");
-        END_READ_DIR_ENT:
+            //PRINT_DEBUG("[] file_handler:solve_directory Error at process_file")
+            goto END_SPIDER_LOOP;
         }
+
     END_SPIDER_LOOP:
     }
 
@@ -390,6 +305,7 @@ int solve_file(int input_file_desc, int output_file_desc)
     if (NULL == file_buffer)
     {
         printf("! Malloc error for file buffer..\n");
+        file_buffer = NULL;
         goto END;
     }
 
@@ -447,10 +363,6 @@ int solve_file(int input_file_desc, int output_file_desc)
             //! once done with file, mark header as not solved if error was ticked
             goto END_FOR_LOOP;
         }
-
-        
-        //printf("[&&] GDB Anchor for debugging\n\n");
-
         int write_result = write_output(output_file_desc, &solved_equ);
         //! header stamp to cehck if file should be solved or not
         //! content populate
@@ -458,6 +370,7 @@ END_FOR_LOOP:
     }
     return_value = 0;
 END:
+    free(file_buffer);
     return return_value;
 }
 
@@ -490,3 +403,104 @@ END:
     return return_me;
 }
 
+int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_read, struct file_paths_t file_paths ){
+    //All reasonable effort shall be taken to keep the length of each function limited to no more than 100 lines. 70+ lmaooo
+    //time to work out
+    int output_fd;
+    struct linux_dirent64 *entity; 
+    int return_value = -1;
+    int input_pathname;
+    int output_pathname;
+    int ent_validity;
+    char *file_abs_path = malloc(PATH_MAX);
+    memset(file_abs_path, 0, PATH_MAX);
+    if(NULL == file_abs_path)
+    {
+        //PRINT_DEBUG("[] file_handler:process_file err; file_abs_path is NULL");
+        goto END;
+    }
+    char *output_abs_path = malloc(PATH_MAX);
+    memset(output_abs_path, 0, PATH_MAX);
+    if(NULL == output_abs_path)
+    {
+        //PRINT_DEBUG("[] file_handler:process_file err; output_abs_path is NULL");
+        goto END;
+    }
+
+    for( size_t byte_ptr_offset = 0; byte_ptr_offset < getdents64_bytes_read;){
+        entity = (struct linux_dirent64 *)(p_ent_buffer + byte_ptr_offset);
+        byte_ptr_offset += entity->d_reclen;
+
+        ent_validity = verify_entity(*entity);
+        if(-1 == ent_validity){
+        //PRINT_DEBUG("[!] file_handler:process_file: invalid dir entitiy");
+        goto SKIP_ENTITY;
+        }
+        input_pathname = append_path_and_file(file_paths.input_dir, entity->d_name, PATH_MAX, file_abs_path);
+        output_pathname = append_path_and_file(file_paths.output_dir, entity->d_name, PATH_MAX, output_abs_path);
+
+        if ((0 > input_pathname) || (0 > output_pathname)){
+            //PRINT_DEBUG("[!]File Handler:solve_directory Error on appending input/ouput file...\n");
+            goto END;
+        }
+        //O_WRONLY | O_CREAT | O_TRUNC write and read, create if not there, overlap if exists
+        output_fd = open(output_abs_path, O_WRONLY | O_CREAT | O_TRUNC, 0644 );
+        if (0 > output_fd){
+            printf("[!] File handler:sovle_directory: Error on creating/handling output file...\nSkipping\n");
+            goto END;
+        }
+
+        int valid_header = head_checker(file_abs_path);
+        if (0 > valid_header){
+            printf("[!] File handler:sovle_directory: Invalid header type!..\n");
+            //skip
+            goto END;
+        }
+
+        int slap_result = header_slapper(valid_header, output_fd);
+        if (0 > slap_result){
+            printf("[!] File handler:sovle_directory: Something went wrong stamping the header.\n");
+            //skip file
+            goto END; 
+        }
+        //todo: function below 
+        int was_unsolved = solve_file(valid_header, output_fd);
+        if(was_unsolved){
+            printf("[!] File handler:sovle_directory: Something wrong with file:%s skipping...\n", file_abs_path);
+            goto END;
+        }
+            //! thou shall not forget
+            //! close(output_fd);
+            //! close(valid_file_descriptor);
+SKIP_ENTITY:
+        printf("\n");
+        }
+        return_value = 0;
+END:
+        return return_value;
+}
+
+
+int verify_entity(struct linux_dirent64 entity)
+{
+    unsigned char REGULAR_FILE = 8;
+    unsigned char DIRECTORY = 4;
+    int return_value = -1;
+    
+    unsigned char valid_entity = (entity.d_type == REGULAR_FILE);
+    if(!valid_entity)
+    {   
+        //skip the file
+        goto END;
+    }
+    const char *extension = get_filename_ext(entity.d_name);  
+    int invalid_extension = strcmp(extension, "equ");
+    if(invalid_extension)
+    {
+        //skip the file
+        goto END;
+    }
+    return_value = 0;
+END:
+    return return_value;
+}
