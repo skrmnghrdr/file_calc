@@ -9,6 +9,7 @@
  */
 
  //BEGIN GLOBAL VARIABLE
+ //! ask where to declare this
  uint32_t LEGIT_HEADER = 0xDD77BB55;
 
 static int append_path_and_file(const char *path, char *file, size_t buffer_size, char *buffer)
@@ -71,19 +72,10 @@ static int append_path_and_file(const char *path, char *file, size_t buffer_size
 END:
     return return_value;
 }
+
 const char *get_filename_ext(const char *filename)
 {
-    /**
-     * @brief https://stackoverflow.com/questions/5309471/getting-file-extension-in-c
-     * 
-     * args:
-     *      const char *filename: string filename to be processed
-     * return:
-     *      valid:
-     *      pointer to the first char after the period in the file extension
-     *      invalid:
-     *      returns nothing
-     */
+
     const char *dot = strrchr(filename, '.');
     if(!dot || dot == filename)
     {
@@ -94,45 +86,9 @@ const char *get_filename_ext(const char *filename)
 }
 
 
-struct struct_file_header_t* file_checker(struct linux_dirent64* entity)
-{
-    //! might not be needed
-    /**
-     * @brief:  this function checks if the file has the right extension
-     *          and the right header for processing
-     * 
-     * @args:   entity: struct linux_dirent64 from getdents64() man page
-     * 
-     * @returns:
-     *          valid:
-     *                  pointer to the file header for further process
-     *          error:
-     *                  returns a null pointer
-     */
-    struct struct_file_header_t *return_ptr = NULL;
-    //!implement logic here
-    return return_ptr;
-}
-
 int head_checker(char * abs_file_path)
 {
-    /**
-    //! WARNING: returns an open FILE DESCRIPTOR
-    //!         on success, and closes if failed.
 
-     * @brief:checks the permissions as stated on specs
-     *        checks the file header for legitimacy
-     * 
-     * @args:
-     *          abs_file_path: abs file path leading to the dir
-     *      
-     * 
-     * @returns:
-     *          success: 
-     *          int file_descriptor: fd of the opned file
-     *          failure:error:
-     *          int file_descriptor: -1 
-     */
     
     struct struct_file_header_t header_struct = {0};
     int file_descriptor = -1;
@@ -181,21 +137,6 @@ END:
 
 int header_slapper(int input_fd, int output_fd)
 {
-    /**
-     * @brief stamps the VERIFIED file header from the input_fd
-     *        TO the output_fd
-              //! this function does not check the header
-              //! use head_checker() to verify input first.
-     * 
-     * @args: 
-     *       int input_fd: file desc where we copy the header from
-     *       int output_fd: file desc where we slap the header to
-     * 
-     * @return:
-     *        error: -1
-     *        success: 0
-     * 
-     */
     int return_me = -1;
 
     struct struct_file_header_t header_struct = {0};
@@ -318,8 +259,10 @@ int solve_directory(const char *input_dir, const char * output_dir)
             break;
         }
         //! refractor to another function
-        for( size_t byte_ptr_offset = 0; byte_ptr_offset < getdents_bytes_read;)
+        for( size_t byte_ptr_offset = 0; byte_ptr_offset < getdents_bytes_read;) 
         {
+            //we could passt this on to a new function, and do the for loop inside 
+            //getting rid of almost 100 lines of code
             entity = (struct linux_dirent64 *)(buf + byte_ptr_offset);
             byte_ptr_offset += entity->d_reclen;
             
@@ -422,30 +365,6 @@ END:
 
 int solve_file(int input_file_desc, int output_file_desc)
 {
-    /**
-     * @brief: this function solves the file via process_equation() and calls file_write() 
-     *         to write it on output_file_desc. Use of fstat is recommended as we are   
-     *         working 
-     *         with file_desc
-              //! on failure, this function closes file_descriptor arg.
-     * 
-     * @calls: file_write(), 
-     *         operations();
-     * 
-     * @args: 
-     *       int file_descriptor: valid file_descriptor of the file 
-     *       we're solving
-     *       int output_file_desc: file desc to write the ouput
-     */
-
-    /**
-     * 
-     * It is recommended to use an array to hold the data for each file,
-     *  and dynamic memory allocation on the heap to hold all file data.
-     * 
-     for bigger files, make a buffer multiplied by unsolved equ format
-
-     */
 
     struct stat stat_buffer;
     struct struct_file_header_t file_header;
@@ -544,8 +463,6 @@ END:
 
 int write_output(int output_file_desc, solved_equation_t *solved_equ)
 {
-    // somehiow compiler inlines this one lol as per gdb
-
     int return_me = -1; //:)
     ssize_t write_output; 
 
@@ -567,7 +484,6 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
         goto END;
     }
     //todo: slap the file header in the file output here later, then continue with the operations 
-
 
 END:
     return_me = 0;

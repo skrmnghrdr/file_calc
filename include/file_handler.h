@@ -43,31 +43,104 @@
 
 
 //!new functions revamped
+/**
+//! WARNING: returns an open FILE DESCRIPTOR
+//!         on success, and closes if failed.
+
+* @brief:checks the permissions as stated on specs
+*        checks the file header for legitimacy
+* 
+* @args:
+*          abs_file_path: abs file path leading to the dir
+*      
+* 
+* @returns:
+*          success: 
+*          int file_descriptor: fd of the opned file
+*          failure:error:
+*          int file_descriptor: -1 
+*/
 int head_checker(char * abs_file_path);
+
+/**
+* @brief stamps the VERIFIED file header from the input_fd
+*        TO the output_fd
+              //! this function does not check the header
+              //! use head_checker() to verify input first.
+* 
+* @args: 
+*       int input_fd: file desc where we copy the header from
+*       int output_fd: file desc where we slap the header to
+* 
+* @return:
+*        error: -1
+*        success: 0
+* 
+*/
 int header_slapper(int input_fd, int output_fd);
 
 /**
-     * @brief: checks the directories enteties, and verifies the file ext,
-     *         verifies the header, feeds the file to file solver.
-     *          
-     * 
-     * @calls: file_checker()
-     *         append_path_and_file()
-     *         head_checker()
-     *         get_filename_ext()
-     *         solve_file()
-     * 
-     * @args: 
-     *          input dir: where we scan for .equ files
-     *          output dir: where to write the output
-     *          
-     * @returns: 
-     *          0 for no error
-     *          -1 for error
+* @brief: checks the directories enteties, and verifies the file ext,
+*         verifies the header, feeds the file to file solver.
+*          
+* 
+* @calls: file_checker()
+*         append_path_and_file()
+*         head_checker()
+*         get_filename_ext()
+*         solve_file()
+* 
+* @args: 
+*          input dir: where we scan for .equ files
+*          output dir: where to write the output
+*          
+* @returns: 
+*          0 for no error
+*          -1 for error
  */
 int solve_directory(const char *input_dir, const char * output_dir);
+
+
+/**
+     * @brief: this function solves the file via process_equation() and calls file_write() 
+*         to write it on output_file_desc. Use of fstat is recommended as we are   
+*         working 
+*         with file_desc
+//! on failure, this function closes file_descriptor arg.
+* 
+ * @calls: file_write(), 
+*         operations();
+* 
+ * @args: 
+*       int file_descriptor: valid file_descriptor of the file 
+*       we're solving
+*       int output_file_desc: file desc to write the ouput
+*/
 int solve_file(int input_file_desc, int output_file_desc);
+
+
+/**
+ * @brief writes to the output file desc 
+ * 
+ * @param output_file_desc: a valid file desc for writing
+ * @param solved_equ: the struct that will be written
+ * @return int 
+ *         err: -1
+ *         succ: 0
+ */
 int write_output(int output_file_desc, solved_equation_t *solved_equ);
+
+/**
+* @brief https://stackoverflow.com/questions/5309471/getting-file-extension-in-c
+* 
+* args:
+*      const char *filename: string filename to be processed
+* return:
+*      valid:
+*      pointer to the first char after the period in the file extension
+*      invalid:
+*      returns nothing
+*/
 const char *get_filename_ext(const char *filename);
 
 
