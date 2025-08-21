@@ -72,6 +72,7 @@ END:
 
 int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_operand, solved_equation_t *solved_buffer)
 {
+    //! shorten
     /**
      * @brief solves the equation by populating the corresponding
      *        answer on the solved_buffer flag
@@ -124,6 +125,7 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     if( (LOWER_INT_LIMIT <= operator ) && (HIGHER_INT_LIMIT >= operator) )
     {
         //! somehow, populatingit here fucks it up, perhaps we should clear buffer?
+        //working,. take a rbeak dipshit
         operand_first.INT = first_operand;
         operand_second.INT = second_operand;
         solved_buffer->type = INTEGER_TYPE;
@@ -137,12 +139,10 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     }
 
     printf("[*] Processing Operator: 0x%02X\n", operator);
+    //! map on c programming
     switch (operator)
     {
     case ADDITION:
-        //! what is happening here the f
-        //! the operands passed to this function is right as per gdb
-        //!
         result.INT = add(operand_first.INT, operand_second.INT, &calc_error);
         solved_buffer->type = INTEGER_TYPE;
         break;
@@ -179,7 +179,7 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         result.UINT = bitwise_exclusive_or(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
     case ROTL:
-        //! fix main calc
+        //! fix main calc 
         result.UINT =0xEEEEEEEEEEEE;
         //result.UINT = rotate_left(operand_first.UINT, operand_second.UINT, &calc_error);
         break;

@@ -3,6 +3,7 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 
+
 #pragma pack(1)
 typedef struct struct_file_header_t 
 {

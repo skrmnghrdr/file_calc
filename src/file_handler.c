@@ -240,31 +240,18 @@ END:
 
 int solve_directory(const char *input_dir, const char * output_dir)
 {
-    /**
-     * @brief: checks the directories enteties, and verifies the file ext,
-     *         verifies the header, feeds the file to file solver.
-     *          
-     * 
-     * @calls: file_checker()
-     *         append_path_and_file()
-     *         head_checker()
-     *         get_filename_ext()
-     *         solve_file()
-     * 
-     * @args: 
-     *          input dir: where we scan for .equ files
-     *          output dir: where to write the output
-     *          
-     * @returns: 
-     *          0 for no error
-     *          -1 for error
-     */
-
+    //! change params to p
     int return_value = -1;
+    if ((NULL == input_dir) || (NULL == output_dir) )
+    {
+        printf("[!] file_handler:solve_directory(): print mesg fo null pointer here.\n");
+        goto END;
+    }
+    //! check nulls
     int input_directory = open(input_dir, O_RDONLY | O_DIRECTORY);
+    int output_directory = open(output_dir, O_RDONLY | O_DIRECTORY); 
     //! learning point, you don't open the dir as a write,
     //! they're special files, you just rdolnly them
-    int output_directory = open(output_dir, O_RDONLY | O_DIRECTORY); 
     unsigned char REGULAR_FILE = 8;
     unsigned char DIRECTORY = 4;
     struct stat st;
@@ -273,26 +260,34 @@ int solve_directory(const char *input_dir, const char * output_dir)
     long getdents_bytes_read;
     struct linux_dirent64 *entity;
     int nread;
-    char *buf = malloc(BUFFER_SIZE);
+    //! clear buffer right after 
+    char *buf = malloc(BUFFER_SIZE); 
     char *file_abs_path = malloc(PATH_MAX);
+
+    if(!file_abs_path)
+    {
+        printf("! Malloc failed! input path\n");
+        //! free the buffs here
+        goto END;
+    }
+
     char *output_abs_path = malloc(PATH_MAX); 
+    if(!output_abs_path)
+    {
+        printf("! Malloc failed: output path");
+        free(file_abs_path);
+        file_abs_path = NULL;
+        goto CLEAN_UP;
+    }
     /*
     wait, what if the file has write permissions on other places it should not have?
     I mean, whoever gave permissions on this file is a moron too then
     or whoever chmoded this file, so it's as good as any other priv esc binary at this point no?
     */
 
-    if(!file_abs_path)
-    {
-        printf("! Malloc failed! input path\n");
-        goto END;
-    }
+
     
-    if(!output_abs_path)
-    {
-        printf("! Malloc failed: output path");
-        goto END;
-    }
+
 
     if ( !buf )
     {
@@ -322,7 +317,7 @@ int solve_directory(const char *input_dir, const char * output_dir)
             //finished reading dir
             break;
         }
-
+        //! refractor to another function
         for( size_t byte_ptr_offset = 0; byte_ptr_offset < getdents_bytes_read;)
         {
             entity = (struct linux_dirent64 *)(buf + byte_ptr_offset);
@@ -409,6 +404,17 @@ int solve_directory(const char *input_dir, const char * output_dir)
     close(input_directory);
     close(output_directory);
     return_value = 0;
+
+CLEAN_UP:
+    //code cave
+    /*
+    if (!NULL == buf)
+    {
+        free(buf);
+        buf == NULL;
+    }
+    */
+
 END:
     return return_value;
 }

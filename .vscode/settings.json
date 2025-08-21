@@ -18,6 +18,7 @@
         "calculator.h": "c",
         "limits.h": "c",
         "errno.h": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "utils.h": "c"
     }
 }

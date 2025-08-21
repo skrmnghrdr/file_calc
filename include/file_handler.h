@@ -45,6 +45,26 @@
 //!new functions revamped
 int head_checker(char * abs_file_path);
 int header_slapper(int input_fd, int output_fd);
+
+/**
+     * @brief: checks the directories enteties, and verifies the file ext,
+     *         verifies the header, feeds the file to file solver.
+     *          
+     * 
+     * @calls: file_checker()
+     *         append_path_and_file()
+     *         head_checker()
+     *         get_filename_ext()
+     *         solve_file()
+     * 
+     * @args: 
+     *          input dir: where we scan for .equ files
+     *          output dir: where to write the output
+     *          
+     * @returns: 
+     *          0 for no error
+     *          -1 for error
+ */
 int solve_directory(const char *input_dir, const char * output_dir);
 int solve_file(int input_file_desc, int output_file_desc);
 int write_output(int output_file_desc, solved_equation_t *solved_equ);

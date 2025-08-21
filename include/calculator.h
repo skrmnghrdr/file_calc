@@ -18,12 +18,14 @@
 
 #define MAX_INT_BITS 32
 #define MAX_OPERAND_STR_LEN 5
-#define UINT32_MIN 0 //lmaoooooo
-#define UINT64_MIN 0 // nice huh
+#define UINT32_MIN 0 
+#define UINT64_MIN 0
 //define struct flag
 #define PRINT_UINT 1
 #define PRINT_INT 2
 //define error codes
+
+//reduce to -1 and 0
 #define CHECK_INT_MIN_MAX_ERROR 57
 #define CHECK_UINT_MIN_MAX_ERROR 58
 #define MULTIPLICATION_ZERO_ERROR 59
