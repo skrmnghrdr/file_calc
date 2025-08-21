@@ -167,8 +167,7 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
                err:-1
                succ:0
  */
-int verify_entity(struct linux_dirent64 entity);
-
+int verify_entity(struct linux_dirent64 *entity);
 
 
 //!old unused ones

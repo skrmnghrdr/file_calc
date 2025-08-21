@@ -1,8 +1,8 @@
-#include <stdint.h>
 
 #ifndef STRUCTS_H
 #define STRUCTS_H
-
+#include <stdint.h>
+#include <limits.h>
 
 #pragma pack(1)
 typedef struct struct_file_header_t 
@@ -69,7 +69,7 @@ struct linux_dirent64 {
     */
 };
 
-struct file_paths_t {
+typedef struct file_paths_t {
     char input_dir[PATH_MAX];
     char output_dir[PATH_MAX];
 } file_paths_t;

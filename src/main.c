@@ -15,7 +15,7 @@ int main(int argc, char ** pp_argv)
     
 
 
-    END: 
+END: 
     PRINT_DEBUG("main(): test\n");
     file_calculator("../laboratory", "../output");
     return 0;
@@ -33,7 +33,7 @@ int func_name()
     https://stackoverflow.com/questions/6084218/is-it-good-practice-to-free-a-null-pointer-in-c
     From section 7.20.3.2/2 of the C99 standard:\
     #see best answer
-    
+
     int *p_int_array;
     int *p_another_int_arra;
     int *ssomething;

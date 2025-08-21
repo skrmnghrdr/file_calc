@@ -428,10 +428,11 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
     }
 
     for( size_t byte_ptr_offset = 0; byte_ptr_offset < getdents64_bytes_read;){
+        //! we could process entity here
         entity = (struct linux_dirent64 *)(p_ent_buffer + byte_ptr_offset);
         byte_ptr_offset += entity->d_reclen;
 
-        ent_validity = verify_entity(*entity);
+        ent_validity = verify_entity(entity);
         if(-1 == ent_validity){
         //PRINT_DEBUG("[!] file_handler:process_file: invalid dir entitiy");
         goto SKIP_ENTITY;
@@ -463,6 +464,7 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
             //skip file
             goto END; 
         }
+        //!if legal entity, solve_it
         //todo: function below 
         int was_unsolved = solve_file(valid_header, output_fd);
         if(was_unsolved){
@@ -481,19 +483,19 @@ END:
 }
 
 
-int verify_entity(struct linux_dirent64 entity)
+int verify_entity(struct linux_dirent64 *entity)
 {
     unsigned char REGULAR_FILE = 8;
     unsigned char DIRECTORY = 4;
     int return_value = -1;
     
-    unsigned char valid_entity = (entity.d_type == REGULAR_FILE);
+    unsigned char valid_entity = (entity->d_type == REGULAR_FILE);
     if(!valid_entity)
     {   
         //skip the file
         goto END;
     }
-    const char *extension = get_filename_ext(entity.d_name);  
+    const char *extension = get_filename_ext(entity->d_name);  
     int invalid_extension = strcmp(extension, "equ");
     if(invalid_extension)
     {
