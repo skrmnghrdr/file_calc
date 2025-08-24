@@ -204,7 +204,6 @@ int solve_directory(const char *input_dir, const char * output_dir)
         //! free the buffs here
         goto END;
     }
-    
 
     char *output_abs_path = malloc(PATH_MAX); 
     if(!output_abs_path)
@@ -428,7 +427,6 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
     }
 
     for( size_t byte_ptr_offset = 0; byte_ptr_offset < getdents64_bytes_read;){
-        //! we could process entity here
         entity = (struct linux_dirent64 *)(p_ent_buffer + byte_ptr_offset);
         byte_ptr_offset += entity->d_reclen;
 
@@ -437,13 +435,15 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
         //PRINT_DEBUG("[!] file_handler:process_file: invalid dir entitiy");
         goto SKIP_ENTITY;
         }
+        //! poulate files
         input_pathname = append_path_and_file(file_paths.input_dir, entity->d_name, PATH_MAX, file_abs_path);
         output_pathname = append_path_and_file(file_paths.output_dir, entity->d_name, PATH_MAX, output_abs_path);
-
+        //! check ent validator here
         if ((0 > input_pathname) || (0 > output_pathname)){
             //PRINT_DEBUG("[!]File Handler:solve_directory Error on appending input/ouput file...\n");
             goto END;
         }
+        //!end ent validator
         //O_WRONLY | O_CREAT | O_TRUNC write and read, create if not there, overlap if exists
         output_fd = open(output_abs_path, O_WRONLY | O_CREAT | O_TRUNC, 0644 );
         if (0 > output_fd){
