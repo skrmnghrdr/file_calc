@@ -32,7 +32,8 @@
 #include "utils.h"
 //#include "operations.h"
 #define DEBUG //! DEBUG HERE
-#define JANITOR(p) janitor((void**)&(p))
+
+#define JANITOR(p) janitor((void**)&(p));
 
 
 #define BUFFER_SIZE 4096U //probably a sweet spot since we used to do 4096 for dd
@@ -62,12 +63,10 @@
  *        nullified
  * 
  * @returns: VOID FUNCTION.
+ * 
  */
-void janitor(void **ptr_dirty)
-{
-     free(*ptr_dirty);
-     *ptr_dirty = NULL;
-}
+void janitor(void **ptr_dirty);
+
 
 //!new functions revamped
 /**

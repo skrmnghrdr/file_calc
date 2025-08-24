@@ -82,7 +82,6 @@ END:
  * @returns: VOID 
  *            
  */
-
 static void fd_closer(int file_descriptor)
 {
     if(0 > file_descriptor){
@@ -93,6 +92,13 @@ static void fd_closer(int file_descriptor)
 
 END:
     return;
+}
+
+
+void janitor(void **ptr_dirty)
+{
+    free(*ptr_dirty);
+    *ptr_dirty = NULL;
 }
 
 const char *get_filename_ext(const char *filename)
@@ -236,10 +242,10 @@ int solve_directory(const char *input_dir, const char * output_dir)
         }
 
         if ( 0 == getdents_bytes_read){
-            PRINT_DEBUG("[/] Finished reading dir..");
+            PRINT_DEBUG("[/] Finished reading dir..\n");
             break;
         }
-        
+
         //! refractor to another function and check for error there
         snprintf(file_paths.input_dir, PATH_MAX, "%s", input_dir);
         snprintf(file_paths.output_dir, PATH_MAX, "%s", output_dir);
@@ -268,7 +274,6 @@ END:
 
 int solve_file(int input_file_desc, int output_file_desc)
 {
-    //! refactor this one, shit is like 100 lines
     struct stat stat_buffer;
     struct struct_file_header_t file_header;
     struct solved_equation_t solved_equ; //proc equ outoput;
@@ -282,29 +287,21 @@ int solve_file(int input_file_desc, int output_file_desc)
     //! opening output file for writing
     //! dont' open it here
     fstat_result = fstat(input_file_desc, &stat_buffer);
-    if(-1 == fstat_result)
-    {
+    if(-1 == fstat_result){
         close(input_file_desc);
         goto END;
     }
-    printf("[*] New file!...\n\n");
-    printf("File size: %jd bytes\n", (intmax_t) stat_buffer.st_size);
+    PRINT_DEBUG("[*] New file!...\n\n");
+    PRINT_DEBUG("File size: %jd bytes\n", (intmax_t) stat_buffer.st_size);
     file_buffer = malloc(stat_buffer.st_size + 1);
-    if (NULL == file_buffer)
-    {
-        printf("! Malloc error for file buffer..\n");
-        file_buffer = NULL;
+    if (NULL == file_buffer){
+        PRINT_DEBUG("! Malloc error for file buffer..\n");
+        JANITOR(file_buffer);
         goto END;
     }
 
-    //sanity check to print the bytes
-    for(int i = 0; i < stat_buffer.st_size; i ++)
-    {
-        //printf("0x%02X ", (unsigned char) file_buffer[i]);
-    }
     lseek_return = lseek64(input_file_desc, 0, SEEK_SET);
-    if (-1 == lseek_return)
-    {
+    if (-1 == lseek_return){
         printf("! Error lseeki-ng file..\n");
         goto END;
     }
@@ -313,7 +310,6 @@ int solve_file(int input_file_desc, int output_file_desc)
 
     //!  memcopy syntax if you need it
     //memcpy(&file_header, file_buffer, sizeof(file_header));
-
     PRINT_DEBUG("Magic Number:%X\noffset:%u equations #:%lu\n",
             file_header.magic_number, file_header.equation_offset, file_header.number_of_equations
             );
@@ -321,32 +317,25 @@ int solve_file(int input_file_desc, int output_file_desc)
     //!offset would be from the start.
     loff_t offset_to_equation;
     offset_to_equation = lseek64(input_file_desc, file_header.equation_offset, SEEK_SET);
-    if(0 > offset_to_equation)
-    {
-        printf("[!] File_handler:solve_file: Error on moving offset_to_equation lseek..\n");
+    if(0 > offset_to_equation){
+        PRINT_DEBUG("[!] File_handler:solve_file: Error on moving offset_to_equation lseek..\n");
         goto END;
     }
 
     //! header slap it here
-    for(uint32_t iter = 0; iter < file_header.number_of_equations; iter++)
-    {
-        //! kernel tracks the offset when we keep reading
+    for(uint32_t iter = 0; iter < file_header.number_of_equations; iter++){
         struct ser_equ_format_t serialized_equation = unsolved_equ.ptr_equation;
-
-        //sanity check
         //prints lil endianed
         read(input_file_desc, &unsolved_equ, sizeof(unsolved_equ));
         PRINT_DEBUG("Values: equ id: %X\n", unsolved_equ.equation_id);
         PRINT_DEBUG("Operand_first: %lX, Operator %02X Operand_second: %lX\n",
                 serialized_equation.operand_first,
                 serialized_equation.operator,
-                serialized_equation.operand_second
-                );
+                serialized_equation.operand_second);
         
         //do not worry with endianess in memory, only when displaying it
         int process_equ_res = process_equation(&unsolved_equ, &solved_equ);
-        if (0 > process_equ_res)
-        {
+        if (0 > process_equ_res){ 
             PRINT_DEBUG("[!] File_handler:solve_file: Something wrong went with processing the equation..\n");
             //! once done with file, mark header as not solved if error was ticked
             goto END_FOR_LOOP;
@@ -358,7 +347,6 @@ END_FOR_LOOP:
     }
     return_value = 0;
 END:
-    free(file_buffer);
     return return_value;
 }
 

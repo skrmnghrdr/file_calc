@@ -19,6 +19,7 @@
         "limits.h": "c",
         "errno.h": "c",
         "fcntl.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "string.h": "c"
     }
 }
