@@ -1,4 +1,4 @@
-
+#define DEBUG
 #include "file_handler.h"
 
 /**
@@ -12,23 +12,23 @@
  //! ask where to declare this
  uint32_t LEGIT_HEADER = 0xDD77BB55;
 
+/**
+* @brief: helper function to append the path and file name together
+*         char *buffer would be the output parameter
+*          
+* @args: 
+*         char *path: path string, parent path leading to file
+*         char *file: filename.
+*         char *buffer: output parameter to write on
+* 
+* @return:
+*          -1 for error
+*          0 success.
+*         output:
+*                 char *buffer: the aboslute path to the file    
+*/
 static int append_path_and_file(const char *path, char *file, size_t buffer_size, char *buffer)
 {
-    /**
-     * @brief: helper function to append the path and file name together
-     *         char *buffer would be the output parameter
-     *          
-     * @args: 
-     *         char *path: path string, parent path leading to file
-     *         char *file: filename.
-     *         char *buffer: output parameter to write on
-     * 
-     * @return:
-     *          -1 for error
-     *          0 success.
-     *         output:
-     *                 char *buffer: the aboslute path to the file    
-     */
     size_t path_len = strlen(path);
     size_t filename_len = strlen(file);
     char last_character = path[path_len -1];
@@ -71,6 +71,28 @@ static int append_path_and_file(const char *path, char *file, size_t buffer_size
 
 END:
     return return_value;
+}
+
+/**
+ * @brief: helper function to close, opened file descriptors:
+ *         CHECKS the file_desc if valid before closing it
+ * 
+ * @args: file_descriptor:
+ * 
+ * @returns: VOID 
+ *            
+ */
+
+static void fd_closer(int file_descriptor)
+{
+    if(0 > file_descriptor){
+        //was not opened successfully, no need to close
+        goto END;
+    }
+    close(file_descriptor);
+
+END:
+    return;
 }
 
 const char *get_filename_ext(const char *filename)
@@ -182,95 +204,62 @@ int solve_directory(const char *input_dir, const char * output_dir)
     int return_value = -1;
     if ((NULL == input_dir) || (NULL == output_dir) )
     {
-        printf("[!] file_handler:solve_directory(): print mesg fo null pointer here.\n");
+        PRINT_DEBUG("[!] file_handler:solve_directory(): print mesg fo null pointer here.\n");
         goto END;
     }
-    //! check nulls
     int input_directory = open(input_dir, O_RDONLY | O_DIRECTORY);
     int output_directory = open(output_dir, O_RDONLY | O_DIRECTORY); 
-    //! learning point, you don't open the dir as a write,
-    //! they're special files, you just rdolnly them
     struct file_paths_t file_paths;
-    struct stat st;
     //long for the 64 version
     long getdents_bytes_read;
-    int nread;
     //! clear buffer right after 
     char *buf = malloc(BUFFER_SIZE); 
     char *file_abs_path = malloc(PATH_MAX);
-    if(!file_abs_path)
-    {
-        printf("! Malloc failed! input path\n");
-        //! free the buffs here
-        goto END;
-    }
-
     char *output_abs_path = malloc(PATH_MAX); 
-    if(!output_abs_path)
+    if(!file_abs_path || !output_abs_path || !buf)
     {
-        printf("! Malloc failed: output path");
-        free(file_abs_path);
-        file_abs_path = NULL;
+        PRINT_DEBUG("! Malloc failed! on buffers path\n");
         goto CLEAN_UP;
     }
-    if ( !buf )
-    {
-        printf("! Malloc failed on buff! ...\n");
-        goto END;
-    }
 
-    if ( (-1 == input_directory) || (-1 == output_directory))
-    {
+    if ( (-1 == input_directory) || (-1 == output_directory)){
         printf("! Error on open: invalid target dir or output dir\n");
-        goto END;
+        goto CLEAN_UP;
     }
 
-    for(                    ;                     ;                         ) //lol
-    {
+    for(                    ;                     ;                         ){ //!lol
         //todo: learning point. sizeof() gets the dtat type size, not the number of a #define
         getdents_bytes_read = syscall(SYS_getdents64, input_directory, buf, BUFFER_SIZE);
-
-        if (-1 == getdents_bytes_read )
-        {
-            printf("! Error on getdents64()\n");
+        if (-1 == getdents_bytes_read ){
+            PRINT_DEBUG("[!] Error on getdents64()");
             goto END;
         }
 
-        if ( 0 == getdents_bytes_read)
-        {
-            //finished reading dir
+        if ( 0 == getdents_bytes_read){
+            PRINT_DEBUG("[/] Finished reading dir..");
             break;
         }
-        //! refractor to another function
+        
+        //! refractor to another function and check for error there
         snprintf(file_paths.input_dir, PATH_MAX, "%s", input_dir);
         snprintf(file_paths.output_dir, PATH_MAX, "%s", output_dir);
 
         int process_file_err = process_file(buf, BUFFER_SIZE,  getdents_bytes_read, file_paths);
-        if(-1 == process_file_err)
-        {
-            //PRINT_DEBUG("[] file_handler:solve_directory Error at process_file")
+        if(-1 == process_file_err){
+            PRINT_DEBUG("[!] file_handler:solve_directory Error at process_file");
             goto END_SPIDER_LOOP;
         }
 
     END_SPIDER_LOOP:
     }
 
-    //merica
-    free(buf);
-    free(file_abs_path);
-    close(input_directory);
-    close(output_directory);
     return_value = 0;
-
 CLEAN_UP:
-    //code cave
-    /*
-    if (!NULL == buf)
-    {
-        free(buf);
-        buf == NULL;
-    }
-    */
+    JANITOR(buf);
+    JANITOR(file_abs_path);
+    JANITOR(output_abs_path);
+    fd_closer(input_directory);
+    fd_closer(output_directory);
 
 END:
     return return_value;
@@ -279,7 +268,7 @@ END:
 
 int solve_file(int input_file_desc, int output_file_desc)
 {
-
+    //! refactor this one, shit is like 100 lines
     struct stat stat_buffer;
     struct struct_file_header_t file_header;
     struct solved_equation_t solved_equ; //proc equ outoput;
@@ -325,7 +314,7 @@ int solve_file(int input_file_desc, int output_file_desc)
     //!  memcopy syntax if you need it
     //memcpy(&file_header, file_buffer, sizeof(file_header));
 
-    printf("Magic Number:%X\noffset:%u equations #:%lu\n",
+    PRINT_DEBUG("Magic Number:%X\noffset:%u equations #:%lu\n",
             file_header.magic_number, file_header.equation_offset, file_header.number_of_equations
             );
 
@@ -347,8 +336,8 @@ int solve_file(int input_file_desc, int output_file_desc)
         //sanity check
         //prints lil endianed
         read(input_file_desc, &unsolved_equ, sizeof(unsolved_equ));
-        printf("Values: equ id: %X\n", unsolved_equ.equation_id);
-        printf("Operand_first: %lX, Operator %02X Operand_second: %lX\n",
+        PRINT_DEBUG("Values: equ id: %X\n", unsolved_equ.equation_id);
+        PRINT_DEBUG("Operand_first: %lX, Operator %02X Operand_second: %lX\n",
                 serialized_equation.operand_first,
                 serialized_equation.operator,
                 serialized_equation.operand_second
@@ -358,7 +347,7 @@ int solve_file(int input_file_desc, int output_file_desc)
         int process_equ_res = process_equation(&unsolved_equ, &solved_equ);
         if (0 > process_equ_res)
         {
-            printf("[!] File_handler:solve_file: Something wrong went with processing the equation..\n");
+            PRINT_DEBUG("[!] File_handler:solve_file: Something wrong went with processing the equation..\n");
             //! once done with file, mark header as not solved if error was ticked
             goto END_FOR_LOOP;
         }
@@ -380,17 +369,17 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
 
     if( NULL == solved_equ)
     {
-        printf("! Solved equation pointer nulll...\n");
+        PRINT_DEBUG("! Solved equation pointer nulll...\n");
         goto END;
     }
 
-    printf("About to write: ID: 0x%X\n\n", solved_equ->equation_id);
+    PRINT_DEBUG("About to write: ID: 0x%X\n\n", solved_equ->equation_id);
     write_output = write(output_file_desc, solved_equ, sizeof(*solved_equ));
 
     if(write_output < sizeof(*solved_equ))
     {
-        printf("! Error occured on write..\n");
-        printf("! Begin cleansing the file of heresey...\n");
+        PRINT_DEBUG("! Error occured on write..\n");
+        PRINT_DEBUG("! Begin cleansing the file of heresey...\n");
         //! cleans or delete the file here someday in the future
         //we flee for now
         goto END;
@@ -412,17 +401,18 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
     int output_pathname;
     int ent_validity;
     char *file_abs_path = malloc(PATH_MAX);
+
     memset(file_abs_path, 0, PATH_MAX);
     if(NULL == file_abs_path)
     {
-        //PRINT_DEBUG("[] file_handler:process_file err; file_abs_path is NULL");
+        PRINT_DEBUG("[] file_handler:process_file err; file_abs_path is NULL");
         goto END;
     }
     char *output_abs_path = malloc(PATH_MAX);
     memset(output_abs_path, 0, PATH_MAX);
     if(NULL == output_abs_path)
     {
-        //PRINT_DEBUG("[] file_handler:process_file err; output_abs_path is NULL");
+        PRINT_DEBUG("[] file_handler:process_file err; output_abs_path is NULL");
         goto END;
     }
 
@@ -432,35 +422,35 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
 
         ent_validity = verify_entity(entity);
         if(-1 == ent_validity){
-        //PRINT_DEBUG("[!] file_handler:process_file: invalid dir entitiy");
-        goto SKIP_ENTITY;
+            PRINT_DEBUG("[!] file_handler:process_file: invalid dir entitiy, skipping..");
+            goto SKIP_ENTITY;
         }
         //! poulate files
         input_pathname = append_path_and_file(file_paths.input_dir, entity->d_name, PATH_MAX, file_abs_path);
         output_pathname = append_path_and_file(file_paths.output_dir, entity->d_name, PATH_MAX, output_abs_path);
         //! check ent validator here
         if ((0 > input_pathname) || (0 > output_pathname)){
-            //PRINT_DEBUG("[!]File Handler:solve_directory Error on appending input/ouput file...\n");
+            PRINT_DEBUG("[!]File Handler:solve_directory Error on appending input/ouput file...\n");
             goto END;
         }
         //!end ent validator
         //O_WRONLY | O_CREAT | O_TRUNC write and read, create if not there, overlap if exists
         output_fd = open(output_abs_path, O_WRONLY | O_CREAT | O_TRUNC, 0644 );
         if (0 > output_fd){
-            printf("[!] File handler:sovle_directory: Error on creating/handling output file...\nSkipping\n");
+            PRINT_DEBUG("[!] File handler:sovle_directory: Error on creating/handling output file...\nSkipping\n");
             goto END;
         }
 
         int valid_header = head_checker(file_abs_path);
         if (0 > valid_header){
-            printf("[!] File handler:sovle_directory: Invalid header type!..\n");
+            PRINT_DEBUG("[!] File handler:sovle_directory: Invalid header type!..\n");
             //skip
             goto END;
         }
 
         int slap_result = header_slapper(valid_header, output_fd);
         if (0 > slap_result){
-            printf("[!] File handler:sovle_directory: Something went wrong stamping the header.\n");
+            PRINT_DEBUG("[!] File handler:sovle_directory: Something went wrong stamping the header.\n");
             //skip file
             goto END; 
         }
@@ -468,7 +458,7 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
         //todo: function below 
         int was_unsolved = solve_file(valid_header, output_fd);
         if(was_unsolved){
-            printf("[!] File handler:sovle_directory: Something wrong with file:%s skipping...\n", file_abs_path);
+            PRINT_DEBUG("[!] File handler:sovle_directory: Something wrong with file:%s skipping...\n", file_abs_path);
             goto END;
         }
             //! thou shall not forget

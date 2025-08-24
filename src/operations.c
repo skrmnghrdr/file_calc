@@ -72,7 +72,7 @@ END:
 
 int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_operand, solved_equation_t *solved_buffer)
 {
-    //! shorten
+    //! shorten, 
     /**
      * @brief solves the equation by populating the corresponding
      *        answer on the solved_buffer flag
@@ -151,7 +151,6 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         result.INT = subtract(operand_first.INT, operand_second.INT, &calc_error);
         break;
     case MULTIPLICATION:
-        result.INT = 0x7FFFFFFFFFFFF;
         result.INT = multiply(operand_first.INT, operand_second.INT, &calc_error);
         break;
     case DIVISION:
@@ -178,13 +177,14 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     case XOR:
         result.UINT = bitwise_exclusive_or(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
+    //todo: consult mentor if bro wants to use the << or our own SHX for overflows
     case ROTL:
-        //! fix main calc 
+        //! fix main calc use the << operator 
         result.UINT =0xEEEEEEEEEEEE;
         //result.UINT = rotate_left(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
     case ROTR:
-        //! fix main calc
+        //! fix main calc, use the << operator 
         result.UINT =0xEEEEEEEEEEEE;
         //result.UINT = rotate_right(operand_first.UINT, operand_second.UINT, &calc_error);
         break;

@@ -29,7 +29,11 @@
 
 #include "structs.h"
 #include "operations.h"
+#include "utils.h"
 //#include "operations.h"
+#define DEBUG //! DEBUG HERE
+#define JANITOR(p) janitor((void**)&(p))
+
 
 #define BUFFER_SIZE 4096U //probably a sweet spot since we used to do 4096 for dd
 #define MAX_RECURSION_DEPTH 8190 //$ ulimit -s - 2
@@ -40,7 +44,30 @@
 //end of struct definitions from specss
 
 
-
+/**
+ * @brief sanitizes the pointers you give it :)
+ *        (frees and assigns null to it)
+ *        declare the macro below for cleaner usage:
+ * 
+ * 
+ *        #define JANITOR(p) janitor((void**)&(p))
+ * 
+ *        then call it like so
+ * 
+ *        JANITOR(p_int_array);
+ *   
+ * 
+ * 
+ * @param ptr_dirty: the pointer to be cleared and
+ *        nullified
+ * 
+ * @returns: VOID FUNCTION.
+ */
+void janitor(void **ptr_dirty)
+{
+     free(*ptr_dirty);
+     *ptr_dirty = NULL;
+}
 
 //!new functions revamped
 /**
