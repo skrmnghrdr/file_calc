@@ -201,7 +201,17 @@ int64_t divide(int64_t xxx, int64_t yyy, int *calc_error){
     return result;
 
 }
-int64_t modulo(int64_t xxx, int64_t yyy);
+int64_t modulo(int64_t value, int64_t divisor)
+{
+    //! !!! TEST
+    int64_t return_value = -1;
+    if (0 == divisor){
+        goto END;
+    }
+    return_value = (value % divisor);
+END:
+    return return_me;
+}
 
 /* start of bitwise functions */
 
@@ -309,8 +319,8 @@ uint64_t rotate_left(uint64_t number, uint64_t bits, int *calc_error){
         //calculate should check if the uint value would be legal, so 
         //we do not have to worry
         uint64_t fall_shift_by = (MAX_INT_BITS - bits);
-        uint64_t num_shift_left = shift_left(number, bits, calc_error);
-        uint64_t num_fall_off_bits = shift_right(number, fall_shift_by, calc_error);
+        uint64_t num_shift_left = (number << bits);
+        uint64_t num_fall_off_bits = (number >> fall_shift_by);
 
         //never hurts to double check (n >> (INT_BITS - d));
         if(*calc_error != 0){

@@ -36,4 +36,25 @@ enum operations
 void operations_check();
 
 int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equation_t *solved_buffer);
+
+//! shorten, 
+/**
+* @brief solves the equation by populating the corresponding
+*        answer on the solved_buffer flag
+//! note: operands should be in little endian
+* 
+* @calls:
+//todo populate this
+* 
+* @args: takes in members of the ser_equ_format_t:
+*        see "include/structs.h"
+*        unin64_t first_operand:
+*        uint8_t operator: 0x01 to 0x0C
+*        uint64_t second_operand:
+* 
+* @returns:
+//! OUTPUT PARAMETER: solved_equation_t *solved_buffer
+-1 on error:
+0 on success:
+*/  
 int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_operand, solved_equation_t *solved_buffer);

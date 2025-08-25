@@ -66,32 +66,12 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     return_value = 0;
 END:
     return return_value;
-
 }
 
 
 int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_operand, solved_equation_t *solved_buffer)
 {
-    //! shorten, 
-    /**
-     * @brief solves the equation by populating the corresponding
-     *        answer on the solved_buffer flag
-              //! note: operands should be in little endian
-     * 
-     * @calls:
-             //todo populate this
-     * 
-     * @args: takes in members of the ser_equ_format_t:
-     *        see "include/structs.h"
-     *        unin64_t first_operand:
-     *        uint8_t operator: 0x01 to 0x0C
-     *        uint64_t second_operand:
-     * 
-     * @returns:
-             //! OUTPUT PARAMETER: solved_equation_t *solved_buffer
-             -1 on error:
-             0 on success:
-     */  
+
 
     int return_me = -1;
     union type_data operand_first;
@@ -138,7 +118,7 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         solved_buffer->type = UNSIGNED_INTERGER_TYPE;
     }
 
-    printf("[*] Processing Operator: 0x%02X\n", operator);
+    PRINT_DEBUG("[*] Processing Operator: 0x%02X\n", operator);
     //! map on c programming
     switch (operator)
     {
@@ -180,8 +160,9 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     //todo: consult mentor if bro wants to use the << or our own SHX for overflows
     case ROTL:
         //! fix main calc use the << operator 
-        result.UINT =0xEEEEEEEEEEEE;
-        //result.UINT = rotate_left(operand_first.UINT, operand_second.UINT, &calc_error);
+        //result.UINT =0xEEEEEEEEEEEE;
+        //! test this later
+        result.UINT = roate_left(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
     case ROTR:
         //! fix main calc, use the << operator 
@@ -189,21 +170,21 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         //result.UINT = rotate_right(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
     default:
-        printf("[!] Operator showing signs of henneresey..\n");
+        PRINT_DEBUG("[!] Operator showing signs of henneresey..\n");
         calc_error = INVALID_OPERATOR_ERROR;
         break;
     }
 
     if (calc_error)
     {
-        printf("[!] operations:solve_equation: Calc error! ewwor code:%d\n", calc_error);
-        printf("[!] operations:solve_equation:  The chapter master will hear about this..\n");
+        PRINT_DEBUG("[!] operations:solve_equation: Calc error! ewwor code:%d\n", calc_error);
+        PRINT_DEBUG("[!] operations:solve_equation:  The chapter master will hear about this..\n");
         goto END;
     }
     
     solved_buffer->solution = result.UINT;
     return_me = 0;
-    printf("[*]Final result:\nResult[%lX]\n", result.UINT);
+    PRINT_DEBUG("[*]Final result:\nResult[%lX]\n", result.UINT);
     solved_buffer->flags = SOLVED;
     
 END:
