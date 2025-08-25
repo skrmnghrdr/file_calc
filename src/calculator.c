@@ -327,7 +327,8 @@ uint64_t rotate_left(uint64_t number, uint64_t bits, int *calc_error){
      * debug anchor to see what is wrong
      * 
      */
-    if(16 == bits){ //!debug
+    //if(16 == bits){ //!leave for debug purposes
+    //todo: figure out why the compuiler automatically uses 32bit on a small number
 
     if(  bits > MAX_INT_BITS )  {
         *calc_error = ROTATE_LEFT_ERROR;
@@ -335,7 +336,7 @@ uint64_t rotate_left(uint64_t number, uint64_t bits, int *calc_error){
     }
     
     fall_shift_by = (MAX_INT_BITS - bits);
-    num_shift_left = (number << bits);
+    num_shift_left = ((uint64_t)number << bits);
     num_fall_off_bits = (number >> fall_shift_by);
 
         //never hurts to double check (n >> (INT_BITS - d));
@@ -346,7 +347,7 @@ uint64_t rotate_left(uint64_t number, uint64_t bits, int *calc_error){
 
     return_me = (num_shift_left | num_fall_off_bits );
 
-    }//! deebug end
+    //}//! deebug end
 ROT_LEFT_EXIT:
     return return_me;
 }
