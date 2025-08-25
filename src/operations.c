@@ -159,9 +159,9 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         break;
     //todo: consult mentor if bro wants to use the << or our own SHX for overflows
     case ROTL:
-        //! fix main calc use the << operator 
-        //result.UINT =0xEEEEEEEEEEEE;
-        //! test this later
+        //! fix main calc use the << operator
+        //! slight error on things that are about 16 for the rotate
+        //! hunt it
         result.UINT = rotate_left(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
     case ROTR:
@@ -185,6 +185,8 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     solved_buffer->solution = result.UINT;
     return_me = 0;
     PRINT_DEBUG("[*]Final result:\nResult[%lX]\n", result.UINT);
+    PRINT_DEBUG("[*]Final INT result:\nResult[%ld]\n", result.UINT);
+
     solved_buffer->flags = SOLVED;
     
 END:

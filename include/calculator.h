@@ -19,7 +19,7 @@
 #define DEBUG
 #include "utils.h"
 
-#define MAX_INT_BITS 32
+#define MAX_INT_BITS 64
 #define MAX_OPERAND_STR_LEN 5
 #define UINT32_MIN 0 
 #define UINT64_MIN 0

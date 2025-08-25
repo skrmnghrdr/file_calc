@@ -323,29 +323,30 @@ uint64_t rotate_left(uint64_t number, uint64_t bits, int *calc_error){
     uint64_t num_fall_off_bits = 0;
     uint64_t fall_shift_by = 0;
 
-    if( (number < 0 || bits < 0) || (bits > MAX_INT_BITS) )  {
-        //fix this damn if statement
-        //keeps getting caught here for
+    /**
+     * debug anchor to see what is wrong
+     * 
+     */
+    if(16 == bits){ //!debug
+
+    if(  bits > MAX_INT_BITS )  {
         *calc_error = ROTATE_LEFT_ERROR;
         goto ROT_LEFT_EXIT;
     }
-    else
-    {
-        //calculate should check if the uint value would be legal, so 
-        //we do not have to worry
-        uint64_t fall_shift_by = (MAX_INT_BITS - bits);
-        uint64_t num_shift_left = (number << bits);
-        uint64_t num_fall_off_bits = (number >> fall_shift_by);
+    
+    fall_shift_by = (MAX_INT_BITS - bits);
+    num_shift_left = (number << bits);
+    num_fall_off_bits = (number >> fall_shift_by);
 
         //never hurts to double check (n >> (INT_BITS - d));
-        if(*calc_error != 0){
-            *calc_error = ROTATE_LEFT_ERROR;
-            goto ROT_LEFT_EXIT;
-        }
-        //return me hits, 
-        return_me = (num_shift_left | num_fall_off_bits );
+    if(*calc_error != 0){
+         *calc_error = ROTATE_LEFT_ERROR;
+        goto ROT_LEFT_EXIT;
     }
 
+    return_me = (num_shift_left | num_fall_off_bits );
+
+    }//! deebug end
 ROT_LEFT_EXIT:
     return return_me;
 }
