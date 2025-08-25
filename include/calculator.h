@@ -16,6 +16,9 @@
 #include <stdlib.h>
 #include <math.h>
 
+#define DEBUG
+#include "utils.h"
+
 #define MAX_INT_BITS 32
 #define MAX_OPERAND_STR_LEN 5
 #define UINT32_MIN 0 

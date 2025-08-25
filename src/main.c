@@ -7,7 +7,19 @@
 
 //cleanup macro, 
 
-
+/**
+ * @brief main daddy program
+ *        informational messages:
+ *        [*] regular verbosity
+ *        [!] Invalid data
+ *        [!!] Critical error
+ *        [^^] gdb anchor
+ *        [/] task done
+ * 
+ * @param argc 
+ * @param pp_argv 
+ * @return int 
+ */
 int main(int argc, char ** pp_argv)
 {
     /**

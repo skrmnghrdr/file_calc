@@ -65,9 +65,6 @@ static void report_invalid_options(char invalid_option);
  * sure the  * string does  not override the buffer. max filename length in lin
  * is 255, so we put the buffer at around 250 just to be safe
  */
-
-
-
 static int process_i_option(char * optarg, options_t * options_p){
     /**
      * @brief main program to process the input file

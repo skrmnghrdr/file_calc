@@ -88,6 +88,7 @@ int64_t add(int64_t xxx, int64_t yyy, int *calc_error){
     int64_t result = 0;
     *calc_error = 0;
 
+    PRINT_DEBUG("[*] Addition operator called");
     if(
         //overflow check
         ((xxx > 0) && (yyy > (INT64_MAX - xxx))) ||
@@ -108,8 +109,10 @@ int64_t add(int64_t xxx, int64_t yyy, int *calc_error){
 }
 
 int64_t subtract(int64_t xxx, int64_t yyy, int *calc_error){
-     int64_t result = 0;
-     *calc_error = 0;
+    int64_t result = 0;
+    *calc_error = 0;
+
+    PRINT_DEBUG("[*] Subtraction operator called");
     if(
         //overflow check
         ((xxx < 0) && (yyy > (INT64_MAX + xxx))) ||
@@ -136,7 +139,7 @@ int64_t multiply(int64_t xxx, int64_t yyy, int *calc_error){
     *calc_error = 0;
     //do not forget to check for 0 since we are diving here
     
-    //handle special bad cases here
+    PRINT_DEBUG("[*] multiply operator called");
     if( (0 == yyy || 0 == xxx )){
         goto MUL_END;
     }
@@ -185,7 +188,8 @@ int64_t divide(int64_t xxx, int64_t yyy, int *calc_error){
     //div is a unique case
     int64_t result = 0;
     *calc_error = 0;
-    debug();
+
+    PRINT_DEBUG("[*] divide operator called");
     if(
         (-1 == xxx || -1 == yyy) && (INT64_MIN == yyy || INT64_MIN == xxx)
     )
@@ -203,14 +207,17 @@ int64_t divide(int64_t xxx, int64_t yyy, int *calc_error){
 }
 int64_t modulo(int64_t value, int64_t divisor)
 {
-    //! !!! TEST
+    PRINT_DEBUG("[*] modulo operator called");
     int64_t return_value = -1;
     if (0 == divisor){
+        PRINT_DEBUG("[!!] Modulo error ");
         goto END;
     }
+
     return_value = (value % divisor);
+    PRINT_DEBUG("[*] Modulo did not have an error");
 END:
-    return return_me;
+    return return_value;
 }
 
 /* start of bitwise functions */
@@ -223,6 +230,7 @@ uint64_t shift_left(uint64_t number, uint64_t bits, int *calc_error){
     double db_bits = (double) bits;
     const int MAX_BITS = 31;
 
+    PRINT_DEBUG("[!!] Modulo error ");
     if(bits > MAX_BITS)
     {
         *calc_error = SHIFT_ERROR;

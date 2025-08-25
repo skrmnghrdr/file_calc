@@ -162,7 +162,7 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         //! fix main calc use the << operator 
         //result.UINT =0xEEEEEEEEEEEE;
         //! test this later
-        result.UINT = roate_left(operand_first.UINT, operand_second.UINT, &calc_error);
+        result.UINT = rotate_left(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
     case ROTR:
         //! fix main calc, use the << operator 
