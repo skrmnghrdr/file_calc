@@ -88,7 +88,7 @@ int64_t add(int64_t xxx, int64_t yyy, int *calc_error){
     int64_t result = 0;
     *calc_error = 0;
 
-    PRINT_DEBUG("[*] Addition operator called");
+    PRINT_DEBUG("[*] Addition operator called\n");
     if(
         //overflow check
         ((xxx > 0) && (yyy > (INT64_MAX - xxx))) ||
@@ -112,7 +112,7 @@ int64_t subtract(int64_t xxx, int64_t yyy, int *calc_error){
     int64_t result = 0;
     *calc_error = 0;
 
-    PRINT_DEBUG("[*] Subtraction operator called");
+    PRINT_DEBUG("[*] Subtraction operator called\n");
     if(
         //overflow check
         ((xxx < 0) && (yyy > (INT64_MAX + xxx))) ||
@@ -139,7 +139,7 @@ int64_t multiply(int64_t xxx, int64_t yyy, int *calc_error){
     *calc_error = 0;
     //do not forget to check for 0 since we are diving here
     
-    PRINT_DEBUG("[*] multiply operator called");
+    PRINT_DEBUG("[*] multiply operator called\n");
     if( (0 == yyy || 0 == xxx )){
         goto MUL_END;
     }
@@ -189,7 +189,7 @@ int64_t divide(int64_t xxx, int64_t yyy, int *calc_error){
     int64_t result = 0;
     *calc_error = 0;
 
-    PRINT_DEBUG("[*] divide operator called");
+    PRINT_DEBUG("[*] divide operator called\n");
     if(
         (-1 == xxx || -1 == yyy) && (INT64_MIN == yyy || INT64_MIN == xxx)
     )
@@ -207,7 +207,7 @@ int64_t divide(int64_t xxx, int64_t yyy, int *calc_error){
 }
 int64_t modulo(int64_t value, int64_t divisor)
 {
-    PRINT_DEBUG("[*] modulo operator called");
+    PRINT_DEBUG("[*] modulo operator called\n");
     int64_t return_value = -1;
     if (0 == divisor){
         PRINT_DEBUG("[!!] Modulo error ");
@@ -215,7 +215,7 @@ int64_t modulo(int64_t value, int64_t divisor)
     }
 
     return_value = (value % divisor);
-    PRINT_DEBUG("[*] Modulo did not have an error");
+    PRINT_DEBUG("[*] Modulo did not have an error\n");
 END:
     return return_value;
 }
@@ -230,7 +230,7 @@ uint64_t shift_left(uint64_t number, uint64_t bits, int *calc_error){
     double db_bits = (double) bits;
     const int MAX_BITS = 31;
 
-    PRINT_DEBUG("[!!] Modulo error ");
+    PRINT_DEBUG("[*]  Shift left called\n");
     if(bits > MAX_BITS)
     {
         *calc_error = SHIFT_ERROR;
@@ -261,6 +261,8 @@ SHL_END:
 //BEGIN BITWISE
 uint64_t bitwise_and(uint64_t first_num, uint64_t second_num, int *calc_error){
     /*input was checked before hand, no concern of over/underflow if input was within range*/
+    PRINT_DEBUG("[*] bitwise_and called\n");
+
     debug();
     uint64_t result = 0;
     result = (first_num & second_num);
@@ -268,12 +270,14 @@ uint64_t bitwise_and(uint64_t first_num, uint64_t second_num, int *calc_error){
 }
 
 uint64_t bitwise_or(uint64_t first_num, uint64_t second_num, int *calc_error){
+    PRINT_DEBUG("[*] bitwise_and called\n");
 
     uint64_t result = 0;
     result = (first_num | second_num);
     return result;
 }
 uint64_t bitwise_exclusive_or(uint64_t first_num, uint64_t second_num, int *calc_error){
+    PRINT_DEBUG("[*] bitwise_exclusive_or called\n");
 
     uint64_t result = 0;
     result = (first_num ^ second_num);
@@ -282,7 +286,8 @@ uint64_t bitwise_exclusive_or(uint64_t first_num, uint64_t second_num, int *calc
 }
 
 uint64_t shift_right(uint64_t number, uint64_t bits, int *calc_error){
-    
+    PRINT_DEBUG("[*] shift_right called\n");
+
     /* we'll have to do another separate check here so  that this one won't overflow since uint has one more bit highher thatn signed int*/
     uint64_t result = 0;
     //convert to double so pow will not cry
@@ -310,6 +315,8 @@ uint64_t rotate_left(uint64_t number, uint64_t bits, int *calc_error){
     //number = abs(number); optional
     //bits = abs(bits);
     //return (n << d) | (n >> (INT_BITS - d));
+    PRINT_DEBUG("[*] rotate_left called\n");
+
     *calc_error = 0;
     uint64_t return_me = 0;
     uint64_t num_shift_left = 0;
@@ -343,6 +350,8 @@ ROT_LEFT_EXIT:
     return return_me;
 }
 uint64_t rotate_right(uint64_t number, uint64_t bits, int *calc_error){
+    PRINT_DEBUG("[*] rotate_right called\n");
+
     *calc_error = 0;
     //apparently the larger the number, the less you need to rotate, 
     //copy pasted from rotate_left, just tweaked for ease,
