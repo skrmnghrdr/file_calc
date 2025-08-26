@@ -1,16 +1,44 @@
 #define DEBUG
 #include "file_handler.h"
 
-/**
- * ! test
- * ? test
- * TODO: test
- * @param test
- */
+
 
  //BEGIN GLOBAL VARIABLE
  //! ask where to declare this
  uint32_t LEGIT_HEADER = 0xDD77BB55;
+
+/**
+ * @brief helper file to sanitize the input and load into the input/output file buffers
+ * 
+ * @param p_file_paths: the buffer to place input dir and ouputdir 
+ * @param pinput_dir: input directory
+ * @param poutput_dir output directory
+ * @return int:
+ *         on succ: 0
+ *         on err: -1
+ */
+static int sanitize_file_paths(struct file_paths_t *p_file_paths, const char *pinput_dir, const char *poutput_dir)
+{
+    int return_me = -1;
+    int input_to_buffer;
+    int output_to_buffer;
+
+    input_to_buffer = snprintf(p_file_paths->input_dir, PATH_MAX, "%s", pinput_dir);
+    output_to_buffer = snprintf(p_file_paths->output_dir, PATH_MAX, "%s", poutput_dir);
+    
+    if(( input_to_buffer < 0) || (output_to_buffer < 0)){
+        PRINT_DEBUG("[!!] Fatal error on loading paths to buffer");
+        goto END;
+    }
+    if(( input_to_buffer >= PATH_MAX) || (output_to_buffer >= PATH_MAX)){
+        PRINT_DEBUG("[!] Paths are too long, shorten it");
+        goto END;
+    }
+
+    return_me = 0;
+END:
+    return return_me;
+}
 
 /**
 * @brief: helper function to append the path and file name together
@@ -204,51 +232,55 @@ END:
 
 
 
-int solve_directory(const char *input_dir, const char * output_dir)
+int solve_directory(const char *pinput_dir, const char *poutput_dir)
 {
     //! change params to p
     int return_value = -1;
-    if ((NULL == input_dir) || (NULL == output_dir) )
+    if ((NULL == pinput_dir) || (NULL == poutput_dir) )
     {
-        PRINT_DEBUG("[!] file_handler:solve_directory(): print mesg fo null pointer here.\n");
+        PRINT_DEBUG("[!!] file_handler:solve_directory(): print mesg fo null pointer here.\n");
         goto END;
     }
-    int input_directory = open(input_dir, O_RDONLY | O_DIRECTORY);
-    int output_directory = open(output_dir, O_RDONLY | O_DIRECTORY); 
+    int input_directory = open(pinput_dir, O_RDONLY | O_DIRECTORY);
+    int output_directory = open(poutput_dir, O_RDONLY | O_DIRECTORY); 
     struct file_paths_t file_paths;
+    int path_sanitized;
     //long for the 64 version
     long getdents_bytes_read;
+    
     //! clear buffer right after 
     char *buf = malloc(BUFFER_SIZE); 
     char *file_abs_path = malloc(PATH_MAX);
     char *output_abs_path = malloc(PATH_MAX); 
     if(!file_abs_path || !output_abs_path || !buf)
     {
-        PRINT_DEBUG("! Malloc failed! on buffers path\n");
+        PRINT_DEBUG("[!!] Malloc failed! on buffers path\n");
         goto CLEAN_UP;
     }
 
     if ( (-1 == input_directory) || (-1 == output_directory)){
-        printf("! Error on open: invalid target dir or output dir\n");
+        PRINT_DEBUG("[!!] Error on open: invalid target dir or output dir\n");
+        goto CLEAN_UP;
+    }
+    
+    path_sanitized = sanitize_file_paths(&file_paths, pinput_dir, poutput_dir);
+    if (-1 == path_sanitized){
+        PRINT_DEBUG("[!!] Filepath unclean, halting program..");
         goto CLEAN_UP;
     }
 
     for(                    ;                     ;                         ){ //!lol
-        //todo: learning point. sizeof() gets the dtat type size, not the number of a #define
+
         getdents_bytes_read = syscall(SYS_getdents64, input_directory, buf, BUFFER_SIZE);
         if (-1 == getdents_bytes_read ){
             PRINT_DEBUG("[!] Error on getdents64()");
-            goto END;
+            goto CLEAN_UP;
         }
 
         if ( 0 == getdents_bytes_read){
             PRINT_DEBUG("[/] Finished reading dir..\n");
             break;
         }
-
-        //! refractor to another function and check for error there
-        snprintf(file_paths.input_dir, PATH_MAX, "%s", input_dir);
-        snprintf(file_paths.output_dir, PATH_MAX, "%s", output_dir);
 
         int process_file_err = process_file(buf, BUFFER_SIZE,  getdents_bytes_read, file_paths);
         if(-1 == process_file_err){
@@ -270,7 +302,6 @@ CLEAN_UP:
 END:
     return return_value;
 }
-
 
 int solve_file(int input_file_desc, int output_file_desc)
 {
@@ -381,27 +412,18 @@ END:
 
 int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_read, struct file_paths_t file_paths ){
     //All reasonable effort shall be taken to keep the length of each function limited to no more than 100 lines. 70+ lmaooo
-    //time to work out
     int output_fd;
     struct linux_dirent64 *entity; 
     int return_value = -1;
     int input_pathname;
     int output_pathname;
     int ent_validity;
-    char *file_abs_path = malloc(PATH_MAX);
+    char *file_abs_path = calloc(PATH_MAX, sizeof(char));
+    char *output_abs_path = calloc(PATH_MAX, sizeof(char));
 
-    memset(file_abs_path, 0, PATH_MAX);
-    if(NULL == file_abs_path)
-    {
-        PRINT_DEBUG("[] file_handler:process_file err; file_abs_path is NULL");
-        goto END;
-    }
-    char *output_abs_path = malloc(PATH_MAX);
-    memset(output_abs_path, 0, PATH_MAX);
-    if(NULL == output_abs_path)
-    {
-        PRINT_DEBUG("[] file_handler:process_file err; output_abs_path is NULL");
-        goto END;
+    if((!file_abs_path)|| (!output_abs_path)){
+        PRINT_DEBUG("[!!] path buffer failed to allocate!.");
+        goto CLEAN_UP;
     }
 
     for( size_t byte_ptr_offset = 0; byte_ptr_offset < getdents64_bytes_read;){
@@ -456,6 +478,9 @@ SKIP_ENTITY:
         printf("\n");
         }
         return_value = 0;
+CLEAN_UP:
+        JANITOR(file_abs_path);
+        JANITOR(output_abs_path);
 END:
         return return_value;
 }
