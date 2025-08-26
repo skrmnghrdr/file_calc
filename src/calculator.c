@@ -373,12 +373,11 @@ uint64_t rotate_right(uint64_t number, uint64_t bits, int *calc_error){
         *calc_error = ROTATE_RIGHT_ERROR;
         goto ROT_RIGHT_EXIT;
     }
-    else
-    
-    uint64_t fall_shift_by = (MAX_INT_BITS - bits);
+
+    fall_shift_by = (MAX_INT_BITS - bits);
     //swapped the move right to the shift left heree
-    uint64_t num_shift_left = (number >> bits);
-    uint64_t num_fall_off_bits = (number << fall_shift_by);
+    num_shift_left = (number >> bits);
+    num_fall_off_bits = (number << fall_shift_by);
  
     if(*calc_error != 0){
         *calc_error = ROTATE_RIGHT_ERROR;
