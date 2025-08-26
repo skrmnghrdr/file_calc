@@ -293,6 +293,7 @@ int solve_directory(const char *pinput_dir, const char *poutput_dir)
 
     return_value = 0;
 CLEAN_UP:
+    PRINT_DEBUG("[*] Cleaning up buffers");
     JANITOR(buf);
     JANITOR(file_abs_path);
     JANITOR(output_abs_path);
@@ -327,7 +328,6 @@ int solve_file(int input_file_desc, int output_file_desc)
     file_buffer = malloc(stat_buffer.st_size + 1);
     if (NULL == file_buffer){
         PRINT_DEBUG("! Malloc error for file buffer..\n");
-        JANITOR(file_buffer);
         goto END;
     }
 
@@ -378,6 +378,7 @@ END_FOR_LOOP:
     }
     return_value = 0;
 END:
+    JANITOR(file_buffer);
     return return_value;
 }
 
@@ -423,7 +424,7 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
 
     if((!file_abs_path)|| (!output_abs_path)){
         PRINT_DEBUG("[!!] path buffer failed to allocate!.");
-        goto CLEAN_UP;
+        goto END;
     }
 
     for( size_t byte_ptr_offset = 0; byte_ptr_offset < getdents64_bytes_read;){
@@ -478,10 +479,10 @@ SKIP_ENTITY:
         printf("\n");
         }
         return_value = 0;
-CLEAN_UP:
+
+END:
         JANITOR(file_abs_path);
         JANITOR(output_abs_path);
-END:
         return return_value;
 }
 
