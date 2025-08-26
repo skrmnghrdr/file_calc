@@ -166,8 +166,8 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         break;
     case ROTR:
         //! fix main calc, use the << operator 
-        result.UINT =0xEEEEEEEEEEEE;
-        //result.UINT = rotate_right(operand_first.UINT, operand_second.UINT, &calc_error);
+        //result.UINT =0xEEEEEEEEEEEE;
+        result.UINT = rotate_right(operand_first.UINT, operand_second.UINT, &calc_error);
         break;
     default:
         PRINT_DEBUG("[!] Operator showing signs of henneresey..\n");
