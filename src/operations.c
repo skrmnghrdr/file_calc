@@ -72,118 +72,119 @@ END:
 int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_operand, solved_equation_t *solved_buffer)
 {
     int return_me = -1;
-    union type_data operand_first;
-    union type_data operand_second;
-    union type_data result;
-    struct results struct_result = {0};
-
-    //spec dictates, fill the magic numbers
-    int INVALID_UINT_VAL = uint_check_min_max(first_operand, second_operand);
-    int INVALID_INT_VAL = int_check_min_max(first_operand, second_operand);
-
-    int ERROR = 0;
-    uint8_t hehehe = 0x9;
-    solved_buffer->flags = NOT_SOLVED;
-    solved_buffer->type = hehehe;
-    int calc_error = 0x0; //simp calc uses non POSTIVE val
-    
-    printf("[^^] GDB anchor here please...\n");
-
-    if( (operator < LOWER_INT_LIMIT) || (operator > HIGHER_UINT_LIMIT) )
-    {
-        printf("[!] Heresy Detected. Invalid Operator...\n");
+    if(NULL == solved_buffer){
+        PRINT_DEBUG("[!!] Solved buffer null...\n");
         goto END;
     }
 
-    if( (LOWER_INT_LIMIT <= operator ) && (HIGHER_INT_LIMIT >= operator) )
-    {
-        //! somehow, populatingit here fucks it up, perhaps we should clear buffer?
-        //working,. take a rbeak dipshit
-        operand_first.INT = first_operand;
-        operand_second.INT = second_operand;
-        solved_buffer->type = INTEGER_TYPE;
+    op_entry_t equation;
+    int result_get_operation = get_operation(operator, &equation);
+    int check_overflow;
+    result_t solution;
+    solved_buffer->flags = NOT_SOLVED;
+    solved_buffer->type;
+    int calc_error = 0x0; //simp calc uses non POSTIVE val
+    
+    if (0 > result_get_operation){
+        PRINT_DEBUG("[!!] Error at gettting operations..\n");
+        goto END;
     }
 
-    if( (operator >= LOWER_UINT_LIMIT ) && ( operator <= HIGHER_UINT_LIMIT) )
-    {
-        operand_first.UINT = first_operand;
-        operand_second.UINT = second_operand; 
-        solved_buffer->type = UNSIGNED_INTERGER_TYPE;
-    }
-    //! loop through the entry arrays, and map it through the fcuntion pointer
-    //! BUT WE HAAVE TO CHECK THE LIMITS OR OVERFLOWS
-    PRINT_DEBUG("[*] Processing Operator: 0x%02X\n", operator);
-    //! map on c programming
-    switch (operator)
-    {
-    case ADDITION:
-        result.INT = add(operand_first.INT, operand_second.INT, &calc_error);
-        solved_buffer->type = INTEGER_TYPE;
-        break;
-    case SUBTRACTION:
-        //subtrat seems to work
-        result.INT = subtract(operand_first.INT, operand_second.INT, &calc_error);
-        break;
-    case MULTIPLICATION:
-        result.INT = multiply(operand_first.INT, operand_second.INT, &calc_error);
-        break;
-    case DIVISION:
-        //somehow division works as well lol
-        result.INT = divide(operand_first.INT, operand_second.INT, &calc_error);
-        break;
-    case MODULO:
-        result.INT = 0x7FFFFFFFFFFFF;
-        //! FYSAss, modulo, you forgot
-        //result.INT = modulo(operand_first.INT, operand_second.INT, &calc_error);
-        break;
-    case SHL:
-        result.UINT = shift_left(operand_first.UINT, operand_second.UINT, &calc_error);
-        break;
-    case SHR:
-        result.UINT = shift_right(operand_first.UINT, operand_second.UINT, &calc_error);
-        break;
-    case AND:
-        result.UINT = bitwise_and(operand_first.UINT, operand_second.UINT, &calc_error);
-        break;
-    case OR:
-        result.UINT = bitwise_or(operand_first.UINT, operand_second.UINT, &calc_error);
-        break;
-    case XOR:
-        result.UINT = bitwise_exclusive_or(operand_first.UINT, operand_second.UINT, &calc_error);
-        break;
-    //todo: consult mentor if bro wants to use the << or our own SHX for overflows
-    case ROTL:
-        //! fix main calc use the << operator
-        //! slight error on things that are about 16 for the rotate
-        //! hunt it
-        result.UINT = rotate_left(operand_first.UINT, operand_second.UINT, &calc_error);
-        break;
-    case ROTR:
-        //! fix main calc, use the << operator 
-        //result.UINT =0xEEEEEEEEEEEE;
-        result.UINT = rotate_right(operand_first.UINT, operand_second.UINT, &calc_error);
-        break;
-    default:
-        PRINT_DEBUG("[!] Operator showing signs of henneresey..\n");
-        calc_error = INVALID_OPERATOR_ERROR;
-        break;
+    check_overflow = check_limits(first_operand, second_operand, &equation);
+    if(0 > check_overflow){
+        PRINT_DEBUG("[!!] Check overflow error! ");
+        goto END;
     }
 
-    if (calc_error)
-    {
+    if(INT_TYPE == equation.func_type ){
+        solution.result.i_result = equation.func.i_func((int64_t) first_operand,(int64_t) second_operand, &calc_error);
+        solution.result_data_type = INT_TYPE;
+    }
+    if(UINT_TYPE == equation.func_type){
+        solution.result.i_result = equation.func.u_func(first_operand, second_operand, &calc_error);
+        solution.result_data_type = UINT_TYPE;
+    }
+
+    if (calc_error){
         PRINT_DEBUG("[!] operations:solve_equation: Calc error! ewwor code:%d\n", calc_error);
         PRINT_DEBUG("[!] operations:solve_equation:  The chapter master will hear about this..\n");
         goto END;
     }
-    
-    solved_buffer->solution = result.UINT;
+
+    if(INT_TYPE == solution.result_data_type ){
+        solved_buffer->type = INT_TYPE;
+        solved_buffer->solution = solution.result.i_result;
+    }
+    if(UINT_TYPE == solution.result_data_type){
+        solved_buffer->type = UINT_TYPE;
+        solved_buffer->solution = solution.result.u_result;
+    }
+
     return_me = 0;
-    PRINT_DEBUG("[*]Final result:\nResult[%lX]\n", result.UINT);
-    PRINT_DEBUG("[*]Final INT result:\nResult[%ld]\n", result.UINT);
-
+    PRINT_DEBUG("[*]Final result:\nResult[%lX]\n", solved_buffer->solution);
+    PRINT_DEBUG("[*]Final INT result:\nResult[%ld]\n", (int64_t) ->solution);
     solved_buffer->flags = SOLVED;
-    
 END:
+    return return_me;
+}
 
+
+int get_operation(uint8_t operator, op_entry_t *equation)
+{   
+    int return_me = -1;
+    if( NULL == equation){
+        PRINT_DEBUG("[!!] NULL equation pointer caught..\n");
+        goto END;
+    }
+    int op_ent_len = 11; //! change to 12 when having modulorlolorlorlros
+    op_entry_t op_entry_arr[] = {
+        //    char *ops[] = {"+", "-", "*", "/","<<", ">>", "<<<", ">>>", "%"};
+        {ADDITION, .func_type=INTEGER_TYPE,  .func.i_func = add},
+        {SUBTRACTION,  .func_type=INTEGER_TYPE, .func.i_func = subtract},
+        {MULTIPLICATION, .func_type=INTEGER_TYPE, .func.i_func = multiply},
+        {DIVISION, .func_type=INTEGER_TYPE, .func.i_func = divide},
+        {SHL, .func_type=UNSIGNED_INTERGER_TYPE, .func.u_func = shift_left},
+        {SHR, .func_type=UNSIGNED_INTERGER_TYPE, .func.u_func = shift_right},
+        {ROTL, .func_type=UNSIGNED_INTERGER_TYPE, .func.u_func = rotate_left},
+        {ROTR, .func_type=UNSIGNED_INTERGER_TYPE, .func.u_func = rotate_right},
+        {XOR, .func_type=UNSIGNED_INTERGER_TYPE, .func.u_func = bitwise_exclusive_or},
+        {AND, .func_type=UNSIGNED_INTERGER_TYPE, .func.u_func = bitwise_and},
+        {OR, .func_type=UNSIGNED_INTERGER_TYPE, .func.u_func = bitwise_or},
+    };
+
+    for(int idx = 0; idx < op_ent_len; idx++){
+        if(!operator == op_entry_arr[idx].symbol)
+        {
+            PRINT_DEBUG("[!] Not matching, proceeeding for loop..\n");
+            goto END_FOR_LOOP;
+        }
+
+        PRINT_DEBUG("[*] Found equation match!..\n");
+        *equation = op_entry_arr[idx];
+
+END_FOR_LOOP:
+    }
+EXIT_FOR_LOOP:
+    return_me = 0;
+END:
+    return return_me;
+}
+
+int check_limits(uint64_t first_operand, uint64_t second_operand, op_entry_t *equation)
+{
+    int INVALID_UINT_VAL = uint_check_min_max(first_operand, second_operand);
+    int INVALID_INT_VAL = int_check_min_max( first_operand, second_operand);
+    int return_me = -1;
+
+    if(INT_TYPE == equation->func_type && !INVALID_INT_VAL){
+        return_me = 0;
+        goto END;
+    }
+
+    if(UINT_TYPE == equation->func_type && !INVALID_UINT_VAL){
+        return_me = 0;
+        goto END;
+    }
+END:
     return return_me;
 }

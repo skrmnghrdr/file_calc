@@ -50,7 +50,7 @@ void operations_check();
 
 int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equation_t *solved_buffer);
 
-//! shorten, 
+
 /**
 * @brief solves the equation by populating the corresponding
 *        answer on the solved_buffer flag
@@ -66,8 +66,40 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
 *        uint64_t second_operand:
 * 
 * @returns:
-//! OUTPUT PARAMETER: solved_equation_t *solved_buffer
--1 on error:
-0 on success:
+            //! OUTPUT PARAMETER: solved_equation_t *solved_buffer
+            -1 on error:
+            0 on success:
 */  
 int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_operand, solved_equation_t *solved_buffer);
+
+
+
+/**
+ * @brief gets operation based on the provided operand value
+ * 
+ * 
+ * @args: 
+ *       uint8_t operator: the operator code
+ *       op_entry_t equation: OUTPUT PARAMETER
+ * 
+ * @returns:
+ *        OUTPUT: equation: the buffer to put the equation
+ *        on err: -1
+ *        on succ: 0
+ *          
+ */
+int get_operation(uint8_t operator, op_entry_t *equation);
+
+
+/**
+ * @brief HELPER: checks the upper and lower limits of the equation before
+ *        we perform the calculations
+ * 
+ * @args: op_entry_t *equation
+ * 
+ * @returns:
+ *          on err: -1
+ *          on succ: 0
+ * 
+ */
+int check_limits(uint64_t first_operand, uint64_t second_operand, op_entry_t *equation);

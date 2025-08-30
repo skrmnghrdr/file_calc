@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <limits.h>
 
+
 #pragma pack(1)
 typedef struct struct_file_header_t 
 {
@@ -46,7 +47,6 @@ typedef struct solved_equation_t
 } solved_equation_t;
 #pragma pack()
 
-
 //https://linux.die.net/man/2/getdents64
 struct linux_dirent64 {
     //struct straight outta docs
@@ -73,5 +73,33 @@ typedef struct file_paths_t {
     char input_dir[PATH_MAX];
     char output_dir[PATH_MAX];
 } file_paths_t;
+
+typedef int64_t (*p_ops_t)(int64_t, int64_t, int *);
+typedef uint64_t (*p_uintopts_t)(uint64_t, uint64_t, int *);
+
+union _u_func_union {
+    //! do not use alone, bundled with op_entry_t
+    p_ops_t i_func;
+    p_uintopts_t u_func;
+};
+
+union _u_result {
+    //! do not use alone, bundled with result_t
+    uint64_t u_result;
+    int64_t i_result;
+};
+
+typedef struct {
+    int result_data_type;
+    union _u_result result;
+} result_t;
+
+typedef struct {
+    const char *symbol;
+    int func_type;
+    union _u_func_union func;
+} op_entry_t;
+
+//see full declaration in calculator.h
 
 #endif

@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "structs.h"
 
 #define DEBUG
 #include "utils.h"
@@ -44,6 +45,9 @@
 #define INVALID_OPERATOR_ERROR 69
 #define UNKNOWN_ERROR 999
 
+#define INT_TYPE 1
+#define UINT_TYPE 2
+
 extern int debug_on;
 
 
@@ -63,6 +67,7 @@ typedef struct results{
     int64_t int32_result;
     uint64_t uint32_result;
 } results;
+
 
 //main functions
 void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error,  results *ptr_struct_result);

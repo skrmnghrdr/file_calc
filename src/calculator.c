@@ -18,6 +18,7 @@
 
 
 
+
 int debug_on = 0;
 int64_t x = 0;
 int64_t y = 0;
@@ -57,9 +58,10 @@ int int_check_min_max(uint64_t xxx, uint64_t yyy){
         (yyy > INT64_MAX) ||
         (yyy < INT64_MIN)  )
      */
-    int return_me = -1;
+    int return_me = 1;
     int x_var = (int64_t) xxx;
     int y_var = (int64_t) yyy;
+
     //! we do individual checks for easier debug
     if (x_var > INT64_MAX){
         PRINT_DEBUG("[!] Overflow, x greater than max..\n");
