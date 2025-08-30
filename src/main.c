@@ -44,8 +44,11 @@ int main(int argc, char ** pp_argv)
      * calling file calc again
      * 
      */
-
-
+    //! clean up comments before upload to main branch
+    //! make a readme
+    //! check if we just left the file descriptors open here
+    //! and clsoe them gracefully when error occurs
+    //seems like you closed the fd pretty nicely on that spider loop
     file_calculator("../laboratory", "../output");
     return 0;
 }

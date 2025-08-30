@@ -72,28 +72,23 @@ static int append_path_and_file(const char *path, char *file, size_t buffer_size
 
     //! note: you cannot know how much size malloc allcoated,
     //! you need a separate counter for the size of the buffer.
-    if( '/' == last_character)
-    {
+    if( '/' == last_character){
         bytes_written = snprintf(buffer, buffer_size, "%s%s", path, file);
     }
-    else
-    {
+    else{
         bytes_written = snprintf(buffer, buffer_size, "%s/%s", path, file);
     }
 
-    if (0 > bytes_written )
-    {
+    if (0 > bytes_written ){
         printf("!Nothing written on filename buffer, (append)\n");
         goto END;
     }
 
-    if ( (path_len + filename_len) > (size_t) bytes_written)
-    {
+    if ( (path_len + filename_len) > (size_t) bytes_written){
         printf("! Truncating happneed. path corrupted..\n");
         goto END;
     }
-    else
-    {
+    else{
         return_value = 0;
     }
 
@@ -133,8 +128,7 @@ const char *get_filename_ext(const char *filename)
 {
 
     const char *dot = strrchr(filename, '.');
-    if(!dot || dot == filename)
-    {
+    if(!dot || dot == filename){
         return "";
     }
     
@@ -199,22 +193,19 @@ int header_slapper(int input_fd, int output_fd)
     loff_t lseek_return;
     buffer = malloc(BUFFER_SIZE);
 
-    if(NULL == buffer)
-    {
+    if(NULL == buffer){
         printf("! Mallocation failed :9...\n");
         goto END;
     }
     //read header
     bytes_read = read(input_fd, &header_struct, sizeof(header_struct));
-    if( bytes_read < sizeof(header_struct))
-    {
+    if( bytes_read < sizeof(header_struct)){
         printf("! Error reading header\n");
         goto END;
     }
 
     write_result = write(output_fd, &header_struct, sizeof(header_struct));
-    if( write_result < sizeof(header_struct))
-    {
+    if( write_result < sizeof(header_struct)){
         printf("! Header slapping corrupted..\n");
         goto END;
     }
@@ -236,8 +227,7 @@ int solve_directory(const char *pinput_dir, const char *poutput_dir)
 {
     //! change params to p
     int return_value = -1;
-    if ((NULL == pinput_dir) || (NULL == poutput_dir) )
-    {
+    if ((NULL == pinput_dir) || (NULL == poutput_dir) ){
         PRINT_DEBUG("[!!] file_handler:solve_directory(): print mesg fo null pointer here.\n");
         goto END;
     }
@@ -252,8 +242,7 @@ int solve_directory(const char *pinput_dir, const char *poutput_dir)
     char *buf = malloc(BUFFER_SIZE); 
     char *file_abs_path = malloc(PATH_MAX);
     char *output_abs_path = malloc(PATH_MAX); 
-    if(!file_abs_path || !output_abs_path || !buf)
-    {
+    if(!file_abs_path || !output_abs_path || !buf){
         PRINT_DEBUG("[!!] Malloc failed! on buffers path\n");
         goto CLEAN_UP;
     }
@@ -436,15 +425,15 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
             PRINT_DEBUG("[!] file_handler:process_file: invalid dir entitiy, skipping..");
             goto SKIP_ENTITY;
         }
-        //! poulate files
+
         input_pathname = append_path_and_file(file_paths.input_dir, entity->d_name, PATH_MAX, file_abs_path);
         output_pathname = append_path_and_file(file_paths.output_dir, entity->d_name, PATH_MAX, output_abs_path);
-        //! check ent validator here
+
         if ((0 > input_pathname) || (0 > output_pathname)){
             PRINT_DEBUG("[!]File Handler:solve_directory Error on appending input/ouput file...\n");
             goto END;
         }
-        //!end ent validator
+ 
         //O_WRONLY | O_CREAT | O_TRUNC write and read, create if not there, overlap if exists
         output_fd = open(output_abs_path, O_WRONLY | O_CREAT | O_TRUNC, 0644 );
         if (0 > output_fd){
@@ -465,8 +454,7 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
             //skip file
             goto END; 
         }
-        //!if legal entity, solve_it
-        //todo: function below 
+        
         int was_unsolved = solve_file(valid_header, output_fd);
         if(was_unsolved){
             PRINT_DEBUG("[!] File handler:sovle_directory: Something wrong with file:%s skipping...\n", file_abs_path);
