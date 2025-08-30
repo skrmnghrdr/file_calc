@@ -122,7 +122,7 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
 
     return_me = 0;
     PRINT_DEBUG("[*]Final result:\nResult[%lX]\n", solved_buffer->solution);
-    PRINT_DEBUG("[*]Final INT result:\nResult[%ld]\n", (int64_t) ->solution);
+    PRINT_DEBUG("[*]Final INT result:\nResult[%ld]\n", (int64_t) solved_buffer->solution);
     solved_buffer->flags = SOLVED;
 END:
     return return_me;
@@ -153,19 +153,16 @@ int get_operation(uint8_t operator, op_entry_t *equation)
     };
 
     for(int idx = 0; idx < op_ent_len; idx++){
-        if(!operator == op_entry_arr[idx].symbol)
+        if(operator == op_entry_arr[idx].symbol)
         {
-            PRINT_DEBUG("[!] Not matching, proceeeding for loop..\n");
-            goto END_FOR_LOOP;
+            PRINT_DEBUG("[*] Found equation match!..\n");
+            *equation = op_entry_arr[idx];
+            return_me = 0;
+            goto END;
         }
-
-        PRINT_DEBUG("[*] Found equation match!..\n");
-        *equation = op_entry_arr[idx];
-
-END_FOR_LOOP:
     }
-EXIT_FOR_LOOP:
-    return_me = 0;
+
+    
 END:
     return return_me;
 }

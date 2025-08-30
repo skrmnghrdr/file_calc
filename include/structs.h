@@ -95,7 +95,7 @@ typedef struct {
 } result_t;
 
 typedef struct {
-    const char *symbol;
+    int symbol;
     int func_type;
     union _u_func_union func;
 } op_entry_t;
