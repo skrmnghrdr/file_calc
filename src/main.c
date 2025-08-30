@@ -43,42 +43,98 @@ int main(int argc, char ** pp_argv)
      * 
      */
     
+    //! fake header
     typedef int64_t (*p_ops_t)(int64_t, int64_t, int *);
     typedef uint64_t (*p_uintopts_t)(uint64_t, uint64_t, int *);
-    char operations[] = "<<<";
-    char *ops[] = {"+", "-", "*", "/","<<", ">>", "<<<", ">>>", "%"};
-    int op_ent_len = 9;
+    int INT = 1;
+    int UINT = 2;
 
-    union u_func_union {
+    union _u_func_union {
+        //! do not use alone, bundled with op_entry_t
         p_ops_t i_func;
         p_uintopts_t u_func;
     };
 
-    typedef enum { 
-        RET_INT, RET_UINT 
-    } ret_type_t;
-    
+    union _u_result {
+        //! do not use alone, bundled with result_t
+        uint64_t u_result;
+        int64_t i_result;
+    };
+    typedef struct {
+        int result_data_type;
+        union _u_result result;
+    } result_t;
+
     typedef struct {
         const char *symbol;
-        ret_type_t type;
-        union u_func_union func;
-    } op_entry;
+        int func_type;
+        union _u_func_union func;
+    } op_entry_t;
 
-    op_entry op_entry_arr[] = {
+    op_entry_t op_entry_arr[] = {
         //    char *ops[] = {"+", "-", "*", "/","<<", ">>", "<<<", ">>>", "%"};
-        {"+", RET_INT, .func.i_func = add},
-        {"-", RET_INT, .func.i_func = subtract},
-        {"*", RET_INT, .func.i_func = multiply},
-        {"/", RET_INT, .func.i_func = divide},
-        {"<<", RET_UINT, .func.u_func = shift_left},
-        {">>", RET_UINT, .func.u_func = shift_right},
-        {"<<<", RET_UINT, .func.u_func = rotate_left},
-        {">>>", RET_UINT, .func.u_func = rotate_right},
-        {"^", RET_UINT, .func.u_func = bitwise_exclusive_or},
+        {"+", .func_type=INT,  .func.i_func = add},
+        {"-",  .func_type=INT, .func.i_func = subtract},
+        {"*", .func_type=INT, .func.i_func = multiply},
+        {"/", .func_type=INT, .func.i_func = divide},
+        {"<<", .func_type=UINT, .func.u_func = shift_left},
+        {">>", .func_type=UINT, .func.u_func = shift_right},
+        {"<<<", .func_type=UINT, .func.u_func = rotate_left},
+        {">>>", .func_type=UINT, .func.u_func = rotate_right},
+        {"^", .func_type=UINT, .func.u_func = bitwise_exclusive_or},
     };
+    //! end fake header
+
+
+
+    char operation[] = "<<";
+    char *ops[] = {"+", "-", "*", "/","<<", ">>", "<<<", ">>>", "%"};
+    int op_ent_len = 9;
+    int calc_error = 0;
+    //! should be in the header
+
+    uint64_t first_operand = 10;
+    uint64_t second_operand = 7;
+
+    int INVALID_UINT_VAL = uint_check_min_max(first_operand, second_operand);
+    int INVALID_INT_VAL = int_check_min_max( first_operand, second_operand);
+
+    result_t var_result;
+
     
     for(int idx = 0; idx < op_ent_len; idx++){
-        printf("op_entry_arr: op:%s type:%s\n ", op_entry_arr[idx].symbol, op_entry_arr[idx].type == RET_INT ? "int" : "uint");
+        //printf("op_entry_arr: op:%s type:%s\n ", op_entry_arr[idx].symbol, op_entry_arr[idx].type == RET_INT ? "int" : "uint");
+        int func_type = op_entry_arr[idx].func_type;
+        union _u_func_union ptr_func;  
+
+        int not_equal = strcmp(operation, op_entry_arr[idx].symbol);
+        if (not_equal){
+            PRINT_DEBUG("[!] Operand not equal, skipping..\n");
+            goto END_FOR_LOOP;
+        }
+        PRINT_DEBUG("[*] Found a match! calculating..\n");
+
+        ptr_func = op_entry_arr[idx].func;
+        if (INT == func_type && !INVALID_INT_VAL){
+            PRINT_DEBUG("[*] processing INT equation..\n");
+            var_result.result.i_result = ptr_func.i_func((int64_t) first_operand, (int64_t) second_operand, &calc_error);
+            var_result.result_data_type = INT;
+            goto EXIT_FOR_LOOP;
+        }
+        if (UINT == func_type && !INVALID_UINT_VAL){
+            PRINT_DEBUG("[*] processing UINT equation..\n");
+            var_result.result.u_result = ptr_func.u_func(first_operand, second_operand, &calc_error);
+            var_result.result_data_type = UINT;
+            goto EXIT_FOR_LOOP;
+        }    
+END_FOR_LOOP:
+    }
+EXIT_FOR_LOOP:
+    if(INT == var_result.result_data_type){
+        PRINT_DEBUG("[*] Result %ld\n", var_result.result.i_result);
+    }
+    if(UINT == var_result.result_data_type){
+        PRINT_DEBUG("[*] Result %lu\n", var_result.result.i_result);
     }
     //make function pointer, 
     //make the array for the operations, use strings
@@ -90,7 +146,6 @@ int main(int argc, char ** pp_argv)
      */
 
     //! try the map function here
-    PRINT_DEBUG("main(): test\n");
     //file_calculator("../laboratory", "../output");
     return 0;
 }

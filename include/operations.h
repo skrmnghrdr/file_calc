@@ -10,6 +10,18 @@
 #include <unistd.h>
 
 #include "utils.h"
+
+
+#define LOWER_INT_LIMIT 0x01
+#define HIGHER_INT_LIMIT 0x05
+#define LOWER_UINT_LIMIT 0x06
+#define HIGHER_UINT_LIMIT 0x0C
+#define INTEGER_TYPE 0x01
+#define UNSIGNED_INTERGER_TYPE 0x02
+#define SOLVED 1
+#define NOT_SOLVED 0
+
+
 union type_data 
 {
     int64_t INT;

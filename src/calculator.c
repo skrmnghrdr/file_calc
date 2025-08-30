@@ -50,16 +50,36 @@ int int_check_min_max(uint64_t xxx, uint64_t yyy){
      * we then do another checking inside the operand function
      * we will write a separate uint checker for our anxiety to 
      * calm down and not rely on the operand.
-     */
+    
     if(
         (xxx > INT64_MAX) || 
         (xxx < INT64_MIN) ||
         (yyy > INT64_MAX) ||
         (yyy < INT64_MIN)  )
-    {
-        return 1;
+     */
+    int return_me = -1;
+    int x_var = (int64_t) xxx;
+    int y_var = (int64_t) yyy;
+    //! we do individual checks for easier debug
+    if (x_var > INT64_MAX){
+        PRINT_DEBUG("[!] Overflow, x greater than max..\n");
+        goto END_CHECK;
     }
-    return 0;
+    if (x_var < INT64_MIN){
+        PRINT_DEBUG("[!] Overflow, x less than min..\n");
+        goto END_CHECK;
+    }
+    if (y_var > INT64_MAX){
+        PRINT_DEBUG("[!] Overflow, y greater than max..\n");
+        goto END_CHECK;
+    }
+    if (y_var < INT64_MIN){
+        PRINT_DEBUG("[!] Overflow, y lesser than min..\n");
+        goto END_CHECK;
+    }
+    return_me = 0;
+END_CHECK:
+    return return_me;
 }
 
 int uint_check_min_max(uint64_t xxx, uint64_t yyy){

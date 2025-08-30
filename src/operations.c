@@ -71,8 +71,6 @@ END:
 
 int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_operand, solved_equation_t *solved_buffer)
 {
-
-
     int return_me = -1;
     union type_data operand_first;
     union type_data operand_second;
@@ -80,14 +78,9 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
     struct results struct_result = {0};
 
     //spec dictates, fill the magic numbers
-    int LOWER_INT_LIMIT = 0x01;
-    int HIGHER_INT_LIMIT = 0x05;
-    int LOWER_UINT_LIMIT = 0x06;
-    int HIGHER_UINT_LIMIT = 0x0C;
-    uint8_t INTEGER_TYPE = 0x01;
-    uint8_t UNSIGNED_INTERGER_TYPE = 0x02;
-    uint8_t SOLVED = 1;
-    uint8_t NOT_SOLVED = 0;
+    int INVALID_UINT_VAL = uint_check_min_max(first_operand, second_operand);
+    int INVALID_INT_VAL = int_check_min_max(first_operand, second_operand);
+
     int ERROR = 0;
     uint8_t hehehe = 0x9;
     solved_buffer->flags = NOT_SOLVED;
@@ -117,7 +110,8 @@ int solve_equation(uint64_t first_operand, uint8_t operator, uint64_t second_ope
         operand_second.UINT = second_operand; 
         solved_buffer->type = UNSIGNED_INTERGER_TYPE;
     }
-
+    //! loop through the entry arrays, and map it through the fcuntion pointer
+    //! BUT WE HAAVE TO CHECK THE LIMITS OR OVERFLOWS
     PRINT_DEBUG("[*] Processing Operator: 0x%02X\n", operator);
     //! map on c programming
     switch (operator)
