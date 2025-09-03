@@ -542,12 +542,10 @@ void calculate(long xxx, char *operand, long yyy, int *ptr_calc_error, results *
         uint64_t result = rotate_left(first_number, second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_UINT;
-        //caught bug here! 
         ptr_struct_result->uint32_result = result;
         debug();
     }
-    else if (0 == (strcmp(operand, ">>>") | INVALID_UINT_VAL) )
-    {
+    else if (0 == (strcmp(operand, ">>>") | INVALID_UINT_VAL) ){
         uint64_t result = rotate_right(first_number, second_number, ptr_calc_error);
         
         ptr_struct_result->print_flag = PRINT_UINT;

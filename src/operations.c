@@ -162,7 +162,6 @@ int get_operation(uint8_t operator, op_entry_t *equation)
         }
     }
 
-    
 END:
     return return_me;
 }
