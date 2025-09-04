@@ -374,6 +374,7 @@ END:
 int write_output(int output_file_desc, solved_equation_t *solved_equ)
 {
     int return_me = -1; //:)
+    //int res_invalidate_header;
     ssize_t write_output; 
 
     if( NULL == solved_equ){
@@ -382,9 +383,29 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
     }
 
     PRINT_DEBUG("About to write: ID: 0x%X\n\n", solved_equ->equation_id);
+    /**
+     @todo do this, to make it spec compliant for next week.
+     * 
+     * since this function is responsible for writing in the file, we could check if
+     * the equation flag has been solved or 0 if not, if 0, we call the invalidate header function
+     * which just takes in the outputfile desc, and changes the header
+     * 
+     */
+    /*psuedo code
+    if(!solved_equ->flags){
+        //error on solving, then invalidate header
+        res_invalidate_header = invalidate_header(output_file_desc)
+    }
+    if(0 > res_invalidate_header){
+        PRINT_DEBUG("[!!] Error on invalidating the header..\n");
+        goto END;
+    }
+    */
     write_output = write(output_file_desc, solved_equ, sizeof(*solved_equ));
 
     if(write_output < sizeof(*solved_equ)){
+        //failing to write it here makes the file corrupt
+        //do something with it in the future
         PRINT_DEBUG("[!] Error occured on write..\n");
         PRINT_DEBUG("[!] Begin cleansing the file of heresey...\n");
         //! cleans or delete the file here someday in the future
@@ -393,8 +414,8 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
     }
     //todo: slap the file header in the file output here later, then continue with the operations 
 
-END:
     return_me = 0;
+END:
     return return_me;
 }
 
