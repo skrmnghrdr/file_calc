@@ -374,7 +374,7 @@ END:
 int write_output(int output_file_desc, solved_equation_t *solved_equ)
 {
     int return_me = -1; //:)
-    //int res_invalidate_header;
+    int res_mark_unsolve_header;
     ssize_t write_output; 
 
     if( NULL == solved_equ){
@@ -394,9 +394,9 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
     /*psuedo code
     if(!solved_equ->flags){
         //error on solving, then invalidate header
-        res_invalidate_header = invalidate_header(output_file_desc)
+        res_mark_unsolve_header = unsolve_header(output_file_desc)
     }
-    if(0 > res_invalidate_header){
+    if(0 > res_mark_unsolve_header){
         PRINT_DEBUG("[!!] Error on invalidating the header..\n");
         goto END;
     }
