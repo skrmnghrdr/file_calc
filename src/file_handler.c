@@ -285,7 +285,7 @@ int solve_directory(const char *pinput_dir, const char *poutput_dir)
 
     return_value = 0;
 CLEAN_UP:
-    PRINT_DEBUG("[*] Cleaning up buffers");
+    PRINT_DEBUG("[*] Cleaning up buffer\n");
     JANITOR(buf);
     JANITOR(file_abs_path);
     JANITOR(output_abs_path);
@@ -360,6 +360,7 @@ int solve_file(int input_file_desc, int output_file_desc)
         int process_equ_res = process_equation(&unsolved_equ, &solved_equ);
         if (0 > process_equ_res){ 
             PRINT_DEBUG("[!] File_handler:solve_file: Something wrong went with processing the equation..\n");
+            //! you would need to write the equation even though it failed never the less
             //! once done with file, mark header as not solved if error was ticked
             goto END_FOR_LOOP;
         }
@@ -386,24 +387,17 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
     }
 
     PRINT_DEBUG("About to write: ID: 0x%X\n\n", solved_equ->equation_id);
-    /**
-     @todo do this, to make it spec compliant for next week.
-     * 
-     * since this function is responsible for writing in the file, we could check if
-     * the equation flag has been solved or 0 if not, if 0, we call the invalidate header function
-     * which just takes in the outputfile desc, and changes the header
-     * 
-     */
-    /*psuedo code
+    PRINT_DEBUG("[*] solved_equation->flag:%u\n", solved_equ->flags);
     if(!solved_equ->flags){
-        //error on solving, then invalidate header
-        res_mark_unsolve_header = unsolve_header(output_file_desc)
+        PRINT_DEBUG("[*] Equation not solve, marking header..\n");
+        res_mark_unsolve_header = unsolve_header(output_file_desc);
     }
+
     if(0 > res_mark_unsolve_header){
-        PRINT_DEBUG("[!!] Error on invalidating the header..\n");
+        PRINT_DEBUG("[!!] Error on \"unsolving\" the header..\n");
         goto END;
     }
-    */
+
     write_output = write(output_file_desc, solved_equ, sizeof(*solved_equ));
 
     if(write_output < sizeof(*solved_equ)){
@@ -447,7 +441,7 @@ int unsolve_header(int output_file_desc)
         PRINT_DEBUG("[!!] Error on loading output file_header...\n");
         goto LSEEEK_TO_END_THEN_END;
     }
-    
+
     if(file_header.flag){
         file_header.flag = 0;
         PRINT_DEBUG("[*] Header ticked to 0 \n");

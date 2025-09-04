@@ -53,7 +53,8 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     solved_buffer->equation_id = equation_id;
     int solve_result = solve_equation(first_operand, operator, second_operand, solved_buffer);
     if (0 > solve_result){
-        PRINT_DEBUG("[!] operations:process_equation Solve equation something happneed.\n");
+        PRINT_DEBUG("[!] operations:process_equation Solve equation something happneed. ticking buffer flags to 0\n");
+        solved_buffer->flags = 0;
         goto END;
     }
 
