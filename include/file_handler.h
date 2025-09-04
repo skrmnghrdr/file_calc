@@ -146,7 +146,7 @@ int solve_file(int input_file_desc, int output_file_desc);
 
 
 /**
- * @brief writes to the output file desc 
+ * @brief writes to the processed EUQATION to the file desc 
  * 
  * @param output_file_desc: a valid file desc for writing
  * @param solved_equ: the struct that will be written

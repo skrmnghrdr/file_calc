@@ -99,7 +99,6 @@ typedef struct {
     int func_type;
     union _u_func_union func;
 } op_entry_t;
-
 //see full declaration in calculator.h
 
 #endif

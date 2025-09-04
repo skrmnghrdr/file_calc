@@ -376,8 +376,7 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
     int return_me = -1; //:)
     ssize_t write_output; 
 
-    if( NULL == solved_equ)
-    {
+    if( NULL == solved_equ){
         PRINT_DEBUG("! Solved equation pointer nulll...\n");
         goto END;
     }
@@ -385,10 +384,9 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
     PRINT_DEBUG("About to write: ID: 0x%X\n\n", solved_equ->equation_id);
     write_output = write(output_file_desc, solved_equ, sizeof(*solved_equ));
 
-    if(write_output < sizeof(*solved_equ))
-    {
-        PRINT_DEBUG("! Error occured on write..\n");
-        PRINT_DEBUG("! Begin cleansing the file of heresey...\n");
+    if(write_output < sizeof(*solved_equ)){
+        PRINT_DEBUG("[!] Error occured on write..\n");
+        PRINT_DEBUG("[!] Begin cleansing the file of heresey...\n");
         //! cleans or delete the file here someday in the future
         //we flee for now
         goto END;
@@ -444,14 +442,12 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
         int valid_header = head_checker(file_abs_path);
         if (0 > valid_header){
             PRINT_DEBUG("[!] File handler:sovle_directory: Invalid header type!..\n");
-            //skip
             goto END;
         }
 
         int slap_result = header_slapper(valid_header, output_fd);
         if (0 > slap_result){
             PRINT_DEBUG("[!] File handler:sovle_directory: Something went wrong stamping the header.\n");
-            //skip file
             goto END; 
         }
         
@@ -460,12 +456,10 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
             PRINT_DEBUG("[!] File handler:sovle_directory: Something wrong with file:%s skipping...\n", file_abs_path);
             goto END;
         }
-            //! thou shall not forget
-            //! close(output_fd);
-            //! close(valid_file_descriptor);
+
 SKIP_ENTITY:
         printf("\n");
-        }
+        }//end dir ent for loop
         return_value = 0;
 
 END:
@@ -482,16 +476,14 @@ int verify_entity(struct linux_dirent64 *entity)
     int return_value = -1;
     
     unsigned char valid_entity = (entity->d_type == REGULAR_FILE);
-    if(!valid_entity)
-    {   
-        //skip the file
+    if(!valid_entity){   
+        PRINT_DEBUG("[!] Invalid entitity %s, skipping..\n", entity->d_name);
         goto END;
     }
     const char *extension = get_filename_ext(entity->d_name);  
     int invalid_extension = strcmp(extension, "equ");
-    if(invalid_extension)
-    {
-        //skip the file
+    if(invalid_extension){
+        PRINT_DEBUG("[!] Wrong extension, skipping...");
         goto END;
     }
     return_value = 0;

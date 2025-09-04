@@ -50,16 +50,10 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     //ld or llu
     printf("[*] INT conversion:\n1st:%ld 2nd:%ld\n",(int64_t) first_operand, (int64_t)second_operand);
 
-
-    //solved_buffer is the output param
-    //!solved_buffer is the output param
-    //todo solved_buffer is the output param
-    //solved_buffer is the output param
     solved_buffer->equation_id = equation_id;
     int solve_result = solve_equation(first_operand, operator, second_operand, solved_buffer);
-    if (0 > solve_result)
-    {
-        printf("[!] operations:process_equation Solve equation something happneed.\n");
+    if (0 > solve_result){
+        PRINT_DEBUG("[!] operations:process_equation Solve equation something happneed.\n");
         goto END;
     }
 

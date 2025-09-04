@@ -20,7 +20,7 @@
 #define UNSIGNED_INTERGER_TYPE 0x02
 #define SOLVED 1
 #define NOT_SOLVED 0
-
+#define DEBUG
 
 union type_data 
 {
