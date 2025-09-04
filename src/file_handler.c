@@ -440,7 +440,7 @@ int unsolve_header(int output_file_desc)
     why we cannot open the header on the output file desc,
     */
    //! we might ahve just opened the output file dsecriptor for writing only, 
-   
+
     if(-1 == bytes_read){
         PRINT_DEBUG("[!!] Fatal error on reading header..\n");
         goto LSEEEK_TO_END_THEN_END;
@@ -508,7 +508,8 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
         }
  
         //O_WRONLY | O_CREAT | O_TRUNC write and read, create if not there, overlap if exists
-        output_fd = open(output_abs_path, O_WRONLY | O_CREAT | O_TRUNC, 0644 );
+        //! foudn your pretty error here
+        output_fd = open(output_abs_path, O_RDWR | O_CREAT | O_TRUNC, 0644 );
         if (0 > output_fd){
             PRINT_DEBUG("[!] File handler:sovle_directory: Error on creating/handling output file...\nSkipping\n");
             goto END;
