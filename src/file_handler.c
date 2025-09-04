@@ -203,7 +203,10 @@ int header_slapper(int input_fd, int output_fd)
         printf("! Error reading header\n");
         goto END;
     }
-
+    //we tick to 0 using unsolve header when error happens
+    //we assume all is good for now
+    //"you would have more instances of clean equations than error"
+    header_struct.flag = 1;
     write_result = write(output_fd, &header_struct, sizeof(header_struct));
     if( write_result < sizeof(header_struct)){
         printf("! Header slapping corrupted..\n");
@@ -420,8 +423,16 @@ END:
 }
 int unsolve_header(int output_file_desc)
 {
+    /*
+    seek to benignigning
+    load header
+    tick header to 0
+    profit?
+    */
+
     int return_me = -1;
     return_me = 0;
+
 END:
     return return_me;
 }
