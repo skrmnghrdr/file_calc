@@ -418,8 +418,15 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
 END:
     return return_me;
 }
-
-int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_read, struct file_paths_t file_paths ){
+int unsolve_header(int output_file_desc)
+{
+    int return_me = -1;
+    return_me = 0;
+END:
+    return return_me;
+}
+int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_read, struct file_paths_t file_paths )
+{
     //All reasonable effort shall be taken to keep the length of each function limited to no more than 100 lines. 70+ lmaooo
     int output_fd;
     struct linux_dirent64 *entity; 

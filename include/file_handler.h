@@ -157,6 +157,15 @@ int solve_file(int input_file_desc, int output_file_desc);
 int write_output(int output_file_desc, solved_equation_t *solved_equ);
 
 /**
+ * @brief ticks the header flag to unsolve if there is an issue
+ * 
+ * @param output_file_desc 
+ * @return
+ *       on succ: 0
+ *       on err: -1
+ */
+int unsolve_header(int output_file_desc);
+/**
 * @brief https://stackoverflow.com/questions/5309471/getting-file-extension-in-c
 * 
 * args:
