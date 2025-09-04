@@ -48,6 +48,22 @@ enum operations
 
 void operations_check();
 
+
+
+/**
+* @brief: processess the equation, and loads the answer to solved_buffer
+* 
+* @args: 
+*        unsolved_equation_t *unsolved_equ: pointer to the 
+*                             unsolved equation struct
+*        solved_equation_t *solved_equation: pointer to the 
+*                             buffer struct
+* @returns: 
+*         OUTPUT PARAMETER: *solved_buffer
+*         0 for no error
+*         -1 for error
+*
+*/
 int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equation_t *solved_buffer);
 
 

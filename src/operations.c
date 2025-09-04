@@ -18,22 +18,9 @@ void operations_check(){
 
 int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equation_t *solved_buffer)
 {
-    /**
-     * @brief: processess the equation, and loads the answer to solved_buffer
-     * 
-     * @args: 
-     *        unsolved_equation_t *unsolved_equ: pointer to the 
-     *                             unsolved equation struct
-     *        solved_equation_t *solved_equation: pointer to the 
-     *                             buffer struct
-     * @returns: 
-     *         OUTPUT PARAMETER: *solved_buffer
-     *         0 for no error
-     *         -1 for error
-     *
-     */
-    int return_value = -1;
 
+    int return_value = -1;
+    //! check the null pointers first
      //! equ_viewer.py displays it humanly, but process it endian little  
     //htobe64 readable flip human
     uint32_t equation_id = unsolved_equ->equation_id;
@@ -44,6 +31,7 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     
     //paranoia 101;
     //! memset(&sovled_buffer.....) kills the pointer
+    //check the
     memset(solved_buffer, 0, sizeof(solved_buffer));
     
     printf("[*] EquationID: 0x%X\n1st: 0x%lX\nOP:0x%02X\n2nd: 0x%lX\n",equation_id, first_operand, operator, second_operand);
@@ -55,6 +43,7 @@ int process_equation(struct unsolved_equation_t *unsolved_equ, struct solved_equ
     if (0 > solve_result){
         PRINT_DEBUG("[!] operations:process_equation Solve equation something happneed. ticking buffer flags to 0\n");
         solved_buffer->flags = 0;
+        solved_buffer->solution = 0xE7707E7707E7707; //ERRORERRORERROR
         goto END;
     }
 

@@ -359,14 +359,14 @@ int solve_file(int input_file_desc, int output_file_desc)
         //do not worry with endianess in memory, only when displaying it
         int process_equ_res = process_equation(&unsolved_equ, &solved_equ);
         if (0 > process_equ_res){ 
-            PRINT_DEBUG("[!] File_handler:solve_file: Something wrong went with processing the equation..\n");
-            //! you would need to write the equation even though it failed never the less
-            //! once done with file, mark header as not solved if error was ticked
-            goto END_FOR_LOOP;
+            PRINT_DEBUG("[!] File_handler:solve_file: Something wrong went with processing the equation\n");
         }
         int write_result = write_output(output_file_desc, &solved_equ);
-        //! header stamp to cehck if file should be solved or not
-        //! content populate
+        if(-1 == write_result){
+            PRINT_DEBUG("[!!] Something went wrong on writing the file..\n");
+            //on error writing, making the file corrupted, just skip file
+            goto END;
+        }
 END_FOR_LOOP:
     }
     return_value = 0;
@@ -433,6 +433,7 @@ int unsolve_header(int output_file_desc)
     }
 
     bytes_read = read(output_file_desc, &file_header, sizeof(struct_file_header_t));
+    //! somehow crashes here
     if(-1 == bytes_read){
         PRINT_DEBUG("[!!] Fatal error on reading header..\n");
         goto LSEEEK_TO_END_THEN_END;
