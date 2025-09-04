@@ -431,9 +431,16 @@ int unsolve_header(int output_file_desc)
         PRINT_DEBUG("[!!] Error on lseeking...\n");
         goto END;   
     }
-
+    //error on read
+    //! read(fd, buffer, size) why tf
     bytes_read = read(output_file_desc, &file_header, sizeof(struct_file_header_t));
     //! somehow crashes here
+    /*
+    gameplan after work, would slap into gdb, and we would have to manually see
+    why we cannot open the header on the output file desc,
+    */
+   //! we might ahve just opened the output file dsecriptor for writing only, 
+   
     if(-1 == bytes_read){
         PRINT_DEBUG("[!!] Fatal error on reading header..\n");
         goto LSEEEK_TO_END_THEN_END;

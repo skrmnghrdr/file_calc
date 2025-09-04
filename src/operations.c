@@ -123,6 +123,8 @@ int get_operation(uint8_t operator, op_entry_t *equation)
     int op_ent_len = 11; //! change to 12 when having modulorlolorlorlros
     op_entry_t op_entry_arr[] = {
         //    char *ops[] = {"+", "-", "*", "/","<<", ">>", "<<<", ">>>", "%"};
+        //! modulo would throw error here for now, this would be perfect
+        //! for testing out the writing errror on function
         {ADDITION, .func_type=INTEGER_TYPE,  .func.i_func = add},
         {SUBTRACTION,  .func_type=INTEGER_TYPE, .func.i_func = subtract},
         {MULTIPLICATION, .func_type=INTEGER_TYPE, .func.i_func = multiply},
