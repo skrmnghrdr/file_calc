@@ -421,21 +421,55 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
 END:
     return return_me;
 }
+
 int unsolve_header(int output_file_desc)
 {
-    /*
-    seek to benignigning
-    load header
-    tick header to 0
-    profit?
-    */
-
     int return_me = -1;
+    if(!output_file_desc){
+        PRINT_DEBUG("[!!] Fatal error. Invalid file descriptor...\n");
+        goto END;
+    }
+    struct_file_header_t file_header;
+    ssize_t bytes_read;
+    off_t res_lseek = lseek(output_file_desc, 0, SEEK_SET);
+
+    if(-1 == res_lseek){
+        PRINT_DEBUG("[!!] Error on lseeking...\n");
+        goto END;   
+    }
+
+    bytes_read = read(output_file_desc, &file_header, sizeof(struct_file_header_t));
+    if(-1 == bytes_read){
+        PRINT_DEBUG("[!!] Fatal error on reading header..\n");
+        goto LSEEEK_TO_END_THEN_END;
+    }
+    if(bytes_read < sizeof(file_header)){
+        PRINT_DEBUG("[!!] Error on loading output file_header...\n");
+        goto LSEEEK_TO_END_THEN_END;
+    }
+    
+    if(file_header.flag){
+        file_header.flag = 0;
+        PRINT_DEBUG("[*] Header ticked to 0 \n");
+    }
+
     return_me = 0;
 
+LSEEEK_TO_END_THEN_END:
+    //https://i.kym-cdn.com/entries/icons/original/000/023/404/6b2.jpg
+    //thou shalt not forget to put back the lseek
+    res_lseek = lseek(output_file_desc, 0, SEEK_END);
+    if (-1 == res_lseek){
+        PRINT_DEBUG("[!!] Fatal error: Lseeking to end error..\n");
+        goto END;
+    }
 END:
     return return_me;
 }
+
+
+
+
 int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_read, struct file_paths_t file_paths )
 {
     //All reasonable effort shall be taken to keep the length of each function limited to no more than 100 lines. 70+ lmaooo

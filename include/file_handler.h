@@ -158,6 +158,7 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ);
 
 /**
  * @brief ticks the header flag to unsolve if there is an issue
+ *
  * 
  * @param output_file_desc 
  * @return
