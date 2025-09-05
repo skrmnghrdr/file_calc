@@ -194,7 +194,7 @@ int header_slapper(int input_fd, int output_fd)
     }
 
     //"you would have more instances of clean equations than error"
-    header_struct.flag = 1;
+    header_struct.flag = 0xff;
     write_result = write(output_fd, &header_struct, sizeof(header_struct));
     if( write_result < sizeof(header_struct)){
         printf("! Header slapping corrupted..\n");
@@ -404,6 +404,7 @@ int unsolve_header(int output_file_desc)
         PRINT_DEBUG("[!!] Fatal error. Invalid file descriptor...\n");
         goto END;
     }
+    int res_write;
     struct_file_header_t file_header;
     ssize_t bytes_read;
     off_t res_lseek = lseek(output_file_desc, 0, SEEK_SET);
@@ -413,7 +414,7 @@ int unsolve_header(int output_file_desc)
         goto END;   
     }
 
-    bytes_read = read(output_file_desc, &file_header, sizeof(struct_file_header_t));
+    bytes_read = read(output_file_desc, &file_header, sizeof(file_header));
     if(-1 == bytes_read){
         PRINT_DEBUG("[!!] Fatal error on reading header..\n");
         goto LSEEEK_TO_END_THEN_END;
@@ -423,11 +424,25 @@ int unsolve_header(int output_file_desc)
         goto LSEEEK_TO_END_THEN_END;
     }
 
-    if(file_header.flag){
-        file_header.flag = 0;
-        PRINT_DEBUG("[*] Header ticked to 0 \n");
+    if(!file_header.flag){
+        PRINT_DEBUG("[*] Header flag already 0 \n");
+        goto LSEEEK_TO_END_THEN_END;
     }
 
+    //! we could refractor the lseeker to the beginning to save sp[ace]
+    res_lseek = lseek(output_file_desc, 0, SEEK_SET);
+    if(-1 == res_lseek){
+        PRINT_DEBUG("[!!] Error on lseeking...\n");
+        goto END;   
+    }
+
+    file_header.flag = 0x00;
+    PRINT_DEBUG("[^^] gdb anchor");
+    res_write = write(output_file_desc, &file_header, sizeof(file_header));
+    if(res_write < sizeof(file_header)){
+        PRINT_DEBUG("[!!] Altering header failed..\n");
+        goto LSEEEK_TO_END_THEN_END;
+    }
     return_me = 0;
 
 LSEEEK_TO_END_THEN_END:
