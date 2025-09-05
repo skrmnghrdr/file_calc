@@ -448,6 +448,7 @@ END:
 int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_read, struct file_paths_t file_paths )
 {
     int output_fd;
+    int input_fd;
     struct linux_dirent64 *entity; 
     int return_value = -1;
     int input_pathname;
@@ -484,19 +485,19 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
             goto END;
         }
 
-        int input_file_desc = head_checker(file_abs_path);
-        if (0 > input_file_desc){
+        int input_fd = head_checker(file_abs_path);
+        if (0 > input_fd){
             PRINT_DEBUG("[!] File handler:sovle_directory: Invalid header type!..\n");
             goto END;
         }
 
-        int slap_result = header_slapper(input_file_desc, output_fd);
+        int slap_result = header_slapper(input_fd, output_fd);
         if (0 > slap_result){
             PRINT_DEBUG("[!] File handler:sovle_directory: Something went wrong stamping the header.\n");
             goto END; 
         }
         
-        int was_unsolved = solve_file(input_file_desc, output_fd);
+        int was_unsolved = solve_file(input_fd, output_fd);
         if(was_unsolved){
             PRINT_DEBUG("[!] File handler:sovle_directory: Something wrong with file:%s skipping...\n", file_abs_path);
             goto END;
@@ -508,6 +509,7 @@ SKIP_ENTITY:
         return_value = 0;
 
 END:
+        fd_closer(input_fd);
         fd_closer(output_fd);
         JANITOR(file_abs_path);
         JANITOR(output_abs_path);
