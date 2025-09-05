@@ -112,7 +112,6 @@ static void fd_closer(int file_descriptor)
         goto END;
     }
     close(file_descriptor);
-
 END:
     return;
 }
@@ -126,12 +125,10 @@ void janitor(void **ptr_dirty)
 
 const char *get_filename_ext(const char *filename)
 {
-
     const char *dot = strrchr(filename, '.');
     if(!dot || dot == filename){
         return "";
     }
-    
     return dot + 1;
 }
 
@@ -140,18 +137,10 @@ int head_checker(char * abs_file_path)
 {
     struct struct_file_header_t header_struct = {0};
     int file_descriptor = -1;
-    char buffer[BUFFER_SIZE]; //! dead code?
     ssize_t bytes_read;
     loff_t lseek_return;
 
-    //! check file permissions
-    //! we use stat since we just have the file path, not yet opened
-    /**
-     * check file perms, then check header
-     * 
-     */
     file_descriptor = open(abs_file_path, O_RDONLY );
-
     if ( -1 == file_descriptor)
     {
         printf("! Error opening file!...\n");
@@ -170,7 +159,7 @@ int head_checker(char * abs_file_path)
         goto END;
     }
 
-    //lseek responsibly to the start 
+
     lseek_return = lseek64(file_descriptor, 0, SEEK_SET);
     if (-1 == lseek_return)
     {
@@ -203,8 +192,7 @@ int header_slapper(int input_fd, int output_fd)
         printf("! Error reading header\n");
         goto END;
     }
-    //we tick to 0 using unsolve header when error happens
-    //we assume all is good for now
+
     //"you would have more instances of clean equations than error"
     header_struct.flag = 1;
     write_result = write(output_fd, &header_struct, sizeof(header_struct));
@@ -212,9 +200,6 @@ int header_slapper(int input_fd, int output_fd)
         printf("! Header slapping corrupted..\n");
         goto END;
     }
-
-    //open and lseek responsibly
-
 
     //write header
 
@@ -308,8 +293,6 @@ int solve_file(int input_file_desc, int output_file_desc)
     off_t lseek_return;
     ssize_t bytes_read;
 
-    //! opening output file for writing
-    //! dont' open it here
     fstat_result = fstat(input_file_desc, &stat_buffer);
     if(-1 == fstat_result){
         close(input_file_desc);
@@ -331,11 +314,9 @@ int solve_file(int input_file_desc, int output_file_desc)
 
     bytes_read = read(input_file_desc, &file_header, sizeof(struct_file_header_t));
 
-    //!  memcopy syntax if you need it
-    //memcpy(&file_header, file_buffer, sizeof(file_header));
+    //memcpy(&copy_what, &copyinto, copyhowmuch?);
     PRINT_DEBUG("Magic Number:%X\noffset:%u equations #:%lu\n",
-            file_header.magic_number, file_header.equation_offset, file_header.number_of_equations
-            );
+            file_header.magic_number, file_header.equation_offset, file_header.number_of_equations);
 
     //!offset would be from the start.
     loff_t offset_to_equation;
@@ -402,7 +383,7 @@ int write_output(int output_file_desc, solved_equation_t *solved_equ)
 
     if(write_output < sizeof(*solved_equ)){
         //failing to write it here makes the file corrupt
-        //do something with it in the future
+        //spec did not say anything about th
         PRINT_DEBUG("[!] Error occured on write..\n");
         PRINT_DEBUG("[!] Begin cleansing the file of heresey...\n");
         //! cleans or delete the file here someday in the future
@@ -431,16 +412,8 @@ int unsolve_header(int output_file_desc)
         PRINT_DEBUG("[!!] Error on lseeking...\n");
         goto END;   
     }
-    //error on read
-    //! read(fd, buffer, size) why tf
-    bytes_read = read(output_file_desc, &file_header, sizeof(struct_file_header_t));
-    //! somehow crashes here
-    /*
-    gameplan after work, would slap into gdb, and we would have to manually see
-    why we cannot open the header on the output file desc,
-    */
-   //! we might ahve just opened the output file dsecriptor for writing only, 
 
+    bytes_read = read(output_file_desc, &file_header, sizeof(struct_file_header_t));
     if(-1 == bytes_read){
         PRINT_DEBUG("[!!] Fatal error on reading header..\n");
         goto LSEEEK_TO_END_THEN_END;
@@ -474,7 +447,6 @@ END:
 
 int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_read, struct file_paths_t file_paths )
 {
-    //All reasonable effort shall be taken to keep the length of each function limited to no more than 100 lines. 70+ lmaooo
     int output_fd;
     struct linux_dirent64 *entity; 
     int return_value = -1;
@@ -501,14 +473,11 @@ int process_file(char *p_ent_buffer, int ent_buffer_size, long getdents64_bytes_
 
         input_pathname = append_path_and_file(file_paths.input_dir, entity->d_name, PATH_MAX, file_abs_path);
         output_pathname = append_path_and_file(file_paths.output_dir, entity->d_name, PATH_MAX, output_abs_path);
-
         if ((0 > input_pathname) || (0 > output_pathname)){
             PRINT_DEBUG("[!]File Handler:solve_directory Error on appending input/ouput file...\n");
             goto END;
         }
  
-        //O_WRONLY | O_CREAT | O_TRUNC write and read, create if not there, overlap if exists
-        //! foudn your pretty error here
         output_fd = open(output_abs_path, O_RDWR | O_CREAT | O_TRUNC, 0644 );
         if (0 > output_fd){
             PRINT_DEBUG("[!] File handler:sovle_directory: Error on creating/handling output file...\nSkipping\n");
